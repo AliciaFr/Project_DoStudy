@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">DoStudy</string>
+
+    // Strings for Login-Layout
+    <string name="login_input_email">Username or email address</string>
+    <string name="login_input_password">Password</string>
+    <string name="login_checkbox">Remember me</string>
+    <string name="login_button">Log in</string>
+    <string name="login_button_signup">Sign up</string>
+    <string name="login_forgot">Forgot your password?</string>
+
+    // Strings for Sign-up Layout
+    <string name="signup_welcome">Welcome at DoStudy!</string>
+    <string name="signup_input_email">Email address</string>
+    <string name="signup_input_name">Name</string>
+    <string name="signup_password">Create a password</string>
+    <string name="signup_check_password">Confirm password</string>
+    <string name="signup_button">Add account</string>
+    <string name="signup_hint">By using DoStudy you accept our <b>Privacy Policy</b> and <b>Terms of use</b>.</string>
+
+</resources>
