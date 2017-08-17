@@ -47,7 +47,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_ID, count);
         values.put(COLUMN_NAME, c.getName());
         values.put(COLUMN_EMAIL, c.getEmail());
-        values.put(COLUMN_USERNAME, c.getUsername());
         values.put(COLUMN_PASSWORD, c.getPassword());
 
         db.insert(TABLE_NAME, null, values);

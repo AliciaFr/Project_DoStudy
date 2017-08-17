@@ -44,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
         buttonLogin = (Button) findViewById(R.id.login_button);
         buttonSignup = (Button) findViewById(R.id.login_signup_button);
         forgotPassword = (TextView) findViewById(R.id.login_forgot);
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(i);
+            }
+        });
         buttonSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,26 +66,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        checkPassword();
-    }
-
-    private void checkPassword() {
-        email = inputEmail.getText().toString();
-        password = inputPassword.getText().toString();
-        String check = helper.searchPassword(email);
-        if (password.equals(check)) {
-            buttonLogin.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(MainActivity.this, HomeActivity.class);
-                    i.putExtra("Email", email);
-                    startActivity(i);
-                }
-            });
-        } else {
-            Toast password = Toast.makeText(MainActivity.this, "Email and password don't match", Toast.LENGTH_SHORT);
-            password.show();
-        }
-
     }
 }
