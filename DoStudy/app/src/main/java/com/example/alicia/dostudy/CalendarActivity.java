@@ -2,34 +2,31 @@ package com.example.alicia.dostudy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-public class HomeActivity extends AppCompatActivity {
 
-    private TextView home;
-    private Button calendar;
+public class CalendarActivity extends ActionBarActivity {
+
+    private Button addEntry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_calendar_portrait);
         initUI();
     }
 
     private void initUI() {
-        home = (TextView) findViewById(R.id.home_home);
-        calendar = (Button) findViewById(R.id.home_calendar);
-        calendar.setOnClickListener(new View.OnClickListener() {
+        addEntry = (Button) findViewById(R.id.calendar_add_event);
+        addEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, CalendarActivity.class);
+                Intent i = new Intent(CalendarActivity.this, CalendarAddEntryActivity.class);
                 startActivity(i);
             }
         });
     }
-
-
 }

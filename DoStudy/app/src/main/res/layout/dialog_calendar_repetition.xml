@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_repeat_type_picker_holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <RadioGroup
+        android:id="@+id/dialog_radio_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <RadioButton
+            android:id="@+id/dialog_calendar_no_repetition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No repetition"
+            android:textColor="@android:color/black"
+            android:buttonTint="@android:color/black"
+            android:layout_marginBottom="12dp"/>
+
+        <RadioButton
+            android:id="@+id/dialog_calendar_daily"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Daily"
+            android:textColor="@android:color/black"
+            android:buttonTint="@android:color/black"
+            android:layout_marginBottom="12dp"/>
+
+        <RadioButton
+            android:id="@+id/dialog_calendar_weekly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Weekly"
+            android:textColor="@android:color/black"
+            android:buttonTint="@android:color/black"
+            android:layout_marginBottom="12dp"/>
+
+        <RadioButton
+            android:id="@+id/dialog_calendar_monthly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Monthly"
+            android:textColor="@android:color/black"
+            android:buttonTint="@android:color/black"
+            android:layout_marginBottom="12dp"/>
+
+        <RadioButton
+            android:id="@+id/dialog_calendar_yearly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Yearly"
+            android:textColor="@android:color/black"
+            android:buttonTint="@android:color/black"
+            android:layout_marginBottom="12dp"/>
+
+        <RadioButton
+            android:id="@+id/dialog_calendar_custom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Custom"
+            android:textColor="@android:color/black"
+            android:buttonTint="@android:color/black"
+            android:layout_marginBottom="12dp"/>
+
+
+    </RadioGroup>
+
+</ScrollView>
