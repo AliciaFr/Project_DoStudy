@@ -5,21 +5,85 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <TextView
-        android:id="@+id/home_home"
+    <GridLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/home_calendar"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/background_signup"
-        android:clickable="true"
-        android:padding="16dp"
-        android:text="Calendar"
-        android:textAllCaps="false"
-        android:textColor="#fff"
-        android:textSize="18sp" />
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/home_todo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To Do\nListe"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:drawableBottom="@mipmap/home_todo"
+                android:drawablePadding="5dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="50dp"
+                android:textSize="20sp"
+                android:textAllCaps="true"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/home_timetable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stunden-\nplan"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:drawableBottom="@mipmap/home_timetable"
+                android:drawablePadding="5dp"
+                android:textSize="20sp"
+                android:textAllCaps="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/home_calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kalender"
+                android:textColor="@android:color/black"
+                android:drawableBottom="@drawable/ic_event_note_black_24dp"
+                android:drawablePadding="5dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginEnd="50dp"
+                android:textSize="20sp"
+                android:textAllCaps="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sonstiges"
+                android:textColor="@android:color/black"
+
+                android:drawablePadding="5dp"
+
+                android:textSize="20sp"
+                android:textAllCaps="true" />
+        </LinearLayout>
+    </GridLayout>
 </LinearLayout>

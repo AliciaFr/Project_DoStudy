@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private TextView home;
-    private Button calendar;
+    private TextView toDo, timeTable, calendar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +20,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        home = (TextView) findViewById(R.id.home_home);
-        calendar = (Button) findViewById(R.id.home_calendar);
+        calendar = (TextView) findViewById(R.id.home_calendar);
         calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
