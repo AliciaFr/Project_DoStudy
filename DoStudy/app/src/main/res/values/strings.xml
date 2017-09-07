@@ -18,4 +18,12 @@
     <string name="signup_button">Add account</string>
     <string name="signup_hint">By using DoStudy you accept our <b>Privacy Policy</b> and <b>Terms of use</b>.</string>
 
+    // Strings for ToDoList Layout
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_item_header">Current Tasks</string>
+    <string name="add_item_hint">New Task</string>
+    <string name="add_item_button_confirm">Add</string>
+    <string name="todo_text_date_hint">Set Date</string>
+    <string name="action_sort">Sort by Date</string>
+
 </resources>
