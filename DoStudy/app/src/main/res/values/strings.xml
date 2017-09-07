@@ -25,5 +25,7 @@
     <string name="add_item_button_confirm">Add</string>
     <string name="todo_text_date_hint">Set Date</string>
     <string name="action_sort">Sort by Date</string>
+    <string name="context_delete">Delete Task</string>
+    <string name="context_edit">Edit Task</string>
 
 </resources>
