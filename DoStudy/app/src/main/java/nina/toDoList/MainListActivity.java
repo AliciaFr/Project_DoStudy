@@ -1,15 +1,22 @@
 package nina.toDoList;
 
+import android.app.AlertDialog;
 import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.alicia.dostudy.R;
 
@@ -156,7 +163,7 @@ public class MainListActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main_todolist, menu);
+        getMenuInflater().inflate(R.menu.context_menu_todolist, menu);
         return true;
     }
 
@@ -182,4 +189,51 @@ public class MainListActivity extends AppCompatActivity {
         super.onDestroy();
         toDoDB.close();
     }
+
+    @Override
+    public void onCreateContextMenu (ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.context_menu_todolist, menu);
+    }
+
+    public void createEditDialog (final ToDoItem tasks){
+
+
+        LayoutInflater li = LayoutInflater.from(MainListActivity.this);
+        View dialogView = li.inflate(R.layout.todolist_contextmenu, null);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainListActivity.this);
+
+        alertDialogBuilder.setView(dialogView);
+
+        final EditText inputText = (EditText) dialogView.findViewById(R.id.edit_dialog_input);
+        inputText.setText(task.getTaskContent());
+        final TextView dialogMessage = (TextView) dialogView.findViewById(R.id.edit_dialog_message);
+
+        alertDialogBuilder
+                .setCancelable(true)
+                .setPositiveButton("Save",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                task.setTaskContent(inputText.getText().toString());
+                                adapter.notifyDataSetChanged();
+                            }
+                        })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        final AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
+    }
+
+
 }
+
+
+
