@@ -74,8 +74,8 @@ public class MainListActivity extends AppCompatActivity {
     }
 
     private void initTaskButton() {
-        Button addTaskButton = (Button) findViewById(R.id.todo_edit_button);
-        addTaskButton.setOnClickListener(new View.OnClickListener() {
+        Button addButton = (Button) findViewById(R.id.todo_edit_button);
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addInputToList();
@@ -209,7 +209,7 @@ public class MainListActivity extends AppCompatActivity {
         alertDialogBuilder.setView(dialogView);
 
         final EditText inputText = (EditText) dialogView.findViewById(R.id.edit_dialog_input);
-        inputText.setText(task.getTaskContent());
+        inputText.setText(tasks.getTaskContent());
         final TextView dialogMessage = (TextView) dialogView.findViewById(R.id.edit_dialog_message);
 
         alertDialogBuilder
@@ -217,8 +217,8 @@ public class MainListActivity extends AppCompatActivity {
                 .setPositiveButton("Save",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                task.setTaskContent(inputText.getText().toString());
-                                adapter.notifyDataSetChanged();
+                                tasks.setTaskContent(inputText.getText().toString());
+                                tasks_adapter.notifyDataSetChanged();
                             }
                         })
                 .setNegativeButton("Cancel",

@@ -13,6 +13,7 @@ public class ToDoItem implements Comparable<ToDoItem> {
 
     private String name;
     private GregorianCalendar cal;
+    private String taskContent;
 
     public ToDoItem(String name, int day, int month, int year) {
         this.name = name;
@@ -42,6 +43,14 @@ public class ToDoItem implements Comparable<ToDoItem> {
     @Override
     public String toString() {
         return "Name: " + getName() + ", Date: " + getFormattedDate();
+    }
+
+    public void setTaskContent(String taskContent) {
+        this.taskContent = taskContent;
+    }
+
+    public String getTaskContent() {
+        return taskContent;
     }
 }
 
