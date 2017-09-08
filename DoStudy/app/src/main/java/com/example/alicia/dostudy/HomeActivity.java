@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.alicia.dostudy.TimeTable.WeekActivity;
+
 public class HomeActivity extends AppCompatActivity {
 
     private TextView toDo, timeTable, calendar;
@@ -28,7 +30,15 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        timeTable = (TextView)findViewById(R.id.home_timetable);
+        timeTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toTimeTable = new Intent(HomeActivity.this, WeekActivity.class);
+                startActivity(toTimeTable);
+            }
+        });
     }
-
-
+    
 }
