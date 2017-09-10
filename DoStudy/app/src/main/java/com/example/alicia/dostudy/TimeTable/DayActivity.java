@@ -29,35 +29,44 @@ public class DayActivity extends AppCompatActivity implements View.OnClickListen
         courseOne = (Button)findViewById(R.id.course_one);
         String firstCourse = getIntent().getExtras().getString("Course1");
         courseOne.setText(firstCourse);
-        if (firstCourse.isEmpty()){
-            courseOne.setText(R.string.pause);
-        }
+        checkContent(firstCourse, courseOne);
         courseOne.setOnClickListener(this);
 
         courseTwo = (Button)findViewById(R.id.course_two);
         String secondCourse = getIntent().getExtras().getString("Course2");
         courseTwo.setText(secondCourse);
+        checkContent(secondCourse, courseTwo);
         courseTwo.setOnClickListener(this);
 
         courseThree = (Button)findViewById(R.id.course_three);
         String thirdCourse = getIntent().getExtras().getString("Course3");
         courseThree.setText(thirdCourse);
+        checkContent(thirdCourse, courseThree);
         courseThree.setOnClickListener(this);
 
         courseFour = (Button)findViewById(R.id.course_four);
         String fourthCourse = getIntent().getExtras().getString("Course4");
         courseFour.setText(fourthCourse);
+        checkContent(fourthCourse, courseFour);
         courseFour.setOnClickListener(this);
 
         courseFive = (Button)findViewById(R.id.course_five);
         String fifthCourse = getIntent().getExtras().getString("Course5");
         courseFive.setText(fifthCourse);
+        checkContent(fifthCourse, courseFive);
         courseFive.setOnClickListener(this);
 
         courseSix = (Button)findViewById(R.id.course_six);
         String sixthCourse = getIntent().getExtras().getString("Course6");
         courseSix.setText(sixthCourse);
+        checkContent(sixthCourse, courseSix);
         courseSix.setOnClickListener(this);
+    }
+
+    private void checkContent(String courseName, Button course){
+        if (courseName.isEmpty()){
+            course.setText(R.string.pause);
+        }
     }
 
     @Override
