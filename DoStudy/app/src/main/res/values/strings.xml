@@ -18,6 +18,13 @@
     <string name="signup_button">Add account</string>
     <string name="signup_hint">By using DoStudy you accept our <b>Privacy Policy</b> and <b>Terms of use</b>.</string>
 
+    // Strings for ToDoList Layout
+    <string name="section_name">Todo List</string>
+    <string name="action_delete_done_tasks">Delete done tasks</string>
+    <string name="action_delete_all">Delete All</string>
+    <string name="context_delete">Delete</string>
+    <string name="context_edit">Edit</string>
+  
     // Strings for TimeTable Components
     <string name="personal_timetable">mein Stundenplan</string>
     <string name="monday">Mo</string>
