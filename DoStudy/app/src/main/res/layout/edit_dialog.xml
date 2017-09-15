@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,6 +15,8 @@
     android:paddingBottom="20dp"
     android:paddingRight="10dp"
     >
+
+
 
     <TextView
         android:id="@+id/edit_dialog_message"

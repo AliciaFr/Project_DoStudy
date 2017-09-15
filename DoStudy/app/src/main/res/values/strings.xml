@@ -19,13 +19,10 @@
     <string name="signup_hint">By using DoStudy you accept our <b>Privacy Policy</b> and <b>Terms of use</b>.</string>
 
     // Strings for ToDoList Layout
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="add_item_header">Current Tasks</string>
-    <string name="add_item_hint">New Task</string>
-    <string name="add_item_button_confirm">Add</string>
-    <string name="todo_text_date_hint">Set Date</string>
-    <string name="action_sort">Sort by Date</string>
-    <string name="context_delete">Delete Task</string>
-    <string name="context_edit">Edit Task</string>
+    <string name="section_name">Todo List</string>
+    <string name="action_delete_done_tasks">Delete done tasks</string>
+    <string name="action_delete_all">Delete All</string>
+    <string name="context_delete">Delete</string>
+    <string name="context_edit">Edit</string>
 
 </resources>
