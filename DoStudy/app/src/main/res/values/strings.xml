@@ -24,5 +24,47 @@
     <string name="action_delete_all">Delete All</string>
     <string name="context_delete">Delete</string>
     <string name="context_edit">Edit</string>
+  
+    // Strings for TimeTable Components
+    <string name="personal_timetable">mein Stundenplan</string>
+    <string name="monday">Mo</string>
+    <string name="tuesday">Di</string>
+    <string name="wednesday">Mi</string>
+    <string name="thursday">Do</string>
+    <string name="friday">Fr</string>
+
+    <string name="day">Tag</string>
+    <string name="course_one">Kurs 1</string>
+    <string name="course_two">Kurs 2</string>
+    <string name="course_three">Kurs 3</string>
+    <string name="course_four">Kurs 4</string>
+    <string name="course_five">Kurs 5</string>
+    <string name="course_six">Kurs 6</string>
+    <string name="pause">Pause</string>
+
+    <string name="view_course">Kursdaten</string>
+    <string name="course_title">Titel:</string>
+    <string name="time">Zeit:</string>
+    <string name="begin">von</string>
+    <string name="end">bis</string>
+    <string name="room">Raum:</string>
+    <string name="lecturer">Dozent:</string>
+    <string name="test">Klausur:</string>
+    <string name="colour">Farbe:</string>
+    <string name="button_save">speichern</string>
+
+    <string-array name="colourArray">
+        <item>hellblau</item>
+        <item>dunkelblau</item>
+        <item>türkis</item>
+        <item>hellgrün</item>
+        <item>dunkelgrün</item>
+        <item>gelb</item>
+        <item>rot</item>
+        <item>orange</item>
+        <item>lila</item>
+        <item>violet</item>
+        <item>rosa</item>
+    </string-array>
 
 </resources>

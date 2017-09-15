@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.alicia.dostudy.TimeTable.WeekActivity;
+
 public class HomeActivity extends AppCompatActivity {
 
-    private TextView home;
-    private Button calendar;
+    private TextView toDo, timeTable, calendar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +22,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        home = (TextView) findViewById(R.id.home_home);
-        calendar = (Button) findViewById(R.id.home_calendar);
+        calendar = (TextView) findViewById(R.id.home_calendar);
         calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,7 +30,14 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        timeTable = (TextView)findViewById(R.id.home_timetable);
+        timeTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toTimeTable = new Intent(HomeActivity.this, WeekActivity.class);
+                startActivity(toTimeTable);
+            }
+        });
     }
-
-
 }

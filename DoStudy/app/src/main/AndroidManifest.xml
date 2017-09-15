@@ -14,6 +14,7 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,6 +28,14 @@
         </activity>
         <activity android:name=".ToDoListActivity">
         </activity>
+      
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".CalendarAddEntryActivity" />
+        <activity android:name=".TimeTable.WeekActivity" />
+        <activity android:name=".TimeTable.DayActivity" />
+        <activity android:name=".TimeTable.CourseActivity"></activity>
     </application>
 
 </manifest>
