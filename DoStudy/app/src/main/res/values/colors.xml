@@ -3,4 +3,18 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    // colours for different courses
+    <color name="lightBlue">#87CEEB</color>
+    <color name="darkBlue">#4F94CD</color>
+    <color name="aquamarine">#66CDAA</color>
+    <color name="lightGreen">#A2CD5A</color>
+    <color name="darkGreen">#458B00</color>
+    <color name="yellow">#FFD700</color>
+    <color name="red">#FF3030</color>
+    <color name="orange">#FF8C00</color>
+    <color name="lila">#DDA0DD</color>
+    <color name="violet">#AB82FF</color>
+    <color name="rose">#FA8072</color>
+
 </resources>
