@@ -1,69 +1,60 @@
 package com.example.alicia.dostudy;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.TimePickerDialog;
+import android.support.v7.app.AlertDialog;
 import android.text.format.DateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
-public class CalendarAddEntryActivity extends Activity implements
-        DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+public class CalendarAddEntryActivity extends Activity {
 
-    private TextView startText, endText, startValue, endValue;
+    private EditText editTitle, editDescription;
+    private TextView editDate, editTime, dateValue, timeValue;
     private TextView reminder, repetition;
+    private Button add;
 
-
-    private int day, month, year, hour, minute;
-    private int dayStart, monthStart, yearStart, hourStart, minuteStart;
-    private int dayEnd, monthEnd, yearEnd, hourEnd, minuteEnd;
+    private InternDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_calendar_entry);
+        initDB();
         initUI();
+        initDatePicker();
+        initTimePicker();
+        initAddButton();
+    }
+
+    private void initDB() {
+        database = new InternDatabase(this);
     }
 
     private void initUI() {
-        startText = (TextView) findViewById(R.id.addCalendarEntryStart);
-        startValue = (TextView) findViewById(R.id.addEntryStartTime);
-        endText = (TextView) findViewById(R.id.addCalendarEntryEnd);
-        endValue = (TextView) findViewById(R.id.addEntryEndTime);
+        add = (Button) findViewById(R.id.addCalendarEntry);
+        editTitle = (EditText) findViewById(R.id.event_title);
+        editDescription = (EditText) findViewById(R.id.event_description);
+        editDate = (TextView) findViewById(R.id.addCalendarEntryStart);
+        dateValue = (TextView) findViewById(R.id.addEntryStartTime);
+        timeValue = (TextView) findViewById(R.id.addEntryEndTime);
+        editTime = (TextView) findViewById(R.id.addCalendarEntryEnd);
         reminder = (TextView) findViewById(R.id.addCalendarEntryReminder);
         repetition = (TextView) findViewById(R.id.addCalendarEntryRepetition);
-        startText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar calendar = Calendar.getInstance();
-                year = calendar.get(Calendar.YEAR);
-                month = calendar.get(Calendar.MONTH);
-                day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog datePickerDialogStart = new DatePickerDialog(CalendarAddEntryActivity.this,
-                        CalendarAddEntryActivity.this, year, month, day);
-                datePickerDialogStart.show();
-            }
-        });
-        endText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar calendar = Calendar.getInstance();
-                year = calendar.get(Calendar.YEAR);
-                month = calendar.get(Calendar.MONTH);
-                day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(CalendarAddEntryActivity.this,
-                        CalendarAddEntryActivity.this, year, month, day);
-                datePickerDialog.show();
-            }
-        });
         reminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,31 +94,107 @@ public class CalendarAddEntryActivity extends Activity implements
         });
     }
 
+    private void initAddButton() {
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String title = editTitle.getText().toString();
+                String description = editDescription.getText().toString();
+                String date = dateValue.getText().toString();
+                String time = timeValue.getText().toString();
 
-    @Override
-    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-        yearStart = i;
-        monthStart = i1;
-        dayStart = i2;
+                if (title.equals("") || description.equals("") || date.equals("") || time.equals("")) {
+                    Toast toast = Toast.makeText(CalendarAddEntryActivity.this, "Fülle bitte alle Felder aus", Toast.LENGTH_SHORT);
+                    toast.show();
+                } else {
+                    editTitle.setText("");
+                    editDescription.setText("");
+                    editDate.setText("");
+                    editTime.setText("");
+                    addEntry(title, description, date, time);
 
-        Calendar calendar = Calendar.getInstance();
-        hour = calendar.get(Calendar.HOUR_OF_DAY);
-        minute = calendar.get(Calendar.MINUTE);
-
-        TimePickerDialog timePickerDialog = new TimePickerDialog(CalendarAddEntryActivity.this,
-                CalendarAddEntryActivity.this, hour, minute, DateFormat.is24HourFormat(this));
-        timePickerDialog.show();
+                }
+            }
+        });
     }
 
-    @Override
-    public void onTimeSet(TimePicker timePicker, int i, int i1) {
-        hourStart = i;
-        minuteStart = i1;
+    private void addEntry(String title, String description, String date, String time) {
+        CalendarEntry entry = new CalendarEntry(title, description, DateFormatter.dateToInteger(date), time);
+        database.insertCalendarEntry(title, description, date, time);
+    }
 
-        startValue.setText(dayStart + "." + monthStart + "." + yearStart + ", " + hourStart
-                + ":" + minuteStart);
+    private void initDatePicker() {
+       editDate.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               showDatePickerDialog();
+           }
+       });
+    }
 
-        endValue.setText(dayStart + "." + monthStart + "." + yearStart + ", " + hourStart
-                + ":" + minuteStart);
+    private void initTimePicker() {
+        editTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTimePickerDialog();
+            }
+        });
+    }
+
+    private void showDatePickerDialog() {
+        DialogFragment dateFragment = new DatePickerFragment();
+        dateFragment.show(getFragmentManager(), getResources().getString(R.string.date_picker));
+    }
+
+    public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+            return new DatePickerDialog(getActivity(), this, year, month, day);
+        }
+
+        public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+            TextView dateValue = (TextView) getActivity().findViewById(R.id.addEntryStartTime);
+            GregorianCalendar date = new GregorianCalendar(i, i1, i2);
+            java.text.DateFormat dateformat = java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT, Locale.GERMANY);
+            String dateToString = dateformat.format(date.getTime());
+            dateValue.setText(dateToString);
+        }
+    }
+
+    private void showTimePickerDialog() {
+        DialogFragment timeFragment = new TimePickerFragment();
+        timeFragment.show(getFragmentManager(), getResources().getString(R.string.time_picker));
+    }
+
+    public static class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final Calendar calendar = Calendar.getInstance();
+            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+            int minute = calendar.get(Calendar.MINUTE);
+            return new TimePickerDialog(getActivity(), this, hour, minute, true);
+        }
+
+        public void onTimeSet(TimePicker timePicker, int i, int i1) {
+            TextView timeValue = (TextView) getActivity().findViewById(R.id.addEntryEndTime);
+            String hour;
+            String minute;
+            if (i < 10) {
+                hour = getResources().getString(R.string.adding_0) + i;
+            } else {
+                hour = "" + i;
+            }
+            if (i1 < 10) {
+                minute = getResources().getString(R.string.adding_0) + i1;
+            } else {
+                minute = "" + i1;
+            }
+            timeValue.setText(hour + getResources().getString(R.string.adding_double_dot) + minute);
+        }
     }
 }
