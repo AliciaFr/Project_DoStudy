@@ -27,10 +27,11 @@
                 android:drawablePadding="12dp"
                 android:padding="8dp"
                 android:hint="Title"
+                android:textColor="#000"
                 android:maxLines="1"
                 android:maxLength="80"
                 android:textSize="17sp"
-                android:textColor="@android:color/black"/>
+                android:textColorHint="@android:color/black"/>
 
             <View
                 android:layout_width="match_parent"
@@ -52,7 +53,8 @@
                 android:maxLines="1"
                 android:maxLength="80"
                 android:textSize="17sp"
-                android:textColor="@android:color/black"/>
+                android:textColor="#000"
+                android:textColorHint="@android:color/black"/>
 
             <View
                 android:layout_width="match_parent"
@@ -121,7 +123,7 @@
                     android:textColor="@android:color/black"
                     android:maxLines="1"
                     android:ems="10"
-                    android:text="Starts"
+                    android:text="Datum"
                     android:clickable="true"/>
 
                 <TextView
@@ -154,7 +156,7 @@
                     android:textColor="@android:color/black"
                     android:maxLines="1"
                     android:ems="10"
-                    android:text="Ends" />
+                    android:text="Uhrzeit" />
 
                 <TextView
                     android:id="@+id/addEntryEndTime"
@@ -181,17 +183,17 @@
                 android:id="@+id/addCalendarEntryReminder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:layout_marginBottom="12dp"
-                android:textSize="17sp"
-                android:textColor="@android:color/black"
-                android:maxLines="1"
-                android:ems="10"
-                android:drawableLeft="@drawable/ic_notifications_black"
-                android:drawableStart="@drawable/ic_notifications_black"
-                android:drawablePadding="12dp"
+                android:layout_marginTop="12dp"
                 android:clickable="true"
-                android:text="10 minutes before"/>
+                android:drawableLeft="@drawable/ic_notifications_black"
+                android:drawablePadding="12dp"
+                android:drawableStart="@drawable/ic_notifications_black"
+                android:ems="10"
+                android:maxLines="1"
+                android:text="10 minutes before"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
 
             <ImageView
                 android:id="@+id/event_reminder_divider"
@@ -257,6 +259,19 @@
                     android:clickable="false" />
             </RelativeLayout>
 
+            <Button
+                android:id="@+id/addCalendarEntry"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/background_signup"
+                android:clickable="true"
+                android:padding="16dp"
+                android:text="Hinzufügen"
+                android:textAllCaps="false"
+                android:textColor="#f16f7d"
+                android:textSize="18sp"/>
         </LinearLayout>
     </ScrollView>
 

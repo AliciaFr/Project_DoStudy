@@ -17,5 +17,10 @@
     <string name="signup_check_password">Confirm password</string>
     <string name="signup_button">Add account</string>
     <string name="signup_hint">By using DoStudy you accept our <b>Privacy Policy</b> and <b>Terms of use</b>.</string>
+    <string name="date_picker">datePicker</string>
+    <string name="adding_0">0</string>
+    <string name="adding_double_dot">:</string>
+    <string name="time_picker">timePicker</string>
+    <string name="calendar_entry_intent">calendar_entry</string>
 
 </resources>

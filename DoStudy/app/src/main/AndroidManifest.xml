@@ -25,6 +25,8 @@
         </activity>
         <activity android:name=".CalendarAddEntryActivity">
         </activity>
+        <activity android:name=".CalendarEntryDetails">
+        </activity>
     </application>
 
 </manifest>

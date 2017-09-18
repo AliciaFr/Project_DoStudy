@@ -9,34 +9,47 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:text="September"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_access_time_black_24dp"
+        android:drawableRight="@drawable/ic_access_time_black_24dp"/>
+
     <com.github.sundeepk.compactcalendarview.CompactCalendarView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/compactcalendar_view"
         android:layout_width="fill_parent"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
         android:layout_height="250dp"
         app:compactCalendarTargetHeight="250dp"
-        app:compactCalendarTextSize="12sp"
-        app:compactCalendarBackgroundColor="@android:color/holo_blue_light"
-        app:compactCalendarTextColor="#fff"
-        app:compactCalendarCurrentSelectedDayBackgroundColor="#E57373"
-        app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
-        app:compactCalendarMultiEventIndicatorColor="#fff"
-        />
+        app:compactCalendarTextSize="18sp"
+        app:compactCalendarBackgroundColor="@android:color/white"
+        app:compactCalendarTextColor="@android:color/black"
+        app:compactCalendarCurrentSelectedDayBackgroundColor="@android:color/holo_blue_dark"
+        app:compactCalendarCurrentDayBackgroundColor="@android:color/holo_blue_dark"
+        app:compactCalendarMultiEventIndicatorColor="@android:color/black" />
 
 
-    <Button
-        android:id="@+id/calendar_add_event"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/calendar_add_entry"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="-45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="right"
+        android:src="@drawable/ic_add_circle_black_24dp"
+        android:clickable="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/background_signup"
-        android:clickable="true"
-        android:padding="16dp"
-        android:text="Add Event"
-        android:textAllCaps="false"
-        android:textColor="#fff"
-        android:textSize="18sp" />
-
+        android:id="@+id/listview_calendar_entries" />
 </LinearLayout>
