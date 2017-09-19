@@ -119,8 +119,9 @@ public class CalendarAddEntryActivity extends Activity {
     }
 
     private void addEntry(String title, String description, String date, String time) {
-        CalendarEntry entry = new CalendarEntry(title, description, DateFormatter.dateToInteger(date), time);
+        //CalendarEntry entry = new CalendarEntry(title, description, DateFormatter.dateToInteger(date), time);
         database.insertCalendarEntry(title, description, date, time);
+
     }
 
     private void initDatePicker() {
