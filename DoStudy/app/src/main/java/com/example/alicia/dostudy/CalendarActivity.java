@@ -92,9 +92,4 @@ public class CalendarActivity extends AppCompatActivity {
     private void initDB() {
         database = new InternDatabase(this);
     }
-
-
-    private void addEntryToCalendar() {
-
-    }
 }
