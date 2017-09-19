@@ -11,7 +11,7 @@ import java.util.Locale;
  * Created by Alicia on 18.09.2017.
  */
 
-class DateFormatter {
+public class DateFormatter {
 
     public static String dateToString(int dateValue){
         String date = "" + dateValue;
