@@ -1,5 +1,6 @@
 package com.example.alicia.dostudy;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,6 +9,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 
+import java.io.Console;
 import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -24,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -51,6 +55,7 @@ public class CalendarActivity extends AppCompatActivity {
         initUI();
         updateList();
         addEntryToCalendar();
+        showDateToEntry();
     }
 
     @Override
@@ -97,12 +102,17 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onDayClick(Date dateClicked) {
                 Context context = getApplicationContext();
-                if (dateClicked.toString().compareTo("20.09.2017") == 0) {
-                        Toast.makeText(context, "Teachers' Professional Day", Toast.LENGTH_SHORT).show();
-                } else {
-                        Toast.makeText(context, "No Events Planned for that day", Toast.LENGTH_SHORT).show();
-                }
+                for (ListIterator<CalendarEntry> iterator = arrayList.listIterator(); iterator.hasNext();) {
+                    int position = 0;
+                    String stringDate = DateFormatter.dateToString(iterator.next().getDate());
+                    Date entryDate = DateFormatter.stringToDate(stringDate);
+                    System.out.println("EntryDate: " + entryDate + ", DateClicked: " + dateClicked);
 
+                    if (dateClicked.toString().equals(entryDate.toString())) {
+                        Toast.makeText(context, "Teachers' Professional Day", Toast.LENGTH_SHORT).show();
+                        //listview.removeViewAt(position);
+                    }
+                }
             }
 
             @Override
@@ -118,6 +128,7 @@ public class CalendarActivity extends AppCompatActivity {
 
     private void initListView() {
         listview = (ListView) findViewById(R.id.listview_calendar_entries);
+
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -125,6 +136,27 @@ public class CalendarActivity extends AppCompatActivity {
                 intent.putExtra(getResources().getString(R.string.calendar_entry_intent),
                         arrayList.get(position));
                 startActivity(intent);
+            }
+        });
+    }
+
+    private void showDateToEntry() {
+        listview.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int i) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                int firstVisibleRow = listview.getFirstVisiblePosition();
+                System.out.println(firstVisibleRow + "firstRow");
+                int currDateInInt = adapter.getItem(firstVisibleItem).getDate();
+                System.out.println(currDateInInt + "view");
+                String currDateInString = DateFormatter.dateToString(currDateInInt);
+                System.out.println("currDate" + currDateInString);
+                Date currDate = DateFormatter.stringToDate(currDateInString);
+                calendarView.setCurrentDate(currDate);
             }
         });
     }
@@ -138,7 +170,7 @@ public class CalendarActivity extends AppCompatActivity {
         while(iterator.hasNext()) {
             String stringDate = DateFormatter.dateToString(iterator.next().getDate());
             long timestampDate = DateFormatter.stringToDate(stringDate).getTime();
-            Event event = new Event(Color.RED, timestampDate);
+            Event event = new Event(Color.rgb(0, 153, 204), timestampDate);
             calendarView.addEvent(event, true);
         }
     }
