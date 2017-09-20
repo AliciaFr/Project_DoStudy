@@ -32,20 +32,16 @@
   
     // Strings for TimeTable Components
     <string name="personal_timetable">mein Stundenplan</string>
-    <string name="monday">Mo</string>
-    <string name="tuesday">Di</string>
-    <string name="wednesday">Mi</string>
-    <string name="thursday">Do</string>
-    <string name="friday">Fr</string>
+    <string name="monday">Montag</string>
+    <string name="tuesday">Dienstag</string>
+    <string name="wednesday">Mittwoch</string>
+    <string name="thursday">Donnerstag</string>
+    <string name="friday">Freitag</string>
 
     <string name="day">Tag</string>
-    <string name="course_one">Kurs 1</string>
-    <string name="course_two">Kurs 2</string>
-    <string name="course_three">Kurs 3</string>
-    <string name="course_four">Kurs 4</string>
-    <string name="course_five">Kurs 5</string>
-    <string name="course_six">Kurs 6</string>
-    <string name="pause">Pause</string>
+    <string name="hint_course">Kurs hinzufügen</string>
+    <string name="hint_time">Beginn</string>
+    <string name="button">OK</string>
 
     <string name="view_course">Kursdaten</string>
     <string name="course_title">Titel:</string>
@@ -65,11 +61,8 @@
         <item>hellgrün</item>
         <item>dunkelgrün</item>
         <item>gelb</item>
-        <item>rot</item>
         <item>orange</item>
-        <item>lila</item>
-        <item>violet</item>
-        <item>rosa</item>
+        <item>rot</item>
     </string-array>
 
 </resources>

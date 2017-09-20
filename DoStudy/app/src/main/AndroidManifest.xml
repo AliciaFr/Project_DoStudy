@@ -27,7 +27,11 @@
         <activity android:name=".CalendarActivity" />
         <activity android:name=".CalendarAddEntryActivity" />
         <activity android:name=".TimeTable.WeekActivity" />
-        <activity android:name=".TimeTable.DayActivity" />
+        <activity android:name=".TimeTable.MondayActivity" />
+        <activity android:name=".TimeTable.TuesdayActivity" />
+        <activity android:name=".TimeTable.WednesdayActivity" />
+        <activity android:name=".TimeTable.ThursdayActivity" />
+        <activity android:name=".TimeTable.FridayActivity" />
         <activity android:name=".TimeTable.CourseActivity"></activity>
     </application>
 
