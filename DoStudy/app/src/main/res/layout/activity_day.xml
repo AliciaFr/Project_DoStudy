@@ -4,80 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alicia.dostudy.TimeTable.DayActivity"
+    tools:context="com.example.alicia.dostudy.TimeTable.MondayActivity"
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/day"
         android:textSize="20sp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:layout_gravity="center_horizontal"
+        android:background="@color/holoBlue"
+        android:gravity="center"
+        android:padding="10dp"
         android:id="@+id/day"/>
 
-    <ScrollView
+    <EditText
+        android:id="@+id/course_input"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:padding="10dp"
+        android:hint="@string/hint_course"
+        android:inputType="text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/input_time"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_weight="0.8"
+            android:textColor="@android:color/black"
+            android:padding="10dp"
+            android:hint="@string/hint_time"
+            android:inputType="time"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"/>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:text="@string/course_one"
-                android:id="@+id/course_one"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:text="@string/button"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"/>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:text="@string/course_two"
-                android:id="@+id/course_two"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+    </LinearLayout>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:text="@string/course_three"
-                android:id="@+id/course_three"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:text="@string/course_four"
-                android:id="@+id/course_four"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:text="@string/course_five"
-                android:id="@+id/course_five"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:text="@string/course_six"
-                android:id="@+id/course_six"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"/>
-
-        </LinearLayout>
-
-    </ScrollView>
+    <ListView
+        android:id="@+id/course_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:padding="10dp" />
 
 </LinearLayout>

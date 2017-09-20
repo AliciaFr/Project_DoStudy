@@ -13,10 +13,6 @@
     <color name="yellow">#FFD700</color>
     <color name="red">#FF3030</color>
     <color name="orange">#FF8C00</color>
-    <color name="lila">#DDA0DD</color>
-    <color name="violet">#AB82FF</color>
-    <color name="rose">#FA8072</color>
-
 
     // app colors
     <color name="holoBlue">#0099cc</color>
