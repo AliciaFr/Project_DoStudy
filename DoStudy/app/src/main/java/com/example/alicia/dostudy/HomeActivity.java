@@ -5,14 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.alicia.dostudy.TimeTable.WeekActivity;
+import com.example.alicia.dostudy.ToDoList.ToDoListActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
     private ImageView toDo, timeTable, calendar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        toDo = (ImageView) findViewById(R.id.home_calendar);
+        toDo = (ImageView) findViewById(R.id.home_todo);
         toDo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
