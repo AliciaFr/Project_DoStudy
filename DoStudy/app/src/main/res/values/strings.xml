@@ -57,6 +57,11 @@
     <string name="test">Klausur:</string>
     <string name="colour">Farbe:</string>
     <string name="button_save">speichern</string>
+    <string name="notification">Nicht vergessen! Du hast heute ein Ereignis</string>
+    <string name="notification_title">DoStudy</string>
+    <string name="notification_content_text">Bevorstehendes Ereignis</string>
+    <string name="notification_click">Zum Kalender</string>
+    <string name="preferences_key_notifications">sharedPreferences</string>
 
     <string-array name="colourArray">
         <item>hellblau</item>

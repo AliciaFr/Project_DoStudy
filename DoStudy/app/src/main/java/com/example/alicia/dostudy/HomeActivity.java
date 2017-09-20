@@ -1,7 +1,9 @@
 package com.example.alicia.dostudy;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -49,4 +51,21 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        checkNetworkConnection();
+    }
+
+    private void checkNetworkConnection() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean notification = sharedPreferences.getBoolean(getResources().getString(R.string.preferences_key_notifications), true);
+        if(notification) {
+            startService(new Intent(this, NotificationService.class));
+        } else {
+                stopService(new Intent(this, NotificationService.class));
+        }
+    }
 }
+

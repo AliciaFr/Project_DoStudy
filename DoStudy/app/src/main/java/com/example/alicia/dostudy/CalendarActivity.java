@@ -1,37 +1,30 @@
 package com.example.alicia.dostudy;
 
-import android.content.ClipData;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
-
-import java.io.Console;
-import java.lang.reflect.Array;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 import java.util.ListIterator;
 import java.util.Locale;
-import java.util.TimeZone;
-
 
 public class CalendarActivity extends AppCompatActivity {
 
@@ -40,6 +33,7 @@ public class CalendarActivity extends AppCompatActivity {
     private CompactCalendarView calendarView;
     private ListView listview;
     private ActionBar actionBar;
+    private Button testButton;
 
     private ArrayList<CalendarEntry> arrayList = new ArrayList<>();
     private InternDatabase database;
@@ -93,6 +87,24 @@ public class CalendarActivity extends AppCompatActivity {
         });
         calendarView = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
         initCalendar();
+        testButton = (Button) findViewById(R.id.test_button);
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startAlarm(true);
+            }
+        });
+    }
+
+    private void startAlarm(boolean isNotNotification) {
+        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent;
+        PendingIntent pendingIntent;
+
+        if(!isNotNotification) {
+            intent = new Intent(CalendarActivity.this, AlarmReceiver.class);
+            pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+        }
     }
 
     private void initCalendar() {
