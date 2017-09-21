@@ -41,8 +41,7 @@
         <activity android:name=".NotesDetails" />
         <activity android:name=".NotesGradesActivity" />
         <activity android:name=".TimeTable.CourseDetailActivity"></activity>
-        <activity android:name=".TimeTable.DayActivity" />
-        <activity android:name=".TimeTable.CourseActivity"></activity>
+
 
     </application>
 </manifest>

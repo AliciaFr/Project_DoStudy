@@ -62,7 +62,6 @@
     <string name="icon_for_navigation">icon For Navigation</string>
     <string name="calendar_entry_details_eventdetails">Ereignisdetails</string>
     <string name="calendar_entry_details_location_text">Standort</string>
-    <string name="calendar_entry_details_category">Kategorie</string>
     <string name="alert_dialog_builder_title">Achtung!</string>
     <string name="alert_dialog_builder_delete_title">Möchtest du diesen Eintrag wirklich löschen?</string>
     <string name="alert_dialog_builder_delete_yes">Löschen</string>

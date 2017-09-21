@@ -55,8 +55,8 @@ public class AddCalendarEntryActivity extends Activity {
         addEntry = (Button) findViewById(R.id.addCalendarEntry);
         editTitle = (EditText) findViewById(R.id.event_title);
         editDescription = (EditText) findViewById(R.id.event_description);
-        editDate = (TextView) findViewById(R.id.addCalendarEntryStart);
-        dateValue = (TextView) findViewById(R.id.addEntryStartTime);
+        editDate = (TextView) findViewById(R.id.addCalendarEntryDate);
+        dateValue = (TextView) findViewById(R.id.addCalendarEntryDateValue);
         timeValue = (TextView) findViewById(R.id.addEntryEndTime);
         editTime = (TextView) findViewById(R.id.addCalendarEntryEnd);
         reminder = (TextView) findViewById(R.id.addCalendarEntryReminder);
