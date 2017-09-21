@@ -36,7 +36,7 @@ public class FridayActivity extends AppCompatActivity {
     }
 
     private void initDB() {
-        database = new CourseItemDatabase(this, "fridayCorses.db");
+        database = new CourseItemDatabase(this);
         database.open();
     }
 
@@ -68,12 +68,13 @@ public class FridayActivity extends AppCompatActivity {
         courseName = (EditText) findViewById(R.id.course_input);
         courseTime = (EditText) findViewById(R.id.input_time);
         String name = courseName.getText().toString();
+        String begin = courseTime.getText().toString();
 
-        if (!name.equals("")) {
+        if (!name.equals("") && !begin.equals("")) {
             courseName.setText("");
             courseTime.setText("");
 
-            CourseItem newItem = new CourseItem(name);
+            CourseItem newItem = new CourseItem(name,begin);
             database.insertCourseItem(newItem);
             updateList();
         }

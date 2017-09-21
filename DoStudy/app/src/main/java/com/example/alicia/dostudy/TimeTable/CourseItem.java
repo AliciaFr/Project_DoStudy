@@ -6,18 +6,23 @@ package com.example.alicia.dostudy.TimeTable;
 
 public class CourseItem {
 
-    private String courseName;
+    private String courseName, courseBegin;
 
-    public CourseItem(String courseName){
+    public CourseItem(String courseName, String courseBegin){
         this.courseName = courseName;
+        this.courseBegin = courseBegin;
     }
 
     public String getCourseName(){
         return courseName;
     }
 
+    public String getCourseBegin(){
+        return courseBegin;
+    }
+
     @Override
     public String toString() {
-        return "Name: " + getCourseName();
+        return "Name: " + getCourseName() + ", Beginn: " + getCourseBegin();
     }
 }

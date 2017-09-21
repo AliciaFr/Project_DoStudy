@@ -29,7 +29,7 @@
     <string name="action_delete_all">Delete All</string>
     <string name="context_delete">Delete</string>
     <string name="context_edit">Edit</string>
-  
+
     // Strings for TimeTable Components
     <string name="personal_timetable">mein Stundenplan</string>
     <string name="monday">Montag</string>
