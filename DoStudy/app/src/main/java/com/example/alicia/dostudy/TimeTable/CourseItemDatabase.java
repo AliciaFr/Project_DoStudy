@@ -21,14 +21,16 @@ public class CourseItemDatabase {
 
     public static final String KEY_ID = "_id";
     public static final String KEY_NAME = "course";
+    public static final String KEY_BEGIN = "timeBegin";
 
     public static final int COLUMN_NAME_INDEX = 1;
+    public static final int COLUMN_BEGIN_INDEX = 2;
 
     private ToDoDBOpenHelper dbHelper;
     private SQLiteDatabase db;
 
-    public CourseItemDatabase(Context context, String database_name) {
-        dbHelper = new ToDoDBOpenHelper(context, database_name, null, DATABASE_VERSION);
+    public CourseItemDatabase(Context context) {
+        dbHelper = new ToDoDBOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     public void open() throws SQLException {
@@ -46,6 +48,7 @@ public class CourseItemDatabase {
     public long insertCourseItem(CourseItem item) {
         ContentValues itemValues = new ContentValues();
         itemValues.put(KEY_NAME, item.getCourseName());
+        itemValues.put(KEY_BEGIN, item.getCourseBegin());
         return db.insert(TABLE_NAME, null, itemValues);
     }
 
@@ -58,12 +61,14 @@ public class CourseItemDatabase {
     public ArrayList<CourseItem> getAllCourseItems() {
 
         ArrayList<CourseItem> items = new ArrayList<CourseItem>();
-        Cursor cursor = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_NAME }, null, null, null, null, null);
+        Cursor cursor = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_NAME, KEY_BEGIN }, null, null, null, null, null);
 
         if (cursor.moveToFirst()) {
             do {
                 String name = cursor.getString(COLUMN_NAME_INDEX);
-                items.add(new CourseItem(name));
+                String timeBegin = cursor.getString(COLUMN_BEGIN_INDEX);
+
+                items.add(new CourseItem(name, timeBegin));
 
             } while (cursor.moveToNext());
         }
@@ -72,9 +77,9 @@ public class CourseItemDatabase {
 
     private class ToDoDBOpenHelper extends SQLiteOpenHelper {
         private static final String DATABASE_CREATE = "create table "
-                + TABLE_NAME + " (" + KEY_ID
-                + " integer primary key autoincrement, " + KEY_NAME
-                + " text not null);";
+                + TABLE_NAME + " (" + KEY_ID + " integer primary key autoincrement, "
+                + KEY_NAME + " text not null, "
+                + KEY_BEGIN + " text not null);";
 
         public ToDoDBOpenHelper(Context c, String dbname, SQLiteDatabase.CursorFactory factory, int version) {
             super(c, dbname, factory, version);
