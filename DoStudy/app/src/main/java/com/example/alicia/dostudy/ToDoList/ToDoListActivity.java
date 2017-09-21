@@ -3,6 +3,7 @@ package com.example.alicia.dostudy.ToDoList;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,7 +25,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 
-public class ToDoListActivity extends Activity {
+public class ToDoListActivity extends AppCompatActivity {
 
     private ArrayList<Task> tasks;
     private ToDoListAdapter tasks_adapter;
