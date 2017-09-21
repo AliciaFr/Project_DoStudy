@@ -39,7 +39,7 @@
             android:id="@+id/todo_edit_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.8"
+            android:layout_weight="0.74"
             android:focusable="false"
             android:hint="@string/todo_text_date_hint"
             android:inputType="date"
