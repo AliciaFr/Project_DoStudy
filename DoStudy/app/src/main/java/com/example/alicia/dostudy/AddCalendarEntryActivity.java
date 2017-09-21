@@ -5,7 +5,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 
 import java.util.Calendar;
@@ -24,7 +23,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-public class CalendarAddEntryActivity extends Activity {
+public class AddCalendarEntryActivity extends Activity {
 
     private EditText editTitle, editDescription;
     private TextView editDate, editTime, dateValue, timeValue;
@@ -67,7 +66,7 @@ public class CalendarAddEntryActivity extends Activity {
         reminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(CalendarAddEntryActivity.this);
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(AddCalendarEntryActivity.this);
                 View mView = getLayoutInflater().inflate(R.layout.dialog_calendar_reminder, null);
                 RadioButton mNoReminder = (RadioButton) mView.findViewById(R.id.dialog_calendar_no_reminder);
                 RadioButton mAtStart = (RadioButton) mView.findViewById(R.id.dialog_calendar_at_start);
@@ -105,7 +104,7 @@ public class CalendarAddEntryActivity extends Activity {
         /*addLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CalendarAddEntryActivity.this, AddLocationActivity.class);
+                Intent intent = new Intent(AddCalendarEntryActivity.this, AddLocationActivity.class);
                 startActivity(intent);
             }
         });*/
@@ -128,7 +127,7 @@ public class CalendarAddEntryActivity extends Activity {
                 String time = timeValue.getText().toString();
 
                 if (title.equals("") || description.equals("") || date.equals("") || time.equals("")) {
-                    Toast toast = Toast.makeText(CalendarAddEntryActivity.this, "Fülle bitte alle Felder aus", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(AddCalendarEntryActivity.this, "Fülle bitte alle Felder aus", Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
                     editTitle.setText("");
