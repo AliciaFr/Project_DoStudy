@@ -41,9 +41,10 @@ public class CourseItemAdapter extends ArrayAdapter<CourseItem> {
 
         if (item != null) {
             TextView courseName = (TextView) view.findViewById(R.id.course_name);
-            TextView courseNumber = (TextView) view.findViewById(R.id.course_number);
+            TextView courseBegin = (TextView) view.findViewById(R.id.course_begin);
 
             courseName.setText(item.getCourseName());
+            courseBegin.setText(item.getCourseBegin());
         }
 
         return view;
