@@ -19,6 +19,11 @@ public class TuesdayActivity extends AppCompatActivity {
     Button okayButton;
     EditText courseName;
     EditText courseTime;
+    EditText courseTimeEnd;
+    EditText courseRoom;
+    EditText courseLecturer;
+    EditText courseDate;
+    EditText courseColour;
 
     private ArrayList<CourseItem> courseItems;
     private CourseItemAdapter item_adapter;
@@ -67,14 +72,30 @@ public class TuesdayActivity extends AppCompatActivity {
     private void addInputToList() {
         courseName = (EditText) findViewById(R.id.course_input);
         courseTime = (EditText) findViewById(R.id.input_time);
+        courseTimeEnd = (EditText) findViewById(R.id.input_time_end);
+        courseRoom = (EditText) findViewById(R.id.input_room);
+        courseLecturer = (EditText) findViewById(R.id.input_lecturer);
+        courseDate = (EditText) findViewById(R.id.input_date);
+        courseColour = (EditText) findViewById(R.id.input_colour);
+
         String name = courseName.getText().toString();
         String begin = courseTime.getText().toString();
+        String end = courseTimeEnd.getText().toString();
+        String room = courseRoom.getText().toString();
+        String lecturer = courseLecturer.getText().toString();
+        String date = courseDate.getText().toString();
+        String colour = courseColour.getText().toString();
 
-        if (!name.equals("") && !begin.equals("")) {
+        if (!name.equals("") && !begin.equals("") && !end.equals("") && !room.equals("") && !lecturer.equals("") && !date.equals("") && !colour.equals("")) {
             courseName.setText("");
             courseTime.setText("");
+            courseTimeEnd.setText("");
+            courseRoom.setText("");
+            courseLecturer.setText("");
+            courseDate.setText("");
+            courseColour.setText("");
 
-            CourseItem newItem = new CourseItem(name,begin);
+            CourseItem newItem = new CourseItem(name, begin, end, room, lecturer, date, colour);
             database.insertCourseItem(newItem);
             updateList();
         }
