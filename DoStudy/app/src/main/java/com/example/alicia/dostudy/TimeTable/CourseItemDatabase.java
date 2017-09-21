@@ -95,7 +95,7 @@ public class CourseItemDatabase {
         return items;
     }
 
-
+    
     private class ToDoDBOpenHelper extends SQLiteOpenHelper {
         private static final String DATABASE_CREATE = "create table "
                 + TABLE_NAME + " (" + KEY_ID + " integer primary key autoincrement, "

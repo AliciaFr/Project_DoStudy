@@ -6,11 +6,16 @@ package com.example.alicia.dostudy.TimeTable;
 
 public class CourseItem {
 
-    private String courseName, courseBegin;
+    private String courseName, courseBegin, courseEnd, room, lecturer, testDate, colour;
 
-    public CourseItem(String courseName, String courseBegin){
+    public CourseItem(String courseName, String courseBegin, String courseEnd, String room, String lecturer, String tesDate, String colour){
         this.courseName = courseName;
         this.courseBegin = courseBegin;
+        this.courseEnd = courseEnd;
+        this.room = room;
+        this.lecturer = lecturer;
+        this.testDate = tesDate;
+        this.colour = colour;
     }
 
     public String getCourseName(){
@@ -21,8 +26,31 @@ public class CourseItem {
         return courseBegin;
     }
 
+    public String getCourseEnd(){
+        return courseEnd;
+    }
+
+    public String getRoom(){
+        return room;
+    }
+
+    public String getLecturer(){
+        return lecturer;
+    }
+
+    public String getTestDate(){
+        return testDate;
+    }
+
+    public String getColour(){
+        return colour;
+    }
+
     @Override
     public String toString() {
-        return "Name: " + getCourseName() + ", Beginn: " + getCourseBegin();
+        return "Name: " + getCourseName() + ", Beginn: " + getCourseBegin() +
+                ", End: " + getCourseEnd() + ", Room: " + getRoom() +
+                ", Lecturer: " + getLecturer() + ", TestDate: " + getTestDate() +
+                ", Colour: " + getColour();
     }
 }
