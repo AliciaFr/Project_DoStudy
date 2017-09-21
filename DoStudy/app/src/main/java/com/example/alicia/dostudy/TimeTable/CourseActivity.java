@@ -17,20 +17,12 @@ public class CourseActivity extends AppCompatActivity {
     Spinner colourSpinner;
     Button saveAll;
 
-    //private TimetableDatabase timetableDB;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
-        //initDB();
         setupUI();
     }
-
-    /*private void initDB(){
-        timetableDB = new TimetableDatabase(this);
-        timetableDB.open();
-    }*/
 
     private void setupUI(){
 
@@ -51,9 +43,7 @@ public class CourseActivity extends AppCompatActivity {
         saveAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*addInputToDB();
-                Intent backToWeek = new Intent(Course.this, Week.class);
-                startActivity(backToWeek);*/
+
             }
         });
     }
@@ -87,8 +77,5 @@ public class CourseActivity extends AppCompatActivity {
         String lecturerName = lecturer.getText().toString();
         String test = testDate.getText().toString();
 
-
-        /*CourseItem item = new CourseItem(courseTitle, timeFrom, courseRoom, lecturerName, test, "note");
-        timetableDB.insertMyObject(item);*/
     }
 }

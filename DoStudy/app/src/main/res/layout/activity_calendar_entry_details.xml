@@ -2,7 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginStart="15dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -31,14 +35,11 @@
             android:layout_marginEnd="15dp"
             android:clickable="true"/>
     </RelativeLayout>
-
+  
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
-        android:text="@string/calendar_entry_details_eventdetails"
         android:textColor="#74787a"/>
 
     <TextView
@@ -46,8 +47,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
         android:textColor="#000"
         android:textSize="24sp"
         android:textStyle="bold"/>
@@ -57,30 +56,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
-        android:textColor="#74787a"/>
+        android:textColor="@color/detailsText"/>
 
     <TextView
         android:id="@+id/calendar_entry_details_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
-        android:textColor="#74787a"/>
+        android:textColor="@color/detailsText"/>
+
 
     <TextView
         android:id="@+id/calendar_entry_details_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
         android:textColor="#74787a"/>
 
     <ImageView
-        android:id="@+id/event_date_time_divider"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginBottom="12dp"
@@ -94,8 +87,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
         android:text="@string/calendar_entry_details_location_text"
         android:textAllCaps="true"
         android:textColor="#74787a"/>
@@ -105,8 +96,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
         android:layout_marginBottom="20dp"
         android:textColor="#000"/>
 
@@ -114,8 +103,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
         android:text="Alarm"
         android:textAllCaps="true"
         android:textColor="#74787a"/>
@@ -125,8 +112,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
         android:layout_marginBottom="20dp"
         android:textColor="#000"/>
 
@@ -134,8 +119,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
         android:text="@string/calendar_entry_details_category"
         android:textAllCaps="true"
         android:textColor="#74787a"/>
@@ -145,8 +128,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
         android:layout_marginBottom="20dp"
         android:textColor="#000"/>
 

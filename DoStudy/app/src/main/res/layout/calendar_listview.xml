@@ -6,7 +6,7 @@
     android:background="#c1d1d1">
 
     <ListView
-        android:id="@+id/calendar_listview"
+        android:id="@+id/listview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

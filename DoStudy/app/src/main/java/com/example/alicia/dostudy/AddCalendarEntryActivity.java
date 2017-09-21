@@ -14,11 +14,13 @@ import java.util.Locale;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Switch;
+
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -30,6 +32,7 @@ public class AddCalendarEntryActivity extends Activity {
     private TextView reminder;
     private Button addEntry, addLocation;
     private Switch switchTime, switchLocation;
+
 
     private InternDatabase database;
 
@@ -127,15 +130,16 @@ public class AddCalendarEntryActivity extends Activity {
                 String time = timeValue.getText().toString();
 
                 if (title.equals("") || description.equals("") || date.equals("") || time.equals("")) {
-                    Toast toast = Toast.makeText(AddCalendarEntryActivity.this, "Fülle bitte alle Felder aus", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_not_all_fields), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
                     editTitle.setText("");
                     editDescription.setText("");
-                    dateValue.setText("");
-                    timeValue.setText("");
+                    editDate.setText("");
+                    editTime.setText("");
                     addEntry(title, description, date, time);
-
+                    Toast toastAdded = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_calendar_entry_added), Toast.LENGTH_SHORT);
+                    toastAdded.show();
                 }
             }
         });
@@ -143,7 +147,6 @@ public class AddCalendarEntryActivity extends Activity {
 
     private void addEntry(String title, String description, String date, String time) {
         database.insertCalendarEntry(title, description, date, time);
-
     }
 
     private void initDatePicker() {
@@ -180,9 +183,9 @@ public class AddCalendarEntryActivity extends Activity {
             return new DatePickerDialog(getActivity(), this, year, month, day);
         }
 
-        public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-            TextView dateValue = (TextView) getActivity().findViewById(R.id.addEntryStartTime);
-            GregorianCalendar date = new GregorianCalendar(i, i1, i2);
+        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+            TextView dateValue = (TextView) getActivity().findViewById(R.id.add_note_add_date);
+            GregorianCalendar date = new GregorianCalendar(year, month, day);
             java.text.DateFormat dateformat = java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT, Locale.GERMANY);
             String dateToString = dateformat.format(date.getTime());
             dateValue.setText(dateToString);
@@ -203,21 +206,21 @@ public class AddCalendarEntryActivity extends Activity {
             return new TimePickerDialog(getActivity(), this, hour, minute, true);
         }
 
-        public void onTimeSet(TimePicker timePicker, int i, int i1) {
+        public void onTimeSet(TimePicker timePicker, int hour, int minute) {
             TextView timeValue = (TextView) getActivity().findViewById(R.id.addEntryEndTime);
-            String hour;
-            String minute;
-            if (i < 10) {
-                hour = getResources().getString(R.string.adding_0) + i;
+            String sHour;
+            String sMinute;
+            if (hour < 10) {
+                sHour = getResources().getString(R.string.adding_0) + hour;
             } else {
-                hour = "" + i;
+                sHour = "" + hour;
             }
-            if (i1 < 10) {
-                minute = getResources().getString(R.string.adding_0) + i1;
+            if (minute < 10) {
+                sMinute = getResources().getString(R.string.adding_0) + minute;
             } else {
-                minute = "" + i1;
+                sMinute = "" + minute;
             }
-            timeValue.setText(hour + getResources().getString(R.string.adding_double_dot) + minute);
+            timeValue.setText(sHour + getResources().getString(R.string.adding_double_dot) + sMinute);
         }
     }
 }

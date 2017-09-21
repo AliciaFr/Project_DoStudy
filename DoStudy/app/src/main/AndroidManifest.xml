@@ -11,8 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <receiver android:name=".AlarmReceiver"/>
-
+      <receiver android:name=".AlarmReceiver"/>
         <service android:name=".NotificationService" />
 
         <activity android:name=".HomeActivity"
@@ -44,6 +43,6 @@
         <activity android:name=".TimeTable.CourseDetailActivity"></activity>
         <activity android:name=".TimeTable.DayActivity" />
         <activity android:name=".TimeTable.CourseActivity"></activity>
-    </application>
 
+    </application>
 </manifest>
