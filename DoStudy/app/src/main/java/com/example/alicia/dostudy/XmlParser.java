@@ -56,7 +56,7 @@ public class XmlParser {
 
     }
 
-    public List<Task> read(File file) throws XmlPullParserException, FileNotFoundException, IOException {
+    public List<Task> read(File file) throws XmlPullParserException, IOException {
         parser.setInput(new FileReader(file));
         List<Task> list = new ArrayList<Task>();
         Task taskTmp;

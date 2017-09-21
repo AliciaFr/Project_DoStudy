@@ -14,9 +14,13 @@ import java.util.Locale;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Switch;
+
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -25,8 +29,10 @@ public class AddCalendarEntryActivity extends Activity {
 
     private EditText editTitle, editDescription;
     private TextView editDate, editTime, dateValue, timeValue;
-    private TextView reminder, repetition;
-    private Button add;
+    private TextView reminder;
+    private Button addEntry, addLocation;
+    private Switch switchTime, switchLocation;
+
 
     private InternDatabase database;
 
@@ -46,15 +52,20 @@ public class AddCalendarEntryActivity extends Activity {
     }
 
     private void initUI() {
-        add = (Button) findViewById(R.id.addCalendarEntry);
+        addEntry = (Button) findViewById(R.id.addCalendarEntry);
         editTitle = (EditText) findViewById(R.id.event_title);
         editDescription = (EditText) findViewById(R.id.event_description);
-        editDate = (TextView) findViewById(R.id.add_note_add_date);
-        dateValue = (TextView) findViewById(R.id.add_note_add_date);
+        editDate = (TextView) findViewById(R.id.addCalendarEntryStart);
+        dateValue = (TextView) findViewById(R.id.addEntryStartTime);
         timeValue = (TextView) findViewById(R.id.addEntryEndTime);
         editTime = (TextView) findViewById(R.id.addCalendarEntryEnd);
         reminder = (TextView) findViewById(R.id.addCalendarEntryReminder);
-        repetition = (TextView) findViewById(R.id.addCalendarEntryRepetition);
+        initReminder();
+        initTimeSwitch();
+        initLocationServices();
+    }
+
+    private void initReminder() {
         reminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,32 +81,47 @@ public class AddCalendarEntryActivity extends Activity {
                 dialog.show();
             }
         });
-        repetition.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(AddCalendarEntryActivity.this);
-                View mView = getLayoutInflater().inflate(R.layout.dialog_calendar_reminder, null);
-                RadioButton mNoRepetition = (RadioButton) mView.findViewById(R.id.dialog_calendar_no_repetition);
-                RadioButton mDaily = (RadioButton) mView.findViewById(R.id.dialog_calendar_daily);
-                RadioButton mWeekly = (RadioButton) mView.findViewById(R.id.dialog_calendar_weekly);
-                RadioButton mMonthly = (RadioButton) mView.findViewById(R.id.dialog_calendar_monthly);
-                RadioButton mYearly = (RadioButton) mView.findViewById(R.id.dialog_calendar_yearly);
-                RadioButton mCustom = (RadioButton) mView.findViewById(R.id.dialog_calendar_custom);
-                mCustom.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+    }
 
-                    }
-                });
-                mBuilder.setView(mView);
-                AlertDialog dialog = mBuilder.create();
-                dialog.show();
+    private void initTimeSwitch() {
+        switchTime = (Switch) findViewById(R.id.switchButton);
+        switchTime.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked) {
+                    editTime.setVisibility(View.GONE);
+                    timeValue.setVisibility(View.GONE);
+                    timeValue.setText("00:00");
+                } else {
+                    editTime.setVisibility(View.VISIBLE);
+                    timeValue.setVisibility(View.VISIBLE);
+                    timeValue.setText("");
+                }
             }
         });
     }
 
+    private void initLocationServices() {
+        addLocation = (Button) findViewById(R.id.calendar_entry_location_button);
+        switchLocation = (Switch) findViewById(R.id.switch_button_location);
+        /*addLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddCalendarEntryActivity.this, AddLocationActivity.class);
+                startActivity(intent);
+            }
+        });*/
+        switchLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+
+            }
+        });
+
+    }
+
     private void initAddButton() {
-        add.setOnClickListener(new View.OnClickListener() {
+        addEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String title = editTitle.getText().toString();
@@ -114,7 +140,6 @@ public class AddCalendarEntryActivity extends Activity {
                     addEntry(title, description, date, time);
                     Toast toastAdded = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_calendar_entry_added), Toast.LENGTH_SHORT);
                     toastAdded.show();
-
                 }
             }
         });

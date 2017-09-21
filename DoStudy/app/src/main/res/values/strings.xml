@@ -53,6 +53,21 @@
     <string name="test">Klausur:</string>
     <string name="colour">Farbe:</string>
     <string name="button_save">speichern</string>
+
+    <string name="notification">Nicht vergessen! Du hast heute ein Ereignis</string>
+    <string name="notification_title">DoStudy</string>
+    <string name="notification_content_text">Bevorstehendes Ereignis</string>
+    <string name="notification_click">Zum Kalender</string>
+    <string name="preferences_key_notifications">sharedPreferences</string>
+    <string name="icon_for_navigation">icon For Navigation</string>
+    <string name="calendar_entry_details_eventdetails">Ereignisdetails</string>
+    <string name="calendar_entry_details_location_text">Standort</string>
+    <string name="calendar_entry_details_category">Kategorie</string>
+    <string name="alert_dialog_builder_title">Achtung!</string>
+    <string name="alert_dialog_builder_delete_title">Möchtest du diesen Eintrag wirklich löschen?</string>
+    <string name="alert_dialog_builder_delete_yes">Löschen</string>
+    <string name="alert_dialog_builder_delete_no">Abbrechen</string>
+
     <string name="notes_and_grades_notes_fragement">Notizen</string>
     <string name="notes_and_grades_grades_fragement">Noten</string>
     <string name="notes_grades_title_grades">Noten</string>

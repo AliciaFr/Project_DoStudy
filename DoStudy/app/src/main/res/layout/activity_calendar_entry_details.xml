@@ -8,18 +8,38 @@
     android:layout_marginLeft="15dp"
     android:layout_marginStart="15dp">
 
-    <ImageView
-        android:id="@+id/calendar_entry_details_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_close_24dp"
-        android:clickable="true"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:contentDescription="@string/icon_for_navigation"
+            android:id="@+id/calendar_entry_details_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_24dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:clickable="true"/>
 
+        <ImageView
+            android:contentDescription="@string/icon_for_navigation"
+            android:id="@+id/calendar_entry_details_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete_24dp"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
+            android:clickable="true"/>
+    </RelativeLayout>
+  
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/calendar_entry_details"
         android:textColor="#74787a"/>
 
     <TextView
@@ -45,6 +65,7 @@
         android:layout_marginTop="5dp"
         android:textColor="@color/detailsText"/>
 
+
     <TextView
         android:id="@+id/calendar_entry_details_time"
         android:layout_width="wrap_content"
@@ -66,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="@string/calendar_entry_details_location"
+        android:text="@string/calendar_entry_details_location_text"
         android:textAllCaps="true"
         android:textColor="#74787a"/>
 

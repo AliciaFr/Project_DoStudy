@@ -21,7 +21,7 @@ public class DateFormatter {
         return "" + day + "." + month + "."+ year;
     }
 
-    private static Date stringToDate(String date){
+    public static Date stringToDate(String date){
         DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT, Locale.GERMANY);
         try {
             return dateFormat.parse(date);
