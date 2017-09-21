@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/margin_screen_small"
+        android:paddingBottom="@dimen/margin_screen_small"
+       >
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/margin_screen_small"
+            android:layout_marginStart="@dimen/margin_screen_small"
+            android:layout_marginRight="@dimen/margin_screen_small"
+            android:layout_marginEnd="@dimen/margin_screen_small"
+            android:id="@+id/picture_linear_layout"
+            android:baselineAligned="false"
+            tools:context=".TakePictureActivity">
+
+            <Button
+                android:id="@+id/picture_take"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_signup"
+                android:onClick="takeImage"
+                android:padding="16dp"
+                android:text="Kamera"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/picture_add"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/background_signup"
+                android:onClick="chooseImageFromGallery"
+                android:padding="16dp"
+                android:text="Bibliothek"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/picture_crop"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/background_signup"
+                android:onClick="cropImage"
+                android:padding="20dp"
+                android:text="Zuschneiden"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/picture_save"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/background_signup"
+                android:onClick="saveCroppedImage"
+                android:padding="16dp"
+                android:text="Speichern"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/picture_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Abbrechen"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/button_white"
+                android:clickable="true"
+                android:padding="16dp"
+                android:textAllCaps="false"
+                android:textColor="@color/normalText"
+                android:textSize="18sp" />
+
+
+            <com.isseiaoki.simplecropview.CropImageView
+                android:id="@+id/cropImageView"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="25dp"
+                custom:cropMode="ratio_free" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/croppedImageView"
+                android:adjustViewBounds="true"
+                android:paddingTop="20dp"
+                android:contentDescription=""
+                android:layout_marginTop="25dp"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
+
+

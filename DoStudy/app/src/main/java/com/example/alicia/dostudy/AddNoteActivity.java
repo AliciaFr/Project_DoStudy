@@ -3,6 +3,7 @@ package com.example.alicia.dostudy;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -60,7 +61,13 @@ public class AddNoteActivity extends AppCompatActivity {
     }
 
     private void initTakePicture() {
-
+        addPicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startCameraIntent = new Intent(AddNoteActivity.this, TakePictureActivity.class);
+                startActivity(startCameraIntent);
+            }
+        });
     }
 
     private void initAddButton() {
