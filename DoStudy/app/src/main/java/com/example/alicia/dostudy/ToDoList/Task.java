@@ -16,7 +16,6 @@ public class Task implements Comparable<Task> {
         cal = new GregorianCalendar(year, month, day);
     }
 
-
     public String getName() {
         return name;
     }

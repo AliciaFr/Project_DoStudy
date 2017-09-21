@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -150,8 +151,9 @@ public class ToDoListActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_todolist, menu);
-        return true;
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_todolist, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -160,10 +162,17 @@ public class ToDoListActivity extends Activity {
             case R.id.action_sort:
                 sortList();
                 return true;
+            case R.id.delete_all:
+                deleteList();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
 
+    private void deleteList() {
+        tasks.clear();
+        tasks_adapter.notifyDataSetChanged();
     }
 
     private void sortList() {
