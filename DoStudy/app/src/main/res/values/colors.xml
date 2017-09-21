@@ -16,5 +16,7 @@
 
     // app colors
     <color name="holoBlue">#0099cc</color>
+    <color name="normalText">#000</color>
+    <color name="detailsText">#74787a</color>
 
 </resources>

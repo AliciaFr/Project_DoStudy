@@ -53,6 +53,24 @@
     <string name="test">Klausur:</string>
     <string name="colour">Farbe:</string>
     <string name="button_save">speichern</string>
+    <string name="notes_and_grades_notes_fragement">Notizen</string>
+    <string name="notes_and_grades_grades_fragement">Noten</string>
+    <string name="notes_grades_title_grades">Noten</string>
+    <string name="content_description_button">ButtonForAction</string>
+    <string name="notes_grades_title_notes">Notizen</string>
+    <string name="notes_title">Alle Notizen</string>
+    <string name="notes_intent">Notes</string>
+    <string name="add_calendar_entry_title_hint">Titel</string>
+    <string name="add_note_lecture_hint">Vorlesung</string>
+    <string name="add_note_date_title">Datum</string>
+    <string name="add_notes_edit_note_hint">Notizen...</string>
+    <string name="add_note_add_picture">Foto hinzufügen</string>
+    <string name="toast_not_all_fields">Füge bitte einen Titel hinzu</string>
+    <string name="toast_note_added">Notiz wurde hinzugefügt</string>
+    <string name="toast_calendar_entry_added">Ereignis wurde hinzugefügt</string>
+    <string name="calendar_entry_details">Ereignisdetails</string>
+    <string name="calendar_entry_details_category">Kategorie</string>
+    <string name="calendar_entry_details_location">Standort</string>
 
     <string-array name="colourArray">
         <item>hellblau</item>

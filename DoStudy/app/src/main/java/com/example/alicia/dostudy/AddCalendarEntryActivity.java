@@ -6,7 +6,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.support.v7.app.AlertDialog;
-import android.text.format.DateFormat;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
@@ -21,7 +21,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-public class CalendarAddEntryActivity extends Activity {
+public class AddCalendarEntryActivity extends Activity {
 
     private EditText editTitle, editDescription;
     private TextView editDate, editTime, dateValue, timeValue;
@@ -49,8 +49,8 @@ public class CalendarAddEntryActivity extends Activity {
         add = (Button) findViewById(R.id.addCalendarEntry);
         editTitle = (EditText) findViewById(R.id.event_title);
         editDescription = (EditText) findViewById(R.id.event_description);
-        editDate = (TextView) findViewById(R.id.addCalendarEntryStart);
-        dateValue = (TextView) findViewById(R.id.addEntryStartTime);
+        editDate = (TextView) findViewById(R.id.add_note_add_date);
+        dateValue = (TextView) findViewById(R.id.add_note_add_date);
         timeValue = (TextView) findViewById(R.id.addEntryEndTime);
         editTime = (TextView) findViewById(R.id.addCalendarEntryEnd);
         reminder = (TextView) findViewById(R.id.addCalendarEntryReminder);
@@ -58,7 +58,7 @@ public class CalendarAddEntryActivity extends Activity {
         reminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(CalendarAddEntryActivity.this);
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(AddCalendarEntryActivity.this);
                 View mView = getLayoutInflater().inflate(R.layout.dialog_calendar_reminder, null);
                 RadioButton mNoReminder = (RadioButton) mView.findViewById(R.id.dialog_calendar_no_reminder);
                 RadioButton mAtStart = (RadioButton) mView.findViewById(R.id.dialog_calendar_at_start);
@@ -73,7 +73,7 @@ public class CalendarAddEntryActivity extends Activity {
         repetition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(CalendarAddEntryActivity.this);
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(AddCalendarEntryActivity.this);
                 View mView = getLayoutInflater().inflate(R.layout.dialog_calendar_reminder, null);
                 RadioButton mNoRepetition = (RadioButton) mView.findViewById(R.id.dialog_calendar_no_repetition);
                 RadioButton mDaily = (RadioButton) mView.findViewById(R.id.dialog_calendar_daily);
@@ -104,7 +104,7 @@ public class CalendarAddEntryActivity extends Activity {
                 String time = timeValue.getText().toString();
 
                 if (title.equals("") || description.equals("") || date.equals("") || time.equals("")) {
-                    Toast toast = Toast.makeText(CalendarAddEntryActivity.this, "Fülle bitte alle Felder aus", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_not_all_fields), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
                     editTitle.setText("");
@@ -112,6 +112,8 @@ public class CalendarAddEntryActivity extends Activity {
                     editDate.setText("");
                     editTime.setText("");
                     addEntry(title, description, date, time);
+                    Toast toastAdded = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_calendar_entry_added), Toast.LENGTH_SHORT);
+                    toastAdded.show();
 
                 }
             }
@@ -119,7 +121,6 @@ public class CalendarAddEntryActivity extends Activity {
     }
 
     private void addEntry(String title, String description, String date, String time) {
-        CalendarEntry entry = new CalendarEntry(title, description, DateFormatter.dateToInteger(date), time);
         database.insertCalendarEntry(title, description, date, time);
     }
 
@@ -157,9 +158,9 @@ public class CalendarAddEntryActivity extends Activity {
             return new DatePickerDialog(getActivity(), this, year, month, day);
         }
 
-        public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-            TextView dateValue = (TextView) getActivity().findViewById(R.id.addEntryStartTime);
-            GregorianCalendar date = new GregorianCalendar(i, i1, i2);
+        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+            TextView dateValue = (TextView) getActivity().findViewById(R.id.add_note_add_date);
+            GregorianCalendar date = new GregorianCalendar(year, month, day);
             java.text.DateFormat dateformat = java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT, Locale.GERMANY);
             String dateToString = dateformat.format(date.getTime());
             dateValue.setText(dateToString);
@@ -180,21 +181,21 @@ public class CalendarAddEntryActivity extends Activity {
             return new TimePickerDialog(getActivity(), this, hour, minute, true);
         }
 
-        public void onTimeSet(TimePicker timePicker, int i, int i1) {
+        public void onTimeSet(TimePicker timePicker, int hour, int minute) {
             TextView timeValue = (TextView) getActivity().findViewById(R.id.addEntryEndTime);
-            String hour;
-            String minute;
-            if (i < 10) {
-                hour = getResources().getString(R.string.adding_0) + i;
+            String sHour;
+            String sMinute;
+            if (hour < 10) {
+                sHour = getResources().getString(R.string.adding_0) + hour;
             } else {
-                hour = "" + i;
+                sHour = "" + hour;
             }
-            if (i1 < 10) {
-                minute = getResources().getString(R.string.adding_0) + i1;
+            if (minute < 10) {
+                sMinute = getResources().getString(R.string.adding_0) + minute;
             } else {
-                minute = "" + i1;
+                sMinute = "" + minute;
             }
-            timeValue.setText(hour + getResources().getString(R.string.adding_double_dot) + minute);
+            timeValue.setText(sHour + getResources().getString(R.string.adding_double_dot) + sMinute);
         }
     }
 }
