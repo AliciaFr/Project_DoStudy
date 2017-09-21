@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.alicia.dostudy">
-
+    package="com.example.alicia.dostudy" >
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -10,6 +10,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+      <receiver android:name=".AlarmReceiver"/>
+        <service android:name=".NotificationService" />
 
         <activity android:name=".HomeActivity"
             android:configChanges="orientation"
@@ -20,15 +23,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    <activity android:name=".MainActivity"/>
-    <activity android:name=".CalendarEntryDetails"/>
-        <activity android:name=".ToDoList.ToDoListActivity"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".CalendarEntryDetails"/>
+        <activity android:name=".ToDoListActivity"/>
         <activity android:name=".SignupActivity" />
         <activity android:name=".CalendarActivity" />
-        <activity android:name=".CalendarAddEntryActivity" />
+        <activity android:name=".AddCalendarEntryActivity" />
         <activity android:name=".TimeTable.WeekActivity" />
-        <activity android:name=".TimeTable.DayActivity" />
-        <activity android:name=".TimeTable.CourseActivity"></activity>
-    </application>
+        <activity android:name=".TimeTable.MondayActivity" />
+        <activity android:name=".TimeTable.TuesdayActivity" />
+        <activity android:name=".TimeTable.WednesdayActivity" />
+        <activity android:name=".TimeTable.ThursdayActivity" />
+        <activity android:name=".TimeTable.FridayActivity" />
+        <activity android:name=".TimeTable.CourseActivity"/>
+        <activity android:name=".NotesActivity" />
+        <activity android:name=".AddNoteActivity" />
+        <activity android:name=".NotesDetails" />
+        <activity android:name=".NotesGradesActivity" />
+        <activity android:name=".TimeTable.CourseDetailActivity"></activity>
 
+
+    </application>
 </manifest>

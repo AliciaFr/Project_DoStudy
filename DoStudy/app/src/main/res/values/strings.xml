@@ -24,30 +24,24 @@
     <string name="calendar_entry_intent">calendar_entry</string>
 
     // Strings for ToDoList Layout
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="add_item_header">Aktuelle Aufgaben</string>
-    <string name="add_item_hint">Neue Aufgabe</string>
-    <string name="add_item_button_confirm">Hinzufügen</string>
-    <string name="todo_text_date_hint">Datum festlegen</string>
-    <string name="action_sort">Nach Datum sortieren</string>
-    <string name="delete_all">Alle Aufgaben löschen</string>
+    <string name="section_name">Todo List</string>
+    <string name="action_delete_done_tasks">Delete done tasks</string>
+    <string name="action_delete_all">Delete All</string>
+    <string name="context_delete">Delete</string>
+    <string name="context_edit">Edit</string>
 
     // Strings for TimeTable Components
     <string name="personal_timetable">mein Stundenplan</string>
-    <string name="monday">Mo</string>
-    <string name="tuesday">Di</string>
-    <string name="wednesday">Mi</string>
-    <string name="thursday">Do</string>
-    <string name="friday">Fr</string>
+    <string name="monday">Montag</string>
+    <string name="tuesday">Dienstag</string>
+    <string name="wednesday">Mittwoch</string>
+    <string name="thursday">Donnerstag</string>
+    <string name="friday">Freitag</string>
 
     <string name="day">Tag</string>
-    <string name="course_one">Kurs 1</string>
-    <string name="course_two">Kurs 2</string>
-    <string name="course_three">Kurs 3</string>
-    <string name="course_four">Kurs 4</string>
-    <string name="course_five">Kurs 5</string>
-    <string name="course_six">Kurs 6</string>
-    <string name="pause">Pause</string>
+    <string name="hint_course">Kurs hinzufügen</string>
+    <string name="hint_time">Beginn</string>
+    <string name="button">OK</string>
 
     <string name="view_course">Kursdaten</string>
     <string name="course_title">Titel:</string>
@@ -60,6 +54,38 @@
     <string name="colour">Farbe:</string>
     <string name="button_save">speichern</string>
 
+    <string name="notification">Nicht vergessen! Du hast heute ein Ereignis</string>
+    <string name="notification_title">DoStudy</string>
+    <string name="notification_content_text">Bevorstehendes Ereignis</string>
+    <string name="notification_click">Zum Kalender</string>
+    <string name="preferences_key_notifications">sharedPreferences</string>
+    <string name="icon_for_navigation">icon For Navigation</string>
+    <string name="calendar_entry_details_eventdetails">Ereignisdetails</string>
+    <string name="calendar_entry_details_location_text">Standort</string>
+    <string name="alert_dialog_builder_title">Achtung!</string>
+    <string name="alert_dialog_builder_delete_title">Möchtest du diesen Eintrag wirklich löschen?</string>
+    <string name="alert_dialog_builder_delete_yes">Löschen</string>
+    <string name="alert_dialog_builder_delete_no">Abbrechen</string>
+
+    <string name="notes_and_grades_notes_fragement">Notizen</string>
+    <string name="notes_and_grades_grades_fragement">Noten</string>
+    <string name="notes_grades_title_grades">Noten</string>
+    <string name="content_description_button">ButtonForAction</string>
+    <string name="notes_grades_title_notes">Notizen</string>
+    <string name="notes_title">Alle Notizen</string>
+    <string name="notes_intent">Notes</string>
+    <string name="add_calendar_entry_title_hint">Titel</string>
+    <string name="add_note_lecture_hint">Vorlesung</string>
+    <string name="add_note_date_title">Datum</string>
+    <string name="add_notes_edit_note_hint">Notizen...</string>
+    <string name="add_note_add_picture">Foto hinzufügen</string>
+    <string name="toast_not_all_fields">Füge bitte einen Titel hinzu</string>
+    <string name="toast_note_added">Notiz wurde hinzugefügt</string>
+    <string name="toast_calendar_entry_added">Ereignis wurde hinzugefügt</string>
+    <string name="calendar_entry_details">Ereignisdetails</string>
+    <string name="calendar_entry_details_category">Kategorie</string>
+    <string name="calendar_entry_details_location">Standort</string>
+
     <string-array name="colourArray">
         <item>hellblau</item>
         <item>dunkelblau</item>
@@ -67,11 +93,8 @@
         <item>hellgrün</item>
         <item>dunkelgrün</item>
         <item>gelb</item>
-        <item>rot</item>
         <item>orange</item>
-        <item>lila</item>
-        <item>violet</item>
-        <item>rosa</item>
+        <item>rot</item>
     </string-array>
 
 </resources>
