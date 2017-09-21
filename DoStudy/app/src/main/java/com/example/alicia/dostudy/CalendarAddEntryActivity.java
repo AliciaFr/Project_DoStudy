@@ -102,13 +102,13 @@ public class CalendarAddEntryActivity extends Activity {
     private void initLocationServices() {
         addLocation = (Button) findViewById(R.id.calendar_entry_location_button);
         switchLocation = (Switch) findViewById(R.id.switch_button_location);
-        addLocation.setOnClickListener(new View.OnClickListener() {
+        /*addLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CalendarAddEntryActivity.this, AddLocationActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
         switchLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {

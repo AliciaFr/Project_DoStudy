@@ -10,9 +10,9 @@ import android.support.v4.content.ContextCompat;
 
 class AddLocationActivity {
 
-    public boolean checkLocationPermission () {
+    /*public boolean checkLocationPermission () {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
         }
-    }
+    }*/
 }
