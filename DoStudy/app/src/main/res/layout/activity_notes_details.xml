@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/margin_screen_small"
+    android:layout_marginLeft="@dimen/margin_screen_small"
+    android:layout_marginStart="@dimen/margin_screen_small"
+    android:layout_marginRight="@dimen/margin_screen_small"
+    android:layout_marginEnd="@dimen/margin_screen_small">
+
+    <ImageView
+        android:id="@+id/notes_details_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_close_24dp"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/notes_details_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_close_24dp"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/notes_details_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Heutige Vorlesung"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/normalText"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/notes_details_lecture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/detailsText"/>
+
+    <TextView
+        android:id="@+id/notes_details_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/detailsText"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="20dp"
+        android:background="#74787a"
+        android:importantForAccessibility="no"/>
+
+    <TextView
+        android:id="@+id/notes_details_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/normalText"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

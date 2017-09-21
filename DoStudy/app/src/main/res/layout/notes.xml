@@ -4,8 +4,8 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/entry_title"
-        android:layout_marginTop="15dp"
+        android:id="@+id/notes_title"
+        android:layout_marginTop="@dimen/margin_screen_small"
         android:textColor="@color/holoBlue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,34 +13,25 @@
         android:textStyle="bold" />
 
     <LinearLayout
-        android:id="@+id/linear_layout"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/entry_title" >
+        android:orientation="horizontal"
+        android:id="@+id/notes_linear_layout"
+        android:layout_marginTop="@dimen/margin_screen_small"
+        android:layout_below="@+id/notes_title">
 
         <TextView
-            android:id="@+id/entry_date"
+            android:id="@+id/notes_lecture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:textColor="@color/normalText"/>
-
-        <TextView
-            android:id="@+id/entry_time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.6"
+            android:layout_weight="0.2"
             android:textColor="@color/normalText" />
 
+        <TextView
+            android:id="@+id/notes_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:textColor="@color/normalText" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/entry_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/linear_layout"
-        android:textColor="@color/normalText" />
 </RelativeLayout>
