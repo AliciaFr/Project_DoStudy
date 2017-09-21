@@ -5,8 +5,9 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
-import android.text.format.DateFormat;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
@@ -14,9 +15,11 @@ import java.util.Locale;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -25,8 +28,9 @@ public class CalendarAddEntryActivity extends Activity {
 
     private EditText editTitle, editDescription;
     private TextView editDate, editTime, dateValue, timeValue;
-    private TextView reminder, repetition;
-    private Button add;
+    private TextView reminder;
+    private Button addEntry, addLocation;
+    private Switch switchTime, switchLocation;
 
     private InternDatabase database;
 
@@ -46,7 +50,7 @@ public class CalendarAddEntryActivity extends Activity {
     }
 
     private void initUI() {
-        add = (Button) findViewById(R.id.addCalendarEntry);
+        addEntry = (Button) findViewById(R.id.addCalendarEntry);
         editTitle = (EditText) findViewById(R.id.event_title);
         editDescription = (EditText) findViewById(R.id.event_description);
         editDate = (TextView) findViewById(R.id.addCalendarEntryStart);
@@ -54,7 +58,12 @@ public class CalendarAddEntryActivity extends Activity {
         timeValue = (TextView) findViewById(R.id.addEntryEndTime);
         editTime = (TextView) findViewById(R.id.addCalendarEntryEnd);
         reminder = (TextView) findViewById(R.id.addCalendarEntryReminder);
-        repetition = (TextView) findViewById(R.id.addCalendarEntryRepetition);
+        initReminder();
+        initTimeSwitch();
+        initLocationServices();
+    }
+
+    private void initReminder() {
         reminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,32 +79,47 @@ public class CalendarAddEntryActivity extends Activity {
                 dialog.show();
             }
         });
-        repetition.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(CalendarAddEntryActivity.this);
-                View mView = getLayoutInflater().inflate(R.layout.dialog_calendar_reminder, null);
-                RadioButton mNoRepetition = (RadioButton) mView.findViewById(R.id.dialog_calendar_no_repetition);
-                RadioButton mDaily = (RadioButton) mView.findViewById(R.id.dialog_calendar_daily);
-                RadioButton mWeekly = (RadioButton) mView.findViewById(R.id.dialog_calendar_weekly);
-                RadioButton mMonthly = (RadioButton) mView.findViewById(R.id.dialog_calendar_monthly);
-                RadioButton mYearly = (RadioButton) mView.findViewById(R.id.dialog_calendar_yearly);
-                RadioButton mCustom = (RadioButton) mView.findViewById(R.id.dialog_calendar_custom);
-                mCustom.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+    }
 
-                    }
-                });
-                mBuilder.setView(mView);
-                AlertDialog dialog = mBuilder.create();
-                dialog.show();
+    private void initTimeSwitch() {
+        switchTime = (Switch) findViewById(R.id.switchButton);
+        switchTime.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked) {
+                    editTime.setVisibility(View.GONE);
+                    timeValue.setVisibility(View.GONE);
+                    timeValue.setText("00:00");
+                } else {
+                    editTime.setVisibility(View.VISIBLE);
+                    timeValue.setVisibility(View.VISIBLE);
+                    timeValue.setText("");
+                }
             }
         });
     }
 
+    private void initLocationServices() {
+        addLocation = (Button) findViewById(R.id.calendar_entry_location_button);
+        switchLocation = (Switch) findViewById(R.id.switch_button_location);
+        addLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CalendarAddEntryActivity.this, AddLocationActivity.class);
+                startActivity(intent);
+            }
+        });
+        switchLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+
+            }
+        });
+
+    }
+
     private void initAddButton() {
-        add.setOnClickListener(new View.OnClickListener() {
+        addEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String title = editTitle.getText().toString();
@@ -109,8 +133,8 @@ public class CalendarAddEntryActivity extends Activity {
                 } else {
                     editTitle.setText("");
                     editDescription.setText("");
-                    editDate.setText("");
-                    editTime.setText("");
+                    dateValue.setText("");
+                    timeValue.setText("");
                     addEntry(title, description, date, time);
 
                 }
@@ -119,7 +143,6 @@ public class CalendarAddEntryActivity extends Activity {
     }
 
     private void addEntry(String title, String description, String date, String time) {
-        //CalendarEntry entry = new CalendarEntry(title, description, DateFormatter.dateToInteger(date), time);
         database.insertCalendarEntry(title, description, date, time);
 
     }

@@ -1,17 +1,17 @@
 package com.example.alicia.dostudy;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,7 +33,6 @@ public class CalendarActivity extends AppCompatActivity {
     private CompactCalendarView calendarView;
     private ListView listview;
     private ActionBar actionBar;
-    private Button testButton;
 
     private ArrayList<CalendarEntry> arrayList = new ArrayList<>();
     private InternDatabase database;
@@ -87,24 +86,6 @@ public class CalendarActivity extends AppCompatActivity {
         });
         calendarView = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
         initCalendar();
-        testButton = (Button) findViewById(R.id.test_button);
-        testButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startAlarm(true);
-            }
-        });
-    }
-
-    private void startAlarm(boolean isNotNotification) {
-        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent;
-        PendingIntent pendingIntent;
-
-        if(!isNotNotification) {
-            intent = new Intent(CalendarActivity.this, AlarmReceiver.class);
-            pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
-        }
     }
 
     private void initCalendar() {
@@ -122,7 +103,7 @@ public class CalendarActivity extends AppCompatActivity {
 
                     if (dateClicked.toString().equals(entryDate.toString())) {
                         Toast.makeText(context, "Teachers' Professional Day", Toast.LENGTH_SHORT).show();
-                        //listview.removeViewAt(position);
+                        listview.setSelection(position);
                     }
                 }
             }
@@ -185,5 +166,20 @@ public class CalendarActivity extends AppCompatActivity {
             Event event = new Event(Color.rgb(0, 153, 204), timestampDate);
             calendarView.addEvent(event, true);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.actions, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+        }
+        return true;
     }
 }

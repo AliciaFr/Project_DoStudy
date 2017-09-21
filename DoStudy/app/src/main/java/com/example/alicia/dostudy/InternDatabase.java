@@ -75,7 +75,7 @@ public class InternDatabase {
     }
 
     public void deleteEntry(String title, String description, String time){
-        String whereClause = KEY_TITLE + " =? AND " + KEY_TIME + " =?";
+        String whereClause = KEY_TITLE + " =? AND " + KEY_DESCRIPTION + " =? AND " + KEY_TIME + " =?";
         open();
         db.delete(DATABASE_TABLE, whereClause, new String[]{
                 title, description, time
