@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.alicia.dostudy.TimeTable.WeekActivity;
+import com.example.alicia.dostudy.ToDoList.ToDoListActivity;
 
 public class HomeActivity extends AppCompatActivity {
 

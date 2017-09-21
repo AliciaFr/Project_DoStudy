@@ -24,11 +24,13 @@
     <string name="calendar_entry_intent">calendar_entry</string>
 
     // Strings for ToDoList Layout
-    <string name="section_name">Todo List</string>
-    <string name="action_delete_done_tasks">Delete done tasks</string>
-    <string name="action_delete_all">Delete All</string>
-    <string name="context_delete">Delete</string>
-    <string name="context_edit">Edit</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_item_header">Aktuelle Aufgaben</string>
+    <string name="add_item_hint">Neue Aufgabe</string>
+    <string name="add_item_button_confirm">Hinzufügen</string>
+    <string name="todo_text_date_hint">Datum festlegen</string>
+    <string name="action_sort">Nach Datum sortieren</string>
+    <string name="delete_all">Alle Aufgaben löschen</string>
 
     // Strings for TimeTable Components
     <string name="personal_timetable">mein Stundenplan</string>
