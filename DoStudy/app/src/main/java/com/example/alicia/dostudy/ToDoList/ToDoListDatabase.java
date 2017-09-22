@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 
@@ -68,7 +69,15 @@ public class ToDoListDatabase {
 
     }
 
+    public void removeAllItems(){
+        String toDelete = KEY_TASK + "=?";
+        String[] deleteArguments = new String[]{toDelete};
+        database.delete(DATABASE_TABLE, toDelete, deleteArguments);
+
+    }
+
     public ArrayList<Task> getAllToDoItems() {
+        open();
         ArrayList<Task> items = new ArrayList<Task>();
         Cursor cursor = database.query(DATABASE_TABLE, new String[] { KEY_ID,
                 KEY_TASK, KEY_DATE }, null, null, null, null, null);
@@ -93,6 +102,8 @@ public class ToDoListDatabase {
 
             } while (cursor.moveToNext());
         }
+        cursor.close();
+
         return items;
     }
 

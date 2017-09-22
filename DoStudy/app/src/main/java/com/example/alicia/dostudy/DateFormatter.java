@@ -50,4 +50,5 @@ public class DateFormatter {
         return Integer.parseInt("" + cal.get(Calendar.YEAR) + month + day);
 
     }
+
 }
