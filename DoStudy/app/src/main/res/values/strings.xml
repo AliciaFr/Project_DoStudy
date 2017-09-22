@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">DoStudy</string>
 
+    //Strings for Home-Layout
+    <string name="todo">To Do Liste</string>
+    <string name="timetable">Stundenplan</string>
+    <string name="calendar">Kalender</string>
+    <string name="grades">Notenübersicht</string>
+
     // Strings for Login-Layout
     <string name="login_input_email">Username or email address</string>
     <string name="login_input_password">Password</string>
