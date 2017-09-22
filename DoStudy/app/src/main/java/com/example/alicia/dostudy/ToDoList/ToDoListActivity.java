@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.alicia.dostudy.R;
 
@@ -83,6 +84,9 @@ public class ToDoListActivity extends AppCompatActivity {
             edit.setText("");
             dateEdit.setText("");
             addNewTask(task, date);
+            Toast.makeText(this, "Gespeichert!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Bitte Aufgabe und Datum eingeben", Toast.LENGTH_LONG).show();
         }
     }
 

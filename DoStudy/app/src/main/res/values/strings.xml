@@ -69,12 +69,13 @@
     <string name="alert_dialog_builder_delete_yes">Löschen</string>
     <string name="alert_dialog_builder_delete_no">Abbrechen</string>
 
+    //String for Notes Layout
     <string name="notes_and_grades_notes_fragement">Notizen</string>
     <string name="notes_and_grades_grades_fragement">Noten</string>
     <string name="notes_grades_title_grades">Noten</string>
     <string name="content_description_button">ButtonForAction</string>
     <string name="notes_grades_title_notes">Notizen</string>
-    <string name="notes_title">Alle Notizen</string>
+    <string name="notes_title">Notizen</string>
     <string name="notes_intent">Notes</string>
     <string name="add_calendar_entry_title_hint">Titel</string>
     <string name="add_note_lecture_hint">Vorlesung</string>
@@ -87,6 +88,9 @@
     <string name="calendar_entry_details">Ereignisdetails</string>
     <string name="calendar_entry_details_category">Kategorie</string>
     <string name="calendar_entry_details_location">Standort</string>
+
+    //Strings for Grades Layout
+    <string name="grades_title">Meine Noten</string>
 
     <string-array name="colourArray">
         <item>hellblau</item>

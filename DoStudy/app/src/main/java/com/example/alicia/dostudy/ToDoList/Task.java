@@ -1,6 +1,9 @@
 package com.example.alicia.dostudy.ToDoList;
 
 
+import com.example.alicia.dostudy.CalendarEntry;
+import com.example.alicia.dostudy.DateFormatter;
+
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -23,16 +26,17 @@ public class Task implements Comparable<Task> {
     public String getFormattedDate() {
         DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT,
                 Locale.GERMANY);
-        return df.format(cal.getTime());
+        String date = df.format(cal.getTime());
+        return date;
     }
 
-    public Date getDueDate() {
-        return cal.getTime();
+    public String getDate() {
+        return cal.getTime().toString();
     }
 
     @Override
     public int compareTo(Task another) {
-        return getDueDate().compareTo(another.getDueDate());
+        return getDate().compareTo("" + another.getDate());
     }
 
     @Override
