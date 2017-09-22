@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.alicia.dostudy.Notes.NotesDatabase;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;

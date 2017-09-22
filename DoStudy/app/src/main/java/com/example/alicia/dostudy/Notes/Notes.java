@@ -1,4 +1,6 @@
-package com.example.alicia.dostudy;
+package com.example.alicia.dostudy.Notes;
+
+import com.example.alicia.dostudy.DateFormatter;
 
 import java.io.Serializable;
 

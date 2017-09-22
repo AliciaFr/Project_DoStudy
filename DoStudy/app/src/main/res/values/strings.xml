@@ -89,6 +89,9 @@
     <string name="calendar_entry_details_category">Kategorie</string>
     <string name="calendar_entry_details_location">Standort</string>
 
+    //Strings for Grades Layout
+    <string name="grades_title">Meine Noten</string>
+
     <string-array name="colourArray">
         <item>hellblau</item>
         <item>dunkelblau</item>
