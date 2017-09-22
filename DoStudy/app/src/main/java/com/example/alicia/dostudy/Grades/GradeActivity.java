@@ -3,6 +3,7 @@ package com.example.alicia.dostudy.Grades;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
@@ -11,6 +12,9 @@ import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.Toast;
 
 import com.example.alicia.dostudy.R;
+import com.example.alicia.dostudy.ToDoList.Task;
+import com.example.alicia.dostudy.ToDoList.ToDoListAdapter;
+import com.example.alicia.dostudy.ToDoList.ToDoListDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,13 +31,18 @@ public class GradeActivity extends AppCompatActivity {
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
 
+    private ArrayList<Grade> grades;
+    private GradesAdapter grades_adapter;
+    private GradesDatabase grates_db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grades);
 
-        // get the listview
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
+        initGradeList();
+        initDatabase();
+        initUI();
 
         // preparing list data
         prepareListData();
@@ -43,7 +52,7 @@ public class GradeActivity extends AppCompatActivity {
         // setting list adapter
         expListView.setAdapter(listAdapter);
 
-    // Listview Group click listener
+        // Listview Group click listener
         expListView.setOnGroupClickListener(new OnGroupClickListener() {
 
         @Override
@@ -95,6 +104,51 @@ public class GradeActivity extends AppCompatActivity {
         }
     });
 }
+
+    private void initGradeList() {
+        grades = new ArrayList<Grade>();
+    }
+
+    /* private void initListAdapter() {
+        expListView = (ExpandableListView) findViewById(R.id.lvExp);
+        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+        // setting list adapter
+        expListView.setAdapter(listAdapter);
+    }
+    */
+
+    private void initDatabase() {
+        grates_db = new GradesDatabase(this);
+        grates_db.open();
+    }
+
+    private void initUI() {
+        initButton();
+        initListView();
+    }
+
+    private void initListView() {
+        // get the listview
+        expListView = (ExpandableListView) findViewById(R.id.lvExp);
+
+
+    }
+
+    private void initButton() {
+        Button addCourseButton = (Button) findViewById(R.id.grades_edit_button);
+        addCourseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addCourseToList();
+            }
+        });
+    }
+
+    private void addCourseToList() {
+
+    }
+
+
     /*
      * Preparing the list data
      */
