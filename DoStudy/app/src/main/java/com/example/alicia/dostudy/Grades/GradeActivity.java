@@ -2,7 +2,13 @@ package com.example.alicia.dostudy.Grades;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.ExpandableListView.OnGroupCollapseListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.Toast;
 
 import com.example.alicia.dostudy.R;
 
@@ -36,8 +42,59 @@ public class GradeActivity extends AppCompatActivity {
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
-    }
 
+    // Listview Group click listener
+        expListView.setOnGroupClickListener(new OnGroupClickListener() {
+
+        @Override
+        public boolean onGroupClick(ExpandableListView parent, View v,
+        int groupPosition, long id) {
+            return false;
+        }
+    });
+
+    // Listview Group expanded listener
+        expListView.setOnGroupExpandListener(new OnGroupExpandListener() {
+
+        @Override
+        public void onGroupExpand(int groupPosition) {
+            Toast.makeText(getApplicationContext(),
+                    listDataHeader.get(groupPosition) + "Gruppe aufgeklappt",
+                    Toast.LENGTH_SHORT).show();
+        }
+    });
+
+    // Listview Group collasped listener
+        expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
+
+        @Override
+        public void onGroupCollapse(int groupPosition) {
+            Toast.makeText(getApplicationContext(),
+                    listDataHeader.get(groupPosition) + "Gruppe zusammengeklappt",
+                    Toast.LENGTH_SHORT).show();
+
+        }
+    });
+
+    // Listview on child click listener
+        expListView.setOnChildClickListener(new OnChildClickListener() {
+
+        @Override
+        public boolean onChildClick(ExpandableListView parent, View v,
+        int groupPosition, int childPosition, long id) {
+            // TODO Auto-generated method stub
+            Toast.makeText(
+                    getApplicationContext(),
+                    listDataHeader.get(groupPosition)
+                            + " : "
+                            + listDataChild.get(
+                            listDataHeader.get(groupPosition)).get(
+                            childPosition), Toast.LENGTH_SHORT)
+                    .show();
+            return false;
+        }
+    });
+}
     /*
      * Preparing the list data
      */
