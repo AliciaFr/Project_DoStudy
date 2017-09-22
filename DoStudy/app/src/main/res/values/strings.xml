@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">DoStudy</string>
 
+    //Strings for Home-Layout
+    <string name="todo">To Do Liste</string>
+    <string name="timetable">Stundenplan</string>
+    <string name="calendar">Kalender</string>
+    <string name="grades">Notenübersicht</string>
+
     // Strings for Login-Layout
     <string name="login_input_email">Username or email address</string>
     <string name="login_input_password">Password</string>
@@ -41,21 +47,32 @@
     <string name="friday">Freitag</string>
 
     <string name="day">Tag</string>
-    <string name="hint_course">Kurs hinzufügen</string>
-    <string name="hint_time">Beginn</string>
-    <string name="button">OK</string>
-
-    <string name="view_course">Kursdaten</string>
-    <string name="course_title">Titel:</string>
+    <string name="course_title">Titel: </string>
     <string name="time">Zeit:</string>
-    <string name="begin">von</string>
-    <string name="end">bis</string>
+    <string name="begin_time">Beginn </string>
+    <string name="end_time">Ende </string>
     <string name="room">Raum:</string>
     <string name="lecturer">Dozent:</string>
     <string name="test">Klausur:</string>
     <string name="colour">Farbe:</string>
     <string name="button_save">speichern</string>
 
+    <string name="view_course">Kursdaten</string>
+    <string name="begin">von</string>
+    <string name="end">bis</string>
+
+    <string-array name="colourArray">
+        <item>hellblau</item>
+        <item>dunkelblau</item>
+        <item>türkis</item>
+        <item>hellgrün</item>
+        <item>dunkelgrün</item>
+        <item>gelb</item>
+        <item>orange</item>
+        <item>rot</item>
+    </string-array>
+
+    //
     <string name="notification">Nicht vergessen! Du hast heute ein Ereignis</string>
     <string name="notification_title">DoStudy</string>
     <string name="notification_content_text">Bevorstehendes Ereignis</string>
@@ -88,15 +105,6 @@
     <string name="calendar_entry_details_category">Kategorie</string>
     <string name="calendar_entry_details_location">Standort</string>
 
-    <string-array name="colourArray">
-        <item>hellblau</item>
-        <item>dunkelblau</item>
-        <item>türkis</item>
-        <item>hellgrün</item>
-        <item>dunkelgrün</item>
-        <item>gelb</item>
-        <item>orange</item>
-        <item>rot</item>
-    </string-array>
+
 
 </resources>

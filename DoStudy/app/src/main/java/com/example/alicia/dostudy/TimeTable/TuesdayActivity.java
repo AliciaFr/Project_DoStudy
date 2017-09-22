@@ -61,7 +61,7 @@ public class TuesdayActivity extends AppCompatActivity {
     }
 
     private void setupButton(){
-        okayButton = (Button) findViewById(R.id.button);
+        okayButton = (Button) findViewById(R.id.button_save);
         okayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,8 +71,8 @@ public class TuesdayActivity extends AppCompatActivity {
     }
 
     private void addInputToList() {
-        courseName = (EditText) findViewById(R.id.course_input);
-        courseTime = (EditText) findViewById(R.id.input_time);
+        courseName = (EditText) findViewById(R.id.input_course);
+        courseTime = (EditText) findViewById(R.id.input_time_begin);
         courseTimeEnd = (EditText) findViewById(R.id.input_time_end);
         courseRoom = (EditText) findViewById(R.id.input_room);
         courseLecturer = (EditText) findViewById(R.id.input_lecturer);

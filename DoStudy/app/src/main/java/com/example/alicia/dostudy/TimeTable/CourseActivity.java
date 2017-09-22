@@ -39,7 +39,7 @@ public class CourseActivity extends AppCompatActivity {
     }
 
     private void initButton(){
-        saveAll = (Button)findViewById(R.id.button);
+        saveAll = (Button)findViewById(R.id.button_save);
         saveAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

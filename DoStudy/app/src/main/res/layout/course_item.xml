@@ -12,7 +12,9 @@
         android:layout_height="fill_parent"
         android:gravity="center_vertical"
         android:padding="5dp"
-        android:textSize="15sp" />
+        android:textSize="16sp"
+        android:textColor="@color/holoBlue"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/course_begin"
@@ -22,6 +24,7 @@
         android:layout_alignParentEnd="true"
         android:gravity="center_vertical"
         android:padding="5dp"
-        android:textSize="14sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/black"/>
 
 </RelativeLayout>

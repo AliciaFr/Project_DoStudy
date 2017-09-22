@@ -36,11 +36,12 @@
         <activity android:name=".TimeTable.ThursdayActivity" />
         <activity android:name=".TimeTable.FridayActivity" />
         <activity android:name=".TimeTable.CourseActivity"/>
+        <activity android:name=".TimeTable.CourseDetailActivity"/>
         <activity android:name=".NotesActivity" />
         <activity android:name=".AddNoteActivity" />
         <activity android:name=".NotesDetails" />
         <activity android:name=".NotesGradesActivity" />
-        <activity android:name=".TimeTable.CourseDetailActivity"></activity>
+
 
 
     </application>
