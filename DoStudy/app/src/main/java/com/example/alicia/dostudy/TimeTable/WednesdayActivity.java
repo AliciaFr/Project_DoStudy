@@ -42,7 +42,7 @@ public class WednesdayActivity extends AppCompatActivity {
     }
 
     private void initDB() {
-        database = new CourseItemDatabase(this);
+        database = new CourseItemDatabase(this, "wednesdayCourses.db");
         database.open();
     }
 

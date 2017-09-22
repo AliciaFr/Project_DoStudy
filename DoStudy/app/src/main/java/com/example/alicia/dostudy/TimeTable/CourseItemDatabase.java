@@ -40,8 +40,8 @@ public class CourseItemDatabase {
     private ToDoDBOpenHelper dbHelper;
     private SQLiteDatabase db;
 
-    public CourseItemDatabase(Context context) {
-        dbHelper = new ToDoDBOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION);
+    public CourseItemDatabase(Context context, String dBName) {
+        dbHelper = new ToDoDBOpenHelper(context, dBName, null, DATABASE_VERSION);
     }
 
     public void open() throws SQLException {

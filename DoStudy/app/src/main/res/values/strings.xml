@@ -47,8 +47,6 @@
     <string name="friday">Freitag</string>
 
     <string name="day">Tag</string>
-    <string name="hint_course">Kurs hinzufügen</string>
-    <string name="hint_time">Beginn</string>
     <string name="button">OK</string>
 
     <string name="view_course">Kursdaten</string>
