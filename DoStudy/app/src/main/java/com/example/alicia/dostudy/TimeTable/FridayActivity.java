@@ -1,5 +1,6 @@
 package com.example.alicia.dostudy.TimeTable;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -108,6 +109,31 @@ public class FridayActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 removeTaskAtPosition(position);
                 return true;
+            }
+        });
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
+                String name = courseItems.get(position).getCourseName();
+                String begin = courseItems.get(position).getCourseBegin();
+                String end = courseItems.get(position).getCourseEnd();
+                String room = courseItems.get(position).getRoom();
+                String lecturer = courseItems.get(position).getLecturer();
+                String date = courseItems.get(position).getTestDate();
+                String colour = courseItems.get(position).getColour();
+
+                Intent getDetails = new Intent(FridayActivity.this, CourseDetailActivity.class);
+                getDetails.putExtra("Name", name);
+                getDetails.putExtra("Begin", begin);
+                getDetails.putExtra("End", end);
+                getDetails.putExtra("Room", room);
+                getDetails.putExtra("Lecturer", lecturer);
+                getDetails.putExtra("Date", date);
+                getDetails.putExtra("Colour", colour);
+
+                startActivity(getDetails);
             }
         });
     }
