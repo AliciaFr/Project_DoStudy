@@ -69,10 +69,6 @@
     <string name="colour_6">rot</string>
     <string name="colour_7">keine</string>
 
-    <string name="notification">Nicht vergessen! Du hast heute ein Ereignis</string>
-    <string name="notification_title">DoStudy</string>
-    <string name="notification_content_text">Bevorstehendes Ereignis</string>
-    <string name="notification_click">Zum Kalender</string>
     <string name="preferences_key_notifications">sharedPreferences</string>
     <string name="icon_for_navigation">icon For Navigation</string>
     <string name="calendar_entry_details_eventdetails">Ereignisdetails</string>
@@ -109,6 +105,20 @@
     <string name="add_course_hint">Kurs hinzufügen</string>
     <string name="add_grade_hint">Note hinzufügen</string>
     <string name="add_course_grade_button">Hinzufügen</string>
+
+    // Strings für Calendar
+
+    // Strings für Notification
+    <string name="notification_calendar">Nicht vergessen! Du hast heute ein Ereignis</string>
+    <string name="notification_title">DoStudy</string>
+    <string name="notification_content_text_calendar">Bevorstehendes Ereignis</string>
+    <string name="notification_click_calendar">Zum Kalender</string>
+
+    <string name="notification_todo">Nicht vergessen! Du hast heute eine Aufgabe</string>
+    <string name="notification_content_text_todo">Bevorstehende Aufgabe</string>
+    <string name="notification_click_todo">Zur To-Do Liste</string>
+    <string name="notification_ticker_todo">Du hast eine Aufgabe</string>
+
 
     //Strings for colour-array
     <string-array name="colourArray">

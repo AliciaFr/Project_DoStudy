@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-      <receiver android:name=".AlarmReceiver"/>
+      <receiver android:name=".CalendarAlarmReceiver"/>
         <service android:name=".NotificationService" />
 
         <activity android:name=".HomeActivity"
