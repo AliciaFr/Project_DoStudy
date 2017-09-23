@@ -40,6 +40,9 @@ public class CourseItemAdapter extends ArrayAdapter<CourseItem> {
         CourseItem item = itemArrayList.get(position);
 
         if (item != null) {
+
+            view.setBackgroundResource(getColourForCourse(item.getColour()));
+
             TextView courseName = (TextView) view.findViewById(R.id.course_name);
             TextView courseBegin = (TextView) view.findViewById(R.id.course_begin);
 
@@ -48,5 +51,25 @@ public class CourseItemAdapter extends ArrayAdapter<CourseItem> {
         }
 
         return view;
+    }
+
+    private int getColourForCourse(int colour){
+        if (colour == 0) {
+            return R.color.lightBlue;
+        } else if (colour == 1) {
+            return R.color.darkBlue;
+        } else if (colour == 2) {
+            return R.color.aquamarine;
+        } else if (colour == 3) {
+            return R.color.lightGreen;
+        } else if (colour == 4) {
+            return R.color.darkGreen;
+        } else if (colour == 5) {
+            return R.color.yellow;
+        } else if (colour == 6) {
+            return R.color.red;
+        } else {
+            return R.color.white;
+        }
     }
 }
