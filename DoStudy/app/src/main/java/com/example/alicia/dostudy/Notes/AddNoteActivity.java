@@ -1,4 +1,4 @@
-package com.example.alicia.dostudy;
+package com.example.alicia.dostudy.Notes;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -24,7 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.alicia.dostudy.Notes.NotesDatabase;
+import com.example.alicia.dostudy.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

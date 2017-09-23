@@ -1,11 +1,7 @@
 package com.example.alicia.dostudy.ToDoList;
 
 
-import com.example.alicia.dostudy.CalendarEntry;
-import com.example.alicia.dostudy.DateFormatter;
-
 import java.text.DateFormat;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 

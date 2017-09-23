@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.example.alicia.dostudy.AddNoteActivity;
 import com.example.alicia.dostudy.R;
 
 import java.util.ArrayList;
