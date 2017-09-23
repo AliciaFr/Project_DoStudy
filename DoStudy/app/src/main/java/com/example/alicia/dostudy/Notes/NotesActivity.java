@@ -1,4 +1,4 @@
-package com.example.alicia.dostudy;
+package com.example.alicia.dostudy.Notes;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+
+import com.example.alicia.dostudy.AddNoteActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;

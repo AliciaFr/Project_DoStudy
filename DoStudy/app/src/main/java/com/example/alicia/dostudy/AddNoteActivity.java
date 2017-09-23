@@ -15,7 +15,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -25,12 +24,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.alicia.dostudy.Notes.NotesDatabase;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
-import java.util.Enumeration;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
@@ -49,7 +49,6 @@ public class AddNoteActivity extends AppCompatActivity {
     private String filePathImage;
 
     private static final int REQUEST_CAMERA = 0, SELECT_FILE = 1;
-    private ImageView ivCapturedImage;
     private String userChoosenTask;
 
 

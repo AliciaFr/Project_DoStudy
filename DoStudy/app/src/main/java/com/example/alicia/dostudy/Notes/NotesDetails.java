@@ -1,4 +1,4 @@
-package com.example.alicia.dostudy;
+package com.example.alicia.dostudy.Notes;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.alicia.dostudy.DateFormatter;
 
 import static com.example.alicia.dostudy.R.id.notes_details_delete;
 

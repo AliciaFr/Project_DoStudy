@@ -1,4 +1,4 @@
-package com.example.alicia.dostudy;
+package com.example.alicia.dostudy.Notes;
 
 import android.app.Fragment;
 import android.os.Bundle;

@@ -2,13 +2,14 @@ package com.example.alicia.dostudy;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.alicia.dostudy.Notes.NotesActivity;
 
 /* This activity creates a TabLayout where the user can choose between adding notes or grades
  */
