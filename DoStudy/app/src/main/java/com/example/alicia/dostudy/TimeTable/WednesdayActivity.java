@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.alicia.dostudy.R;
 
@@ -130,6 +131,7 @@ public class WednesdayActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 removeTaskAtPosition(position);
+                makeToast();
                 return true;
             }
         });
@@ -165,6 +167,13 @@ public class WednesdayActivity extends AppCompatActivity {
             database.removeCourseItem(courseItems.get(position));
             updateList();
         }
+    }
+
+    private void makeToast(){
+        String deleted = "Kurs gelöscht!";
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(WednesdayActivity.this, deleted, duration);
+        toast.show();
     }
 
     private void updateList(){
