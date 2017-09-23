@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.support.v7.app.AlertDialog;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
@@ -135,8 +136,8 @@ public class AddCalendarEntryActivity extends Activity {
                 } else {
                     editTitle.setText("");
                     editDescription.setText("");
-                    editDate.setText("");
-                    editTime.setText("");
+                    timeValue.setText("");
+                    dateValue.setText("");
                     addEntry(title, description, date, time);
                     Toast toastAdded = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_calendar_entry_added), Toast.LENGTH_SHORT);
                     toastAdded.show();
@@ -184,9 +185,9 @@ public class AddCalendarEntryActivity extends Activity {
         }
 
         public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-            TextView dateValue = (TextView) getActivity().findViewById(R.id.add_note_add_date);
+            TextView dateValue = (TextView) getActivity().findViewById(R.id.addCalendarEntryDateValue);
             GregorianCalendar date = new GregorianCalendar(year, month, day);
-            java.text.DateFormat dateformat = java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT, Locale.GERMANY);
+            DateFormat dateformat = DateFormat.getDateInstance(DateFormat.SHORT, Locale.GERMANY);
             String dateToString = dateformat.format(date.getTime());
             dateValue.setText(dateToString);
         }
