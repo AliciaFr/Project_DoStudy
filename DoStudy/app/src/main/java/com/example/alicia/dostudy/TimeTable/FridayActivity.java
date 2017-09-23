@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.alicia.dostudy.R;
@@ -24,7 +26,7 @@ public class FridayActivity extends AppCompatActivity {
     EditText courseRoom;
     EditText courseLecturer;
     EditText courseDate;
-    EditText courseColour;
+    Spinner courseColour;
 
     private ArrayList<CourseItem> courseItems;
     private CourseItemAdapter item_adapter;
@@ -56,6 +58,8 @@ public class FridayActivity extends AppCompatActivity {
     private void setupUI(){
         day = (TextView)findViewById(R.id.day);
         day.setText(R.string.friday);
+        courseColour = (Spinner) findViewById(R.id.input_colour);
+        initSpinner();
         setupButton();
         setupListView();
     }
@@ -77,7 +81,6 @@ public class FridayActivity extends AppCompatActivity {
         courseRoom = (EditText) findViewById(R.id.input_room);
         courseLecturer = (EditText) findViewById(R.id.input_lecturer);
         courseDate = (EditText) findViewById(R.id.input_date);
-        courseColour = (EditText) findViewById(R.id.input_colour);
 
         String name = courseName.getText().toString();
         String begin = courseTime.getText().toString();
@@ -85,21 +88,40 @@ public class FridayActivity extends AppCompatActivity {
         String room = courseRoom.getText().toString();
         String lecturer = courseLecturer.getText().toString();
         String date = courseDate.getText().toString();
-        String colour = courseColour.getText().toString();
+        int colour = courseColour.getSelectedItemPosition();
 
-        if (!name.equals("") && !begin.equals("") && !end.equals("") && !room.equals("") && !lecturer.equals("") && !date.equals("") && !colour.equals("")) {
+        if (!name.equals("") && !begin.equals("") && !end.equals("") && !room.equals("") && !lecturer.equals("") && !date.equals("")) {
             courseName.setText("");
             courseTime.setText("");
             courseTimeEnd.setText("");
             courseRoom.setText("");
             courseLecturer.setText("");
             courseDate.setText("");
-            courseColour.setText("");
 
             CourseItem newItem = new CourseItem(name, begin, end, room, lecturer, date, colour);
             database.insertCourseItem(newItem);
             updateList();
         }
+    }
+
+    private void initSpinner(){
+        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(FridayActivity.this, R.array.colourArray, android.R.layout.simple_spinner_item);
+
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        courseColour.setAdapter(spinnerAdapter);
+
+        courseColour.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View v, int position, long arg3) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     private void setupListView() {
@@ -122,7 +144,7 @@ public class FridayActivity extends AppCompatActivity {
                 String room = courseItems.get(position).getRoom();
                 String lecturer = courseItems.get(position).getLecturer();
                 String date = courseItems.get(position).getTestDate();
-                String colour = courseItems.get(position).getColour();
+                int colour = courseItems.get(position).getColour();
 
                 Intent getDetails = new Intent(FridayActivity.this, CourseDetailActivity.class);
                 getDetails.putExtra("Name", name);
@@ -157,5 +179,4 @@ public class FridayActivity extends AppCompatActivity {
         super.onDestroy();
         database.close();
     }
-
 }
