@@ -12,7 +12,7 @@
     <color name="darkGreen">#458B00</color>
     <color name="yellow">#FFD700</color>
     <color name="red">#FF3030</color>
-    <color name="orange">#FF8C00</color>
+    <color name="white">#FFFF</color>
 
     // app colors
     <color name="holoBlue">#0099cc</color>
