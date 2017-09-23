@@ -109,6 +109,8 @@
     <string name="add_course_hint">Kurs hinzufügen</string>
     <string name="add_grade_hint">Note hinzufügen</string>
     <string name="add_course_grade_button">Hinzufügen</string>
+    <string name="menu_share_text">Hallo! Am %1$s findet %2$s statt. Magst du auch daran teilnehmen?</string>
+    <string name="calendar_menu_curr_date">Heutiges Datum</string>
 
     //Strings for colour-array
     <string-array name="colourArray">

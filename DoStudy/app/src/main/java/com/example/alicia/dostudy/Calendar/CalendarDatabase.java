@@ -26,6 +26,8 @@ public class CalendarDatabase {
     public static final String KEY_DATE = "date";
     public static final String KEY_TIME = "time";
 
+    private static final String KEY_TASK = "task";
+
     private DBOpenHelper helper;
     private SQLiteDatabase db;
 
@@ -76,15 +78,23 @@ public class CalendarDatabase {
         return entries;
     }
 
-    public void deleteEntry(String title, String description, String time){
-        String whereClause = KEY_TITLE + " =? AND " + KEY_DESCRIPTION + " =? AND " + KEY_TIME + " =?";
+    public void deleteEntry(String title, String description, String date, String time){
+        String whereClause = KEY_TITLE + " =? AND " + KEY_DESCRIPTION + " =? AND " + KEY_DATE + " =? AND " + KEY_TIME + " =?";
         open();
         db.delete(DATABASE_TABLE, whereClause, new String[]{
-                title, description, time
+                title, description, date, time
         });
         close();
     }
 
+    public void deleteAllEntries(){
+        String whereClause = KEY_TITLE + " =? AND " + KEY_DESCRIPTION + " =? AND " + KEY_DATE + " =? AND " + KEY_TIME + " =?";
+        open();
+        db.delete(DATABASE_TABLE, whereClause, new String[]{
+                DATABASE_NAME
+        });
+        close();
+    }
 
 
     private class DBOpenHelper extends SQLiteOpenHelper {
