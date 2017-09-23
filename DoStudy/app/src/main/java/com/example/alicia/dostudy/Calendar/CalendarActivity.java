@@ -1,5 +1,6 @@
 package com.example.alicia.dostudy.Calendar;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -144,12 +145,16 @@ public class CalendarActivity extends AppCompatActivity {
             public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 int firstVisibleRow = listview.getFirstVisiblePosition();
                 System.out.println(firstVisibleRow + "firstRow");
-                int currDateInInt = adapter.getItem(firstVisibleItem).getDate();
-                System.out.println(currDateInInt + "view");
-                String currDateInString = DateFormatter.dateToString(currDateInInt);
-                System.out.println("currDate" + currDateInString);
-                Date currDate = DateFormatter.stringToDate(currDateInString);
-                calendarView.setCurrentDate(currDate);
+                CalendarEntry firstVisible = adapter.getItem(firstVisibleItem);
+                if (firstVisible != null){
+                    int currDateInInt = firstVisible.getDate();
+
+                    System.out.println(currDateInInt + "view");
+                    String currDateInString = DateFormatter.dateToString(currDateInInt);
+                    System.out.println("currDate" + currDateInString);
+                    Date currDate = DateFormatter.stringToDate(currDateInString);
+                    calendarView.setCurrentDate(currDate);
+                }
             }
         });
     }
