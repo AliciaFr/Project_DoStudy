@@ -17,7 +17,7 @@ public class InternDatabase {
 
     private static final String DATABASE_NAME = "calendarentry";
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_TABLE = "events";
+    private static final String DATABASE_TABLE = "entries";
 
     public static final String KEY_TITLE = "title";
     public static final String KEY_DESCRIPTION = "description";
