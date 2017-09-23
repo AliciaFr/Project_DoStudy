@@ -86,6 +86,7 @@
     <string name="calendar_entry_details_category">Kategorie</string>
     <string name="calendar_entry_details_location">Standort</string>
     <string name="dialog_overwrite">Die bestehende Datei überschreiben?</string>
+    <string name="take_picture_intent">TakePictureIntent</string>
 
     <string-array name="colourArray">
         <item>hellblau</item>

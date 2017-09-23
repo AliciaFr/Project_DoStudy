@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,6 +27,8 @@ public class AddNoteActivity extends AppCompatActivity {
 
     private NotesDatabase database;
 
+    private String filePathImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,15 @@ public class AddNoteActivity extends AppCompatActivity {
         initDatePicker();
         initTakePicture();
         initAddButton();
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK) {
+                filePathImage = data.getStringExtra(getResources().getString(R.string.take_picture_intent));
+            }
+        }
     }
 
     private void initDB() {
@@ -65,7 +77,7 @@ public class AddNoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent startCameraIntent = new Intent(AddNoteActivity.this, TakePictureActivity.class);
-                startActivity(startCameraIntent);
+                startActivityForResult(startCameraIntent, 1);
             }
         });
     }
@@ -87,8 +99,8 @@ public class AddNoteActivity extends AppCompatActivity {
                     editLecture.setText("");
                     selectedDate.setText("");
                     editNote.setText("");
-                    long longfiller = 0;
-                    addNote(title, lecture, date, note, longfiller);
+
+                    addNote(title, lecture, date, note, filePathImage);
                     Toast toastAdded = Toast.makeText(AddNoteActivity.this, getResources().getString(R.string.toast_note_added), Toast.LENGTH_SHORT);
                     toastAdded.show();
                 }
@@ -96,8 +108,8 @@ public class AddNoteActivity extends AppCompatActivity {
         });
     }
 
-    private void addNote(String title, String lecture, String date, String note, long image) {
-        database.insertNotes(title, lecture, date, note, image);
+    private void addNote(String title, String lecture, String date, String note, String filePathImage) {
+        database.insertNotes(title, lecture, date, note, filePathImage);
     }
 
     private void showDatePickerDialog() {
@@ -124,6 +136,4 @@ public class AddNoteActivity extends AppCompatActivity {
             dateValue.setText(dateToString);
         }
     }
-
-
 }

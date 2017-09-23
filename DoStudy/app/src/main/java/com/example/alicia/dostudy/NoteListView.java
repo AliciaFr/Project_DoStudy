@@ -2,7 +2,11 @@ package com.example.alicia.dostudy;
 
 import java.io.Serializable;
 
-public class Notes implements Comparable<Notes>, Serializable {
+/**
+ * Created by Alicia on 23.09.2017.
+ */
+
+public class NoteListView implements Comparable<NoteListView>, Serializable {
 
 
     private String title;
@@ -11,15 +15,13 @@ public class Notes implements Comparable<Notes>, Serializable {
     private String note;
     private String filePathImage;
 
-    public Notes() {
+    public NoteListView() {
     }
 
-    public Notes(String title, String lecture, int date, String note, String image) {
+    public NoteListView(String title, String lecture, int date) {
         this.title = title;
         this.lecture = lecture;
         this.date = date;
-        this.note = note;
-        this.filePathImage = image;
     }
 
     public String getTitle() {
@@ -63,7 +65,7 @@ public class Notes implements Comparable<Notes>, Serializable {
     }
 
     @Override
-    public int compareTo(Notes another) {
+    public int compareTo(NoteListView another) {
         int comparisonResult = ( "" + date).compareTo("" + another.getDate());
         if(comparisonResult == 0){
             comparisonResult = DateFormatter.dateToString(date).compareTo(DateFormatter.dateToString(another.getDate()));

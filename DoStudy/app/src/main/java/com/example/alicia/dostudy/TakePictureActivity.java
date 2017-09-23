@@ -39,10 +39,21 @@ public class TakePictureActivity extends Activity {
     private static final int REQUEST_IMAGE_CAPTURE = 0;
     private static final int REQUEST_IMAGE_FROM_GALLERY = 1;
 
+    private NotesDatabase database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.picture_activity);
+        initDB();
+        Button cancelButton = (Button) findViewById(R.id.picture_cancel);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent cancelIntent = new Intent(TakePictureActivity.this, AddNoteActivity.class);
+                startActivity(cancelIntent);
+            }
+        });
         // Hide button for taking an image when no camera is present
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
             Toast.makeText(this, "Your device doesn't have a camera!", Toast.LENGTH_LONG).show();
@@ -70,6 +81,10 @@ public class TakePictureActivity extends Activity {
                 }
             }
         }
+    }
+
+    private void initDB() {
+        database = new NotesDatabase(this);
     }
 
 
@@ -242,6 +257,7 @@ public class TakePictureActivity extends Activity {
         }
         try {
             outFile = new FileOutputStream(imageFile);
+
             // http://stackoverflow.com/a/8306683/3992979
             // Use JPG encoding as default
             Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.JPEG;
@@ -253,6 +269,7 @@ public class TakePictureActivity extends Activity {
                 compressFormat = Bitmap.CompressFormat.WEBP;
             }
             bmp.compress(compressFormat, 100, outFile);
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -260,12 +277,15 @@ public class TakePictureActivity extends Activity {
                 if (outFile != null) {
                     outFile.flush();
                     outFile.close();
-                    Toast.makeText(this, imageFile.getAbsolutePath() + " written", Toast.LENGTH_SHORT)
+                    Intent intent = new Intent();
+                    intent.putExtra(getResources().getString(R.string.take_picture_intent), imageFile.getAbsolutePath());
+                    setResult(RESULT_OK, intent);
+                    Toast.makeText(this, "Bild gespeichert", Toast.LENGTH_SHORT)
                             .show();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-                Toast.makeText(this, "Error writting file!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Fehler beim Speichern", Toast.LENGTH_SHORT).show();
             }
         }
     }
