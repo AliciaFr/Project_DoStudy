@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">DoStudy</string>
 
-    //Strings for Home-Layout
+    <!-- Strings for Home-Layout -->
     <string name="todo">To Do Liste</string>
     <string name="timetable">Stundenplan</string>
     <string name="calendar">Kalender</string>
     <string name="grades">Noten und Notizen</string>
 
-    // Strings for Login-Layout
+    <!-- Strings for Login-Layout -->
     <string name="login_input_email">Username or email address</string>
     <string name="login_input_password">Password</string>
     <string name="login_checkbox">Remember me</string>
@@ -15,7 +15,7 @@
     <string name="login_button_signup">Sign up</string>
     <string name="login_forgot">Forgot your password?</string>
 
-    // Strings for Sign-up Layout
+    <!-- Strings for Sign-up Layout -->
     <string name="signup_welcome">Welcome at DoStudy!</string>
     <string name="signup_input_email">Email address</string>
     <string name="signup_input_name">Name</string>
@@ -29,7 +29,7 @@
     <string name="time_picker">timePicker</string>
     <string name="calendar_entry_intent">calendar_entry</string>
 
-    // Strings for ToDoList Layout
+    <!-- Strings for ToDoList Layout -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_item_header">Aktuelle Aufgaben</string>
     <string name="add_item_hint">Neue Aufgabe</string>
@@ -38,7 +38,7 @@
     <string name="action_sort">Nach Datum sortieren</string>
     <string name="delete_all">Alle Aufgaben löschen</string>
 
-    // Strings for TimeTable Components
+    <!-- Strings for TimeTable Components -->
     <string name="personal_timetable">Mein Stundenplan</string>
     <string name="monday">Montag</string>
     <string name="tuesday">Dienstag</string>
@@ -82,7 +82,7 @@
     <string name="alert_dialog_builder_delete_yes">Löschen</string>
     <string name="alert_dialog_builder_delete_no">Abbrechen</string>
 
-    //String for Notes Layout
+    <!-- String for Notes Layout -->
     <string name="notes_and_grades_notes_fragement">Notizen</string>
     <string name="notes_and_grades_grades_fragement">Noten</string>
     <string name="notes_grades_title_grades">Noten</string>
@@ -104,15 +104,28 @@
     <string name="dialog_overwrite">Die bestehende Datei überschreiben?</string>
     <string name="take_picture_intent">TakePictureIntent</string>
 
-    //Strings for Grades Layout
+    <!-- Strings for Grades Layout -->
     <string name="grades_title">Meine Noten</string>
     <string name="add_course_hint">Kurs hinzufügen</string>
     <string name="add_grade_hint">Note hinzufügen</string>
     <string name="add_course_grade_button">Hinzufügen</string>
     <string name="menu_share_text">Hallo! Am %1$s findet %2$s statt. Magst du auch daran teilnehmen?</string>
     <string name="calendar_menu_curr_date">Heutiges Datum</string>
+    <string name="add_calendar_entry_all_day">Ganztägig</string>
+    <string name="add_calendar_entry_date">Datum</string>
+    <string name="add_calendar_entry_time">Uhrzeit</string>
+    <string name="add_calendar_entry_notification">Benachrichtigung</string>
+    <string name="add_calendar_entry_spinner_hint">Kategorie</string>
+    <string name="add_calendar_entry_button_add">Hinzufügen</string>
+    <string name="add_calendar_entry_location_reminder">An diesem Ort erinnern</string>
+    <string name="add_calendar_entry_add_location">Location hinzufügen</string>
+    <string name="add_calendar_entry_reminder">add_calendar_entry_reminder_hint</string>
+    <string name="toast_missing_category">Wähle bitte ein Kategorie</string>
+    <string name="toast_missing_date">Füge bitte ein Datum hinzu</string>
+    <string name="toast_missing_reminder">Wähle bitte einen Wert für Benachrichtigungen aus</string>
+    <string name="calendar_entry_details_alarm_tv">Benachrichtigung</string>
 
-    //Strings for colour-array
+    <!-- Strings for colour-array -->
     <string-array name="colourArray">
         <item>hellblau</item>
         <item>dunkelblau</item>
@@ -122,6 +135,26 @@
         <item>gelb</item>
         <item>rot</item>
         <item>keine</item>
+    </string-array>
+
+    <!-- Strings for colour-array -->
+    <string-array name="entry_category_array">
+        <item>Klausur</item>
+        <item>Deadline</item>
+        <item>Party</item>
+        <item>Termin</item>
+        <item>Sonstiges</item>
+    </string-array>
+
+    <!-- Strings for reminder array -->
+    <string-array name="entry_reminder_array">
+        <item>Pünktlich</item>
+        <item>15 Min. vorher</item>
+        <item>30 Min. vorher</item>
+        <item>2 Stunden vorher</item>
+        <item>5 Stunden vorher</item>
+        <item>12 Stunden vorher</item>
+        <item>24 Stunden vorher</item>
     </string-array>
 
 </resources>

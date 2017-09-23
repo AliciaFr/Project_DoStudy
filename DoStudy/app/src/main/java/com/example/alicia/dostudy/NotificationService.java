@@ -51,6 +51,7 @@ public class NotificationService extends Service {
         String date = DateFormatter.dateToString(entries.get(i).getDate());
         String time = entries.get(i).getTime();
         String dateAndTime = date + " " + time;
+        long reminder = entries.get(i).getReminder();
         long dateAndTimeInLong;
         try {
             Date entryDate = simpleDateFormat.parse(dateAndTime);
@@ -58,13 +59,13 @@ public class NotificationService extends Service {
         } catch (ParseException e) {
             return;
         }
-        long notificationTime = dateAndTimeInLong;
+        long notificationTime = dateAndTimeInLong - reminder;
 
         Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), i,
                 intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, notificationTime, pendingIntent);
         }
     }

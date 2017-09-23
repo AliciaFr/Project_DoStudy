@@ -1,28 +1,19 @@
 package com.example.alicia.dostudy.Calendar;
 
-import android.content.ClipData;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.alicia.dostudy.DateFormatter;
 import com.example.alicia.dostudy.R;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -153,12 +144,15 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
     private void addEntryToCalendar() {
+
         ListIterator<CalendarEntry> iterator = arrayList.listIterator();
         while(iterator.hasNext()) {
+            //String category = iterator.next().getDescription();
             String stringDate = DateFormatter.dateToString(iterator.next().getDate());
             long timestampDate = DateFormatter.stringToDate(stringDate).getTime();
-            Event event = new Event(Color.rgb(0, 153, 204), timestampDate);
-            calendarView.addEvent(event, true);
+                Event event = new Event(Color.rgb(0, 153, 204), timestampDate);
+                calendarView.addEvent(event, true);
+
         }
     }
 

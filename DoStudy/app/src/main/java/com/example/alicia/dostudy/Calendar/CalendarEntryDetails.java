@@ -20,7 +20,7 @@ import com.example.alicia.dostudy.R;
 
 public class CalendarEntryDetails extends AppCompatActivity {
 
-    private String title, description, date, time;
+    private String title, description, date, time, reminder;
     private CalendarDatabase database;
 
 
@@ -40,14 +40,6 @@ public class CalendarEntryDetails extends AppCompatActivity {
     }
 
     private void initUI() {
-        ImageView close = (ImageView) findViewById(R.id.calendar_entry_details_close);
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(CalendarEntryDetails.this, CalendarActivity.class);
-                startActivity(i);
-            }
-        });
         ImageView delete = (ImageView) findViewById(R.id.calendar_entry_details_delete);
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +51,7 @@ public class CalendarEntryDetails extends AppCompatActivity {
         TextView tvDescription = (TextView) findViewById(R.id.calendar_entry_details_description);
         TextView tvDate = (TextView) findViewById(R.id.calendar_entry_details_date);
         TextView tvTime = (TextView) findViewById(R.id.calendar_entry_details_time);
+        TextView tvReminder = (TextView) findViewById(R.id.calendar_entry_details_alarm);
 
         tvTitle.setText(title);
         tvDescription.setText(description);

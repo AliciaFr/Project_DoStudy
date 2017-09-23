@@ -47,14 +47,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textColor="@color/detailsText"/>
+        android:textColor="@color/captionsGrey"/>
 
     <TextView
         android:id="@+id/notes_details_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:textColor="@color/detailsText"/>
+        android:textColor="@color/captionsGrey"/>
 
     <ImageView
         android:layout_width="match_parent"
