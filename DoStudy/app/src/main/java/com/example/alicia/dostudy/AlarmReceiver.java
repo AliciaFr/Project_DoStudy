@@ -9,6 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.NotificationCompat;
 
+import com.example.alicia.dostudy.Calendar.CalendarActivity;
+
 public class AlarmReceiver extends BroadcastReceiver {
 
     @Override

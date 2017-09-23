@@ -1,4 +1,4 @@
-package com.example.alicia.dostudy;
+package com.example.alicia.dostudy.Calendar;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -26,6 +26,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.alicia.dostudy.R;
+
 public class AddCalendarEntryActivity extends Activity {
 
     private EditText editTitle, editDescription;
@@ -35,7 +37,7 @@ public class AddCalendarEntryActivity extends Activity {
     private Switch switchTime, switchLocation;
 
 
-    private InternDatabase database;
+    private CalendarDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class AddCalendarEntryActivity extends Activity {
     }
 
     private void initDB() {
-        database = new InternDatabase(this);
+        database = new CalendarDatabase(this);
     }
 
     private void initUI() {
