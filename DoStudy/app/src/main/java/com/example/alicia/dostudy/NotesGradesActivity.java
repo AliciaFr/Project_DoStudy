@@ -41,8 +41,8 @@ public class NotesGradesActivity extends AppCompatActivity {
         grades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toGrades = new Intent(NotesGradesActivity.this, GradeActivity.class);
-                startActivity(toGrades);
+                //Intent toGrades = new Intent(NotesGradesActivity.this, GradeActivity.class);
+                //startActivity(toGrades);
             }
         });
 

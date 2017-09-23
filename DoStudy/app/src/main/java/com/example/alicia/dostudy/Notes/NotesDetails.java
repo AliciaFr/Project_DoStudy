@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.alicia.dostudy.DateFormatter;
+import com.example.alicia.dostudy.R;
+
 import static com.example.alicia.dostudy.R.id.notes_details_delete;
 
 
