@@ -3,12 +3,15 @@ package com.example.alicia.dostudy.Grades;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.alicia.dostudy.R;
@@ -26,11 +29,6 @@ import java.util.List;
 
 public class GradeActivity extends AppCompatActivity {
 
-    ExpandableListAdapter listAdapter;
-    ExpandableListView expListView;
-    List<String> listDataHeader;
-    HashMap<String, List<String>> listDataChild;
-
     private ArrayList<Grade> grades;
     private GradesAdapter grades_adapter;
     private GradesDatabase grates_db;
@@ -43,79 +41,22 @@ public class GradeActivity extends AppCompatActivity {
         initGradeList();
         initDatabase();
         initUI();
+        refreshArrayList();
 
-        // preparing list data
-        prepareListData();
+    }
 
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
-
-        // setting list adapter
-        expListView.setAdapter(listAdapter);
-
-        // Listview Group click listener
-        expListView.setOnGroupClickListener(new OnGroupClickListener() {
-
-        @Override
-        public boolean onGroupClick(ExpandableListView parent, View v,
-        int groupPosition, long id) {
-            return false;
-        }
-    });
-
-    // Listview Group expanded listener
-        expListView.setOnGroupExpandListener(new OnGroupExpandListener() {
-
-        @Override
-        public void onGroupExpand(int groupPosition) {
-            Toast.makeText(getApplicationContext(),
-                    listDataHeader.get(groupPosition) + "Gruppe aufgeklappt",
-                    Toast.LENGTH_SHORT).show();
-        }
-    });
-
-    // Listview Group collasped listener
-        expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
-
-        @Override
-        public void onGroupCollapse(int groupPosition) {
-            Toast.makeText(getApplicationContext(),
-                    listDataHeader.get(groupPosition) + "Gruppe zusammengeklappt",
-                    Toast.LENGTH_SHORT).show();
-
-        }
-    });
-
-    // Listview on child click listener
-        expListView.setOnChildClickListener(new OnChildClickListener() {
-
-        @Override
-        public boolean onChildClick(ExpandableListView parent, View v,
-        int groupPosition, int childPosition, long id) {
-            // TODO Auto-generated method stub
-            Toast.makeText(
-                    getApplicationContext(),
-                    listDataHeader.get(groupPosition)
-                            + " : "
-                            + listDataChild.get(
-                            listDataHeader.get(groupPosition)).get(
-                            childPosition), Toast.LENGTH_SHORT)
-                    .show();
-            return false;
-        }
-    });
-}
 
     private void initGradeList() {
         grades = new ArrayList<Grade>();
+        initListAdapter();
     }
 
-    /* private void initListAdapter() {
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
-        // setting list adapter
-        expListView.setAdapter(listAdapter);
+    private void initListAdapter() {
+        ListView gradeList = (ListView) findViewById(R.id.grades_listview);
+        grades_adapter = new GradesAdapter(this, grades);
+        gradeList.setAdapter(grades_adapter);
+
     }
-    */
 
     private void initDatabase() {
         grates_db = new GradesDatabase(this);
@@ -128,9 +69,14 @@ public class GradeActivity extends AppCompatActivity {
     }
 
     private void initListView() {
-        // get the listview
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
-
+        ListView gradeList = (ListView) findViewById(R.id.grades_listview);
+        gradeList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View v, int position, long id){
+                removeGradeAtPosition(position);
+                return true;
+            }
+        });
 
     }
 
@@ -139,56 +85,47 @@ public class GradeActivity extends AppCompatActivity {
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addCourseToList();
+                addCourseAndGradeToList();
             }
         });
     }
 
-    private void addCourseToList() {
+    private void addCourseAndGradeToList() {
+        EditText editCourse = (EditText) findViewById(R.id.add_course);
+        EditText editGrade = (EditText) findViewById(R.id.add_grade);
+        String course = editCourse.getText().toString();
+        String grade = editGrade.getText().toString();
 
+        if (!course.equals("") && !grade.equals("")) {
+            editCourse.setText("");
+            editGrade.setText("");
+            addNewCourse(course, grade);
+            Toast.makeText(this, "Kurs hinzugefügt!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Bitte Kurs und Note eingeben", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void addNewCourse(String course, String grade) {
+        Grade newGrade = new Grade(course, grade);
+        grates_db.insertCourse(newGrade);
+        refreshArrayList();
     }
 
 
-    /*
-     * Preparing the list data
-     */
-    private void prepareListData() {
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
 
-        // Adding child data
-        listDataHeader.add("");
-        listDataHeader.add("");
-        listDataHeader.add("");
-
-        // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("");
-        top250.add("");
-        top250.add("");
-        top250.add("");
-        top250.add("");
-        top250.add("");
-        top250.add("");
-
-        List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("");
-        nowShowing.add("");
-        nowShowing.add("");
-        nowShowing.add("");
-        nowShowing.add("");
-        nowShowing.add("");
-
-        List<String> comingSoon = new ArrayList<String>();
-        comingSoon.add("");
-        comingSoon.add("");
-        comingSoon.add("");
-        comingSoon.add("");
-        comingSoon.add("");
-
-        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), nowShowing);
-        listDataChild.put(listDataHeader.get(2), comingSoon);
+    private void removeGradeAtPosition(int position) {
+        if (grades.get(position) != null){
+            grates_db.removeCourse(grades.get(position));
+            refreshArrayList();
+        }
     }
+
+    private void refreshArrayList() {
+        ArrayList courseList = grates_db.getAllCourses();
+        grades.clear();
+        grades.addAll(courseList);
+        grades_adapter.notifyDataSetChanged();
+    }
+
 }
-

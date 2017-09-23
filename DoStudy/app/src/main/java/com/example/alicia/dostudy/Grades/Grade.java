@@ -12,14 +12,20 @@ import java.util.Locale;
 
 public class Grade implements Comparable<Grade> {
 
-    private String name;
+    private String course_name;
+    private String grade;
 
-    public Grade(String name) {
-        this.name = name;
+    public Grade(String course_name, String grade) {
+        this.course_name = course_name;
+        this.grade = grade;
     }
 
     public String getName() {
-        return name;
+        return course_name;
+    }
+
+    public String getGrade(){
+        return grade;
     }
 
     @Override
@@ -29,6 +35,6 @@ public class Grade implements Comparable<Grade> {
 
     @Override
     public String toString() {
-        return "Name: " + getName();
+        return "Name: " + getName() + "Note:" + getGrade();
     }
 }
