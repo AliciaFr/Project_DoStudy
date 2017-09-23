@@ -38,6 +38,31 @@ public class CourseDetailActivity extends AppCompatActivity {
         date.setText(getIntent().getExtras().getString("Date"));
 
         colour = (TextView)findViewById(R.id.colour_result);
-        colour.setText(getIntent().getExtras().getString("Colour"));
+
+        switch (getIntent().getExtras().getInt("Colour")){
+            case 0:
+                colour.setText("hellblau");
+                break;
+            case 1:
+                colour.setText("dunkelblau");
+                break;
+            case 2:
+                colour.setText("türkis");
+                break;
+            case 3:
+                colour.setText("hellgrün");
+                break;
+            case 4:
+                colour.setText("dunkelgrün");
+                break;
+            case 5:
+                colour.setText("gelb");
+                break;
+            case 6:
+                colour.setText("keine");
+                break;
+            case 7:
+                colour.setText("rot");
+        }
     }
 }

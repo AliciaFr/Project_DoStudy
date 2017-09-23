@@ -212,16 +212,16 @@
                     android:drawableLeft="@drawable/ic_color_lens_black_24dp"
                     android:drawablePadding="10dp"/>
 
-                <EditText
+                <Spinner
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:id="@+id/input_colour"
                     android:textColor="@android:color/black"
                     android:padding="10dp"
-                    android:inputType="number"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"/>
 
                 <Button
                     android:id="@+id/button"

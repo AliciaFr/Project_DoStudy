@@ -86,7 +86,7 @@ public class CourseItemDatabase {
                 String room = cursor.getString(COLUMN_ROOM_INDEX);
                 String lecturer = cursor.getString(COLUMN_LECTURER_INDEX);
                 String testDate = cursor.getString(COLUMN_DATE_INDEX);
-                String colour = cursor.getString(COLUMN_COLOUR_INDEX);
+                int colour = cursor.getInt(COLUMN_COLOUR_INDEX);
 
                 items.add(new CourseItem(name, timeBegin, timeEnd, room, lecturer, testDate, colour));
 

@@ -6,9 +6,10 @@ package com.example.alicia.dostudy.TimeTable;
 
 public class CourseItem {
 
-    private String courseName, courseBegin, courseEnd, room, lecturer, testDate, colour;
+    private String courseName, courseBegin, courseEnd, room, lecturer, testDate;
+    int colour;
 
-    public CourseItem(String courseName, String courseBegin, String courseEnd, String room, String lecturer, String tesDate, String colour){
+    public CourseItem(String courseName, String courseBegin, String courseEnd, String room, String lecturer, String tesDate, int colour){
         this.courseName = courseName;
         this.courseBegin = courseBegin;
         this.courseEnd = courseEnd;
@@ -42,7 +43,7 @@ public class CourseItem {
         return testDate;
     }
 
-    public String getColour(){
+    public int getColour(){
         return colour;
     }
 
