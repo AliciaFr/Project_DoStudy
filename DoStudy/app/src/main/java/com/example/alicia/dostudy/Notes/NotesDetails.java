@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,8 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.alicia.dostudy.DateFormatter;
-
 import static com.example.alicia.dostudy.R.id.notes_details_delete;
+
 
 
 public class NotesDetails extends AppCompatActivity {
@@ -55,6 +56,7 @@ public class NotesDetails extends AppCompatActivity {
                 deleteNote();
             }
         });
+        
         TextView tvTitle = (TextView) findViewById(R.id.notes_details_title);
         TextView tvLecture = (TextView) findViewById(R.id.notes_details_lecture);
         TextView tvDate = (TextView) findViewById(R.id.notes_details_date);

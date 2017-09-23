@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">DoStudy</string>
 
+    //Strings for Home-Layout
+    <string name="todo">To Do Liste</string>
+    <string name="timetable">Stundenplan</string>
+    <string name="calendar">Kalender</string>
+    <string name="grades">Notenübersicht</string>
+
     // Strings for Login-Layout
     <string name="login_input_email">Username or email address</string>
     <string name="login_input_password">Password</string>
@@ -24,11 +30,13 @@
     <string name="calendar_entry_intent">calendar_entry</string>
 
     // Strings for ToDoList Layout
-    <string name="section_name">Todo List</string>
-    <string name="action_delete_done_tasks">Delete done tasks</string>
-    <string name="action_delete_all">Delete All</string>
-    <string name="context_delete">Delete</string>
-    <string name="context_edit">Edit</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_item_header">Aktuelle Aufgaben</string>
+    <string name="add_item_hint">Neue Aufgabe</string>
+    <string name="add_item_button_confirm">Hinzufügen</string>
+    <string name="todo_text_date_hint">Datum festlegen</string>
+    <string name="action_sort">Nach Datum sortieren</string>
+    <string name="delete_all">Alle Aufgaben löschen</string>
 
     // Strings for TimeTable Components
     <string name="personal_timetable">mein Stundenplan</string>
@@ -39,8 +47,6 @@
     <string name="friday">Freitag</string>
 
     <string name="day">Tag</string>
-    <string name="hint_course">Kurs hinzufügen</string>
-    <string name="hint_time">Beginn</string>
     <string name="button">OK</string>
 
     <string name="view_course">Kursdaten</string>
@@ -67,12 +73,13 @@
     <string name="alert_dialog_builder_delete_yes">Löschen</string>
     <string name="alert_dialog_builder_delete_no">Abbrechen</string>
 
+    //String for Notes Layout
     <string name="notes_and_grades_notes_fragement">Notizen</string>
     <string name="notes_and_grades_grades_fragement">Noten</string>
     <string name="notes_grades_title_grades">Noten</string>
     <string name="content_description_button">ButtonForAction</string>
     <string name="notes_grades_title_notes">Notizen</string>
-    <string name="notes_title">Alle Notizen</string>
+    <string name="notes_title">Notizen</string>
     <string name="notes_intent">Notes</string>
     <string name="add_calendar_entry_title_hint">Titel</string>
     <string name="add_note_lecture_hint">Vorlesung</string>
@@ -88,6 +95,12 @@
     <string name="dialog_overwrite">Die bestehende Datei überschreiben?</string>
     <string name="take_picture_intent">TakePictureIntent</string>
 
+    //Strings for Grades Layout
+    <string name="grades_title">Meine Noten</string>
+    <string name="add_course_hint">Kurs hinzufügen</string>
+    <string name="add_grade_hint">Note hinzufügen</string>
+    <string name="add_course_grade_button">Hinzufügen</string>
+
     <string-array name="colourArray">
         <item>hellblau</item>
         <item>dunkelblau</item>
@@ -95,7 +108,7 @@
         <item>hellgrün</item>
         <item>dunkelgrün</item>
         <item>gelb</item>
-        <item>orange</item>
+        <item>keine</item>
         <item>rot</item>
     </string-array>
 

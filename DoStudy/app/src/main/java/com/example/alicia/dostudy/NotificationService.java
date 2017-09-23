@@ -8,6 +8,10 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
 
+import com.example.alicia.dostudy.ToDoList.Task;
+import com.example.alicia.dostudy.ToDoList.ToDoListActivity;
+import com.example.alicia.dostudy.ToDoList.ToDoListDatabase;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,6 +23,8 @@ import java.util.Locale;
 public class NotificationService extends Service {
 
     private ArrayList<CalendarEntry> entries = new ArrayList<>();
+    private ArrayList<Task> items = new ArrayList<>();
+    private ToDoListDatabase toDoDB;
     private InternDatabase database;
 
 
@@ -31,8 +37,10 @@ public class NotificationService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         initDB();
         getEntries();
+        getTasks();
         for (int i = 0; i < entries.size(); i++) {
             scheduleNotification(i);
+            //* todo_notification(i);
         }
         return START_STICKY;
     }
@@ -60,18 +68,50 @@ public class NotificationService extends Service {
         }
     }
 
+     private void todo_notification(int i){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMANY);
+        String todo_date = items.get(i).getFormattedDate();
+        long dateInLong;
+        try {
+            Date task_date = simpleDateFormat.parse(todo_date);
+            dateInLong = task_date.getTime();
+        } catch (ParseException e){
+            return;
+        }
+        long notificationTime = dateInLong;
+
+        Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), i,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, notificationTime, pendingIntent);
+        }
+    }
+
     public void getEntries() {
         entries.clear();
         entries.addAll(database.getAllEntries());
         Collections.sort(entries);
     }
 
+     public void getTasks() {
+        items.clear();
+        items.addAll(toDoDB.getAllToDoItems());
+        Collections.sort(items);
+    }
+
+
     private void initDB() {
         database = new InternDatabase(this);
+        toDoDB = new ToDoListDatabase(this);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
     }
+
+
+
 }

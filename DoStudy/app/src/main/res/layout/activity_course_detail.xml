@@ -51,7 +51,9 @@
                     android:id="@+id/title_result"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black" />
 
             </LinearLayout>
 
@@ -87,7 +89,9 @@
                     android:id="@+id/time_begin_result"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
 
             </LinearLayout>
 
@@ -111,7 +115,9 @@
                     android:id="@+id/time_end_result"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
 
             </LinearLayout>
 
@@ -138,7 +144,9 @@
                     android:id="@+id/room_result"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
 
             </LinearLayout>
 
@@ -165,7 +173,9 @@
                     android:id="@+id/lecturer_result"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
 
             </LinearLayout>
 
@@ -192,7 +202,9 @@
                     android:id="@+id/test_result"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
 
             </LinearLayout>
 
@@ -219,7 +231,9 @@
                     android:id="@+id/colour_result"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
 
             </LinearLayout>
 

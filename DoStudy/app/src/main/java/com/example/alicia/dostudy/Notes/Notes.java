@@ -62,6 +62,7 @@ public class Notes implements Comparable<Notes>, Serializable {
 
     public void setFilePathImage(String filePathImage) {
         this.filePathImage = filePathImage;
+
     }
 
     @Override

@@ -6,14 +6,16 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.alicia.dostudy.TimeTable.WeekActivity;
+import com.example.alicia.dostudy.ToDoList.ToDoListActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private ImageView toDo, timeTable, calendar, notesAndGrades;
+    private Button toDo, timeTable, calendar, notesAndGrades;
 
 
     @Override
@@ -25,10 +27,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        toDo = (ImageView) findViewById(R.id.home_todo);
-        calendar = (ImageView) findViewById(R.id.home_calendar);
-        timeTable = (ImageView) findViewById(R.id.home_timetable);
-        notesAndGrades = (ImageView) findViewById(R.id.home_notes_grades);
+        toDo = (Button) findViewById(R.id.home_todo);
+        calendar = (Button) findViewById(R.id.home_calendar);
+        timeTable = (Button) findViewById(R.id.home_timetable);
+        notesAndGrades = (Button) findViewById(R.id.home_notes_grades);
     }
 
     private void initClickListener() {

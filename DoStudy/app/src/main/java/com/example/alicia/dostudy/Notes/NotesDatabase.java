@@ -48,7 +48,6 @@ public class NotesDatabase {
         db.close();
     }
 
-
     public void insertNotes(String title, String lecture, String date, String note, String filePathImage){
         open();
         ContentValues values = new ContentValues();
