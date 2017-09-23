@@ -17,6 +17,18 @@
         android:background="@color/holoBlue"
         android:padding="10dp"/>
 
+    <EditText
+        android:id="@+id/add_course"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_course_hint"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textColorLink="@color/holoBlue"
+        />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,12 +38,13 @@
 
 
         <EditText
-            android:id="@+id/add_course"
+            android:id="@+id/add_grade"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.74"
             android:focusable="false"
-            android:hint="@string/add_course_hint"
+            android:hint="@string/add_grade_hint"
+            android:inputType="numberDecimal"
             android:textColorHint="@android:color/darker_gray"
             android:textColor="@android:color/black"
             android:textColorLink="@color/holoBlue"
@@ -41,13 +54,13 @@
             android:id="@+id/grades_edit_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/add_item_button_confirm" />
+            android:text="@string/add_course_grade_button" />
 
     </LinearLayout>
 
-    <ExpandableListView
-        android:id="@+id/lvExp"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
+    <ListView
+        android:id="@+id/grades_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

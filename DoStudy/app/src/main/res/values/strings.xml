@@ -96,6 +96,8 @@
     //Strings for Grades Layout
     <string name="grades_title">Meine Noten</string>
     <string name="add_course_hint">Kurs hinzufügen</string>
+    <string name="add_grade_hint">Note hinzufügen</string>
+    <string name="add_course_grade_button">Hinzufügen</string>
 
     <string-array name="colourArray">
         <item>hellblau</item>
