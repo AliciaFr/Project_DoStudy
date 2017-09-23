@@ -74,6 +74,7 @@ public class ToDoListActivity extends AppCompatActivity {
         });
     }
 
+    // Initialisierung der EditTexts
     private void addInputToList() {
         EditText edit = (EditText) findViewById(R.id.todo_edit_input);
         EditText dateEdit = (EditText) findViewById(R.id.todo_edit_date);
@@ -84,8 +85,10 @@ public class ToDoListActivity extends AppCompatActivity {
             edit.setText("");
             dateEdit.setText("");
             addNewTask(task, date);
+            // Wenn beide Felder erfolgreich ausgefüllt wurden, bestätigt ein Toast die Speicherung.
             Toast.makeText(this, "Gespeichert!", Toast.LENGTH_SHORT).show();
         } else {
+            // Falls ein Feld oder beide Felder nicht ausgefüllt sind, erscheint ein Toast, der daraufhin weist, die Felder zu füllen.
             Toast.makeText(this, "Bitte Aufgabe und Datum eingeben", Toast.LENGTH_LONG).show();
         }
     }
@@ -108,6 +111,7 @@ public class ToDoListActivity extends AppCompatActivity {
         list.setAdapter(tasks_adapter);
     }
 
+    // Speichern der Aufgabe in der Datenbank
     private void addNewTask(String task, String date) {
         Date dueDate = getDateFromString(date);
         GregorianCalendar cal = new GregorianCalendar();
@@ -120,6 +124,7 @@ public class ToDoListActivity extends AppCompatActivity {
         refreshArrayList();
     }
 
+    // Datumseingabe mit dem DatePicker verbinden.
     private void initDateField() {
         EditText dateEdit = (EditText) findViewById(R.id.todo_edit_date);
         dateEdit.setOnClickListener(new View.OnClickListener() {
@@ -131,6 +136,7 @@ public class ToDoListActivity extends AppCompatActivity {
 
     }
 
+    // Die Aufgabe an der jeweiligen Position wird aus der Datenbank gelöscht.
     private void removeTaskAtPosition(int position) {
         if (tasks.get(position) != null) {
             toDoDB.removeToDoItem(tasks.get(position));
@@ -153,6 +159,7 @@ public class ToDoListActivity extends AppCompatActivity {
         }
     }
 
+    // Optionen Menü der ActionBar wird erstellt.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -160,6 +167,7 @@ public class ToDoListActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    // Aktionen in dem Dropdown-Menü der Actionsbar - Aufgaben sortieren und alle Aufgbaben löschen.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -176,6 +184,7 @@ public class ToDoListActivity extends AppCompatActivity {
 
     private void deleteList() {
         tasks.clear();
+        toDoDB.removeAllItems();
         tasks_adapter.notifyDataSetChanged();
     }
 

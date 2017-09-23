@@ -20,10 +20,12 @@ public class Grade implements Comparable<Grade> {
         this.grade = grade;
     }
 
+    // Der Name des Kurses wird zurückgegeben.
     public String getName() {
         return course_name;
     }
 
+    // Die Note des Kurses wird zurückgegeben.
     public String getGrade(){
         return grade;
     }

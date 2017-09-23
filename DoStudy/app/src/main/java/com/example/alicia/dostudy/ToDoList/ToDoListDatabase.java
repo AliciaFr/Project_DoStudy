@@ -61,6 +61,7 @@ public class ToDoListDatabase {
         return database.insert(DATABASE_TABLE, null, itemValues);
     }
 
+
     public void removeToDoItem(Task item) {
 
         String toDelete = KEY_TASK + "=?";
@@ -70,10 +71,8 @@ public class ToDoListDatabase {
     }
 
     public void removeAllItems(){
-        String toDelete = KEY_TASK + "=?";
-        String[] deleteArguments = new String[]{toDelete};
-        database.delete(DATABASE_TABLE, toDelete, deleteArguments);
-
+        String toDelete = KEY_TASK + " =? AND " + KEY_DATE;
+        database.delete(DATABASE_TABLE, toDelete, new String[]{DATABASE_NAME});
     }
 
     public ArrayList<Task> getAllToDoItems() {

@@ -19,10 +19,12 @@ public class Task implements Comparable<Task> {
         cal = new GregorianCalendar(year, month, day);
     }
 
+    // Name der Aufgabe wird zurückgegeben.
     public String getName() {
         return name;
     }
 
+    // Datum wird einen String umgewandelt.
     public String getFormattedDate() {
         DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT,
                 Locale.GERMANY);
@@ -30,6 +32,7 @@ public class Task implements Comparable<Task> {
         return date;
     }
 
+    // Datum wird zurückgegeben.
     public String getDate() {
         return cal.getTime().toString();
     }
