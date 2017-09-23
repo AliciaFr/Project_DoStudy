@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.alicia.dostudy.Calendar.CalendarActivity;
 import com.example.alicia.dostudy.TimeTable.WeekActivity;
 import com.example.alicia.dostudy.ToDoList.ToDoListActivity;
 
