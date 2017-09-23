@@ -11,17 +11,17 @@ public class Notes implements Comparable<Notes>, Serializable {
     private String lecture;
     private int date;
     private String note;
-    private String filePathImage;
+    private long image;
 
     public Notes() {
     }
 
-    public Notes(String title, String lecture, int date, String note, String image) {
+    public Notes(String title, String lecture, int date, String note, long image) {
         this.title = title;
         this.lecture = lecture;
         this.date = date;
         this.note = note;
-        this.filePathImage = image;
+        this.image = image;
     }
 
     public String getTitle() {
@@ -56,13 +56,12 @@ public class Notes implements Comparable<Notes>, Serializable {
         this.note = note;
     }
 
-    public String getFilePathImage() {
-        return filePathImage;
+    public long getImage() {
+        return image;
     }
 
-    public void setFilePathImage(String filePathImage) {
-        this.filePathImage = filePathImage;
-
+    public void setImage(long image) {
+        this.image = image;
     }
 
     @Override
