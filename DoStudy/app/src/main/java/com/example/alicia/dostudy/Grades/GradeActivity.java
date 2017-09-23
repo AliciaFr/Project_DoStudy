@@ -70,6 +70,7 @@ public class GradeActivity extends AppCompatActivity {
 
     private void initListView() {
         ListView gradeList = (ListView) findViewById(R.id.grades_listview);
+        // Wenn ein Item in der Liste lange gedrückt wird, wird der Kurs und dessen Note an dieser Stelle gelöscht.
         gradeList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View v, int position, long id){
@@ -90,6 +91,7 @@ public class GradeActivity extends AppCompatActivity {
         });
     }
 
+    // Der Kurs und seine Note werden der Liste hinzugefügt.
     private void addCourseAndGradeToList() {
         EditText editCourse = (EditText) findViewById(R.id.add_course);
         EditText editGrade = (EditText) findViewById(R.id.add_grade);
@@ -100,12 +102,15 @@ public class GradeActivity extends AppCompatActivity {
             editCourse.setText("");
             editGrade.setText("");
             addNewCourse(course, grade);
+            // Wenn beide Felder erfolgreich ausgefüllt wurden, bestätigt ein Toast die Speicherung.
             Toast.makeText(this, "Kurs hinzugefügt!", Toast.LENGTH_SHORT).show();
         } else {
+            // Falls ein Feld oder beide Felder nicht ausgefüllt sind, erscheint ein Toast, der daraufhin weist die Felder zu füllen.
             Toast.makeText(this, "Bitte Kurs und Note eingeben", Toast.LENGTH_LONG).show();
         }
     }
 
+    // Der Kurs & dessen Note werden in der Datenbank gespeichert.
     private void addNewCourse(String course, String grade) {
         Grade newGrade = new Grade(course, grade);
         grates_db.insertCourse(newGrade);
@@ -113,7 +118,7 @@ public class GradeActivity extends AppCompatActivity {
     }
 
 
-
+    // Der Kurs an der entsprechenden Stelle wird gelöscht.
     private void removeGradeAtPosition(int position) {
         if (grades.get(position) != null){
             grates_db.removeCourse(grades.get(position));

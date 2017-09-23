@@ -1,4 +1,4 @@
-package com.example.alicia.dostudy;
+package com.example.alicia.dostudy.Calendar;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,17 +7,19 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.alicia.dostudy.DateFormatter;
+
 import java.util.ArrayList;
 
 /**
  * Created by Alicia on 18.09.2017.
  */
 
-public class InternDatabase {
+public class CalendarDatabase {
 
     private static final String DATABASE_NAME = "calendarentry";
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_TABLE = "events";
+    private static final String DATABASE_TABLE = "entries";
 
     public static final String KEY_TITLE = "title";
     public static final String KEY_DESCRIPTION = "description";
@@ -27,7 +29,7 @@ public class InternDatabase {
     private DBOpenHelper helper;
     private SQLiteDatabase db;
 
-    public InternDatabase(Context context) {
+    public CalendarDatabase(Context context) {
         helper = new DBOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

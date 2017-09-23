@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.alicia.dostudy.Grades.GradeActivity;
 import com.example.alicia.dostudy.Notes.NotesActivity;
 
 /* This activity creates a TabLayout where the user can choose between adding notes or grades
@@ -41,8 +43,8 @@ public class NotesGradesActivity extends AppCompatActivity {
         grades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent toGrades = new Intent(NotesGradesActivity.this, GradeActivity.class);
-                //startActivity(toGrades);
+                Intent toGrades = new Intent(NotesGradesActivity.this, GradeActivity.class);
+                startActivity(toGrades);
             }
         });
 

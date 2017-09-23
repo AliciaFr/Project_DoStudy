@@ -8,8 +8,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
 
+import com.example.alicia.dostudy.Calendar.CalendarEntry;
+import com.example.alicia.dostudy.Calendar.CalendarDatabase;
 import com.example.alicia.dostudy.ToDoList.Task;
-import com.example.alicia.dostudy.ToDoList.ToDoListActivity;
 import com.example.alicia.dostudy.ToDoList.ToDoListDatabase;
 
 import java.text.ParseException;
@@ -25,7 +26,7 @@ public class NotificationService extends Service {
     private ArrayList<CalendarEntry> entries = new ArrayList<>();
     private ArrayList<Task> items = new ArrayList<>();
     private ToDoListDatabase toDoDB;
-    private InternDatabase database;
+    private CalendarDatabase database;
 
 
     @Override
@@ -103,7 +104,7 @@ public class NotificationService extends Service {
 
 
     private void initDB() {
-        database = new InternDatabase(this);
+        database = new CalendarDatabase(this);
         toDoDB = new ToDoListDatabase(this);
     }
 

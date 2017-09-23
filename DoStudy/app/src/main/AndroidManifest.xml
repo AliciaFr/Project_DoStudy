@@ -26,11 +26,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".CalendarEntryDetails"/>
+        <activity android:name=".Calendar.CalendarEntryDetails"/>
         <activity android:name=".ToDoList.ToDoListActivity"/>
         <activity android:name=".SignupActivity" />
-        <activity android:name=".CalendarActivity" />
-        <activity android:name=".AddCalendarEntryActivity" />
+        <activity android:name=".Calendar.CalendarActivity" />
+        <activity android:name=".Calendar.AddCalendarEntryActivity" />
         <activity android:name=".TimeTable.WeekActivity" />
         <activity android:name=".TimeTable.MondayActivity"
             android:screenOrientation="portrait"/>
@@ -44,7 +44,7 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".TimeTable.CourseActivity"/>
         <activity android:name=".Notes.NotesActivity" />
-        <activity android:name=".AddNoteActivity" />
+        <activity android:name=".Notes.AddNoteActivity" />
         <activity android:name=".Notes.NotesDetails" />
         <activity android:name=".NotesGradesActivity" />
         <activity android:name=".Grades.GradeActivity"/>

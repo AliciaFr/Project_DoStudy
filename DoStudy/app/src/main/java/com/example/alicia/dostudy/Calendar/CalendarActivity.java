@@ -1,4 +1,4 @@
-package com.example.alicia.dostudy;
+package com.example.alicia.dostudy.Calendar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +16,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.alicia.dostudy.DateFormatter;
+import com.example.alicia.dostudy.R;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 import java.text.SimpleDateFormat;
@@ -35,7 +38,7 @@ public class CalendarActivity extends AppCompatActivity {
     private ActionBar actionBar;
 
     private ArrayList<CalendarEntry> arrayList = new ArrayList<>();
-    private InternDatabase database;
+    private CalendarDatabase database;
     private CalendarEntryAdapter adapter;
 
     private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMM yyyy", Locale.GERMAN);
@@ -70,8 +73,8 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        initListView();
         initListAdapter();
+        initListView();
         currMonth = (TextView) findViewById(R.id.calendar_month);
         addEntry = (ImageView) findViewById(R.id.calendar_add_entry);
         addEntry.setOnClickListener(new View.OnClickListener() {
@@ -152,7 +155,7 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
     private void initDB() {
-        database = new InternDatabase(this);
+        database = new CalendarDatabase(this);
     }
 
     private void addEntryToCalendar() {

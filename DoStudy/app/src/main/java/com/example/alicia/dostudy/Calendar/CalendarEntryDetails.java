@@ -1,21 +1,22 @@
-package com.example.alicia.dostudy;
+package com.example.alicia.dostudy.Calendar;
 
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.alicia.dostudy.DateFormatter;
+import com.example.alicia.dostudy.R;
+
 public class CalendarEntryDetails extends AppCompatActivity {
 
     private String title, description, date, time;
-    private InternDatabase database;
+    private CalendarDatabase database;
 
 
     @Override
@@ -30,7 +31,7 @@ public class CalendarEntryDetails extends AppCompatActivity {
     }
 
     private void initDB() {
-        database = new InternDatabase(this);
+        database = new CalendarDatabase(this);
     }
 
     private void initUI() {

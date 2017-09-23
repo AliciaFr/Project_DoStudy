@@ -1,4 +1,4 @@
-package com.example.alicia.dostudy;
+package com.example.alicia.dostudy.Calendar;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.support.v7.app.AlertDialog;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
@@ -25,6 +26,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.alicia.dostudy.R;
+
 public class AddCalendarEntryActivity extends Activity {
 
     private EditText editTitle, editDescription;
@@ -34,7 +37,7 @@ public class AddCalendarEntryActivity extends Activity {
     private Switch switchTime, switchLocation;
 
 
-    private InternDatabase database;
+    private CalendarDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class AddCalendarEntryActivity extends Activity {
     }
 
     private void initDB() {
-        database = new InternDatabase(this);
+        database = new CalendarDatabase(this);
     }
 
     private void initUI() {
@@ -135,8 +138,8 @@ public class AddCalendarEntryActivity extends Activity {
                 } else {
                     editTitle.setText("");
                     editDescription.setText("");
-                    editDate.setText("");
-                    editTime.setText("");
+                    timeValue.setText("");
+                    dateValue.setText("");
                     addEntry(title, description, date, time);
                     Toast toastAdded = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_calendar_entry_added), Toast.LENGTH_SHORT);
                     toastAdded.show();
@@ -184,9 +187,9 @@ public class AddCalendarEntryActivity extends Activity {
         }
 
         public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-            TextView dateValue = (TextView) getActivity().findViewById(R.id.add_note_add_date);
+            TextView dateValue = (TextView) getActivity().findViewById(R.id.addCalendarEntryDateValue);
             GregorianCalendar date = new GregorianCalendar(year, month, day);
-            java.text.DateFormat dateformat = java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT, Locale.GERMANY);
+            DateFormat dateformat = DateFormat.getDateInstance(DateFormat.SHORT, Locale.GERMANY);
             String dateToString = dateformat.format(date.getTime());
             dateValue.setText(dateToString);
         }

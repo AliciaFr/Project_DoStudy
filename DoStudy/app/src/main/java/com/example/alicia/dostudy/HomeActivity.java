@@ -8,8 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+
 import com.example.alicia.dostudy.Grades.GradeActivity;
 import com.example.alicia.dostudy.Notes.NotesActivity;
+
+import com.example.alicia.dostudy.Calendar.CalendarActivity;
+
 import com.example.alicia.dostudy.TimeTable.WeekActivity;
 import com.example.alicia.dostudy.ToDoList.ToDoListActivity;
 

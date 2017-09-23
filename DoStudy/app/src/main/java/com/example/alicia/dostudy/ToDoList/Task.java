@@ -1,11 +1,7 @@
 package com.example.alicia.dostudy.ToDoList;
 
 
-import com.example.alicia.dostudy.CalendarEntry;
-import com.example.alicia.dostudy.DateFormatter;
-
 import java.text.DateFormat;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
@@ -19,10 +15,12 @@ public class Task implements Comparable<Task> {
         cal = new GregorianCalendar(year, month, day);
     }
 
+    // Name der Aufgabe wird zurückgegeben.
     public String getName() {
         return name;
     }
 
+    // Datum wird einen String umgewandelt.
     public String getFormattedDate() {
         DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT,
                 Locale.GERMANY);
@@ -30,6 +28,7 @@ public class Task implements Comparable<Task> {
         return date;
     }
 
+    // Datum wird zurückgegeben.
     public String getDate() {
         return cal.getTime().toString();
     }
