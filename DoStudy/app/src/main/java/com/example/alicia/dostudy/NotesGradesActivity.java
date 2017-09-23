@@ -28,7 +28,7 @@ public class NotesGradesActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        ImageView notes = (ImageView) findViewById(R.id.notes_grades_button_notes);
+        ImageView notes = (ImageView) findViewById(R.id.home_notes);
         notes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +37,7 @@ public class NotesGradesActivity extends AppCompatActivity {
             }
         });
 
-        ImageView grades = (ImageView) findViewById(R.id.notes_grades_button_grades);
+        ImageView grades = (ImageView) findViewById(R.id.home_grades);
         grades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
