@@ -5,7 +5,7 @@
     <string name="todo">To Do Liste</string>
     <string name="timetable">Stundenplan</string>
     <string name="calendar">Kalender</string>
-    <string name="grades">Notenübersicht</string>
+    <string name="grades">Noten und Notizen</string>
 
     // Strings for Login-Layout
     <string name="login_input_email">Username or email address</string>
@@ -60,6 +60,15 @@
     <string name="colour">Farbe:</string>
     <string name="button_save">speichern</string>
 
+    <string name="colour_0">hellblau</string>
+    <string name="colour_1">dunkelblau</string>
+    <string name="colour_2">türkis</string>
+    <string name="colour_3">hellgrün</string>
+    <string name="colour_4">dunkelgrün</string>
+    <string name="colour_5">gelb</string>
+    <string name="colour_6">rot</string>
+    <string name="colour_7">keine</string>
+
     <string name="notification">Nicht vergessen! Du hast heute ein Ereignis</string>
     <string name="notification_title">DoStudy</string>
     <string name="notification_content_text">Bevorstehendes Ereignis</string>
@@ -99,6 +108,7 @@
     <string name="add_grade_hint">Note hinzufügen</string>
     <string name="add_course_grade_button">Hinzufügen</string>
 
+    //Strings for colour-array
     <string-array name="colourArray">
         <item>hellblau</item>
         <item>dunkelblau</item>
@@ -106,8 +116,8 @@
         <item>hellgrün</item>
         <item>dunkelgrün</item>
         <item>gelb</item>
-        <item>keine</item>
         <item>rot</item>
+        <item>keine</item>
     </string-array>
 
 </resources>

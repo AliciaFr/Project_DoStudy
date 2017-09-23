@@ -41,28 +41,28 @@ public class CourseDetailActivity extends AppCompatActivity {
 
         switch (getIntent().getExtras().getInt("Colour")){
             case 0:
-                colour.setText("hellblau");
+                colour.setText(R.string.colour_0);
                 break;
             case 1:
-                colour.setText("dunkelblau");
+                colour.setText(R.string.colour_1);
                 break;
             case 2:
-                colour.setText("türkis");
+                colour.setText(R.string.colour_2);
                 break;
             case 3:
-                colour.setText("hellgrün");
+                colour.setText(R.string.colour_3);
                 break;
             case 4:
-                colour.setText("dunkelgrün");
+                colour.setText(R.string.colour_4);
                 break;
             case 5:
-                colour.setText("gelb");
+                colour.setText(R.string.colour_5);
                 break;
             case 6:
-                colour.setText("keine");
+                colour.setText(R.string.colour_6);
                 break;
             case 7:
-                colour.setText("rot");
+                colour.setText(R.string.colour_7);
         }
     }
 }

@@ -42,7 +42,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.74"
-            android:focusable="false"
             android:hint="@string/add_grade_hint"
             android:inputType="numberDecimal"
             android:textColorHint="@android:color/darker_gray"
