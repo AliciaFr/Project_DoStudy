@@ -15,9 +15,9 @@ public class DateFormatter {
 
     public static String dateToString(int dateValue){
         String date = "" + dateValue;
-        String day= "" + date.charAt(6)+date.charAt(7);
-        String month="" + date.charAt(4)+date.charAt(5);
-        String year ="" + date.charAt(0)+date.charAt(1)+date.charAt(2)+date.charAt(3);
+        String day = "" + date.charAt(6) + date.charAt(7);
+        String month = "" + date.charAt(4)+ date.charAt(5);
+        String year = "" + date.charAt(0) + date.charAt(1) + date.charAt(2) + date.charAt(3);
         return "" + day + "." + month + "."+ year;
     }
 

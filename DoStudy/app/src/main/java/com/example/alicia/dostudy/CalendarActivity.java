@@ -72,9 +72,6 @@ public class CalendarActivity extends AppCompatActivity {
     private void initUI() {
         initListView();
         initListAdapter();
-        actionBar = getSupportActionBar();
-        actionBar.setDefaultDisplayHomeAsUpEnabled(false);
-        actionBar.setTitle(null);
         currMonth = (TextView) findViewById(R.id.calendar_month);
         addEntry = (ImageView) findViewById(R.id.calendar_add_entry);
         addEntry.setOnClickListener(new View.OnClickListener() {

@@ -8,8 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.alicia.dostudy.DateFormatter;
-import com.example.alicia.dostudy.R;
-
 import java.util.ArrayList;
 
 

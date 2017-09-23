@@ -2,15 +2,12 @@ package com.example.alicia.dostudy;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.widget.ImageView;
-
-import com.example.alicia.dostudy.Grades.GradeActivity;
 import com.example.alicia.dostudy.Notes.NotesActivity;
 
 /* This activity creates a TabLayout where the user can choose between adding notes or grades
@@ -50,16 +47,4 @@ public class NotesGradesActivity extends AppCompatActivity {
         });
 
     }
-    /*private void initUI() {
-        tabLayout = (TabLayout) findViewById(R.id.notes_grades_tab_layout);
-        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(context, R.color.holoBlue));
-
-        viewPager = (ViewPager) findViewById(R.id.notes_grades_view_pager);
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-
-        //viewPagerAdapter.adaptFragments(new NotesFragment(), getResources().getString(R.string.notes_and_grades_notes_fragement));
-        //viewPagerAdapter.adaptFragments(new GradesFragment(), getResources().getString(R.string.notes_and_grades_grades_fragement));
-
-    }*/
-
 }
