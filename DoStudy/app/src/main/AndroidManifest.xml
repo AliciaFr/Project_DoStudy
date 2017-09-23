@@ -50,13 +50,6 @@
         <activity android:name=".NotesDetails" />
         <activity android:name=".NotesGradesActivity" />
         <activity android:name=".TimeTable.CourseDetailActivity" />
-        <activity android:name=".TakePictureActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="image/*" />
-            </intent-filter>
-        </activity>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
