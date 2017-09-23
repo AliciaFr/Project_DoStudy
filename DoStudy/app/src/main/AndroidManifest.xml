@@ -34,7 +34,7 @@
         </activity>
         <activity android:name=".MainActivity"/>
         <activity android:name=".CalendarEntryDetails"/>
-        <activity android:name=".ToDoListActivity"/>
+        <activity android:name=".ToDoList.ToDoListActivity"/>
         <activity android:name=".SignupActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".AddCalendarEntryActivity" />
@@ -45,11 +45,12 @@
         <activity android:name=".TimeTable.ThursdayActivity" />
         <activity android:name=".TimeTable.FridayActivity" />
         <activity android:name=".TimeTable.CourseActivity"/>
-        <activity android:name=".NotesActivity" />
+        <activity android:name=".Notes.NotesActivity" />
         <activity android:name=".AddNoteActivity" />
+        <activity android:name=".Notes.NotesDetails />
         <activity android:name=".NotesDetails" />
         <activity android:name=".NotesGradesActivity" />
-        <activity android:name=".TimeTable.CourseDetailActivity" />
+        <activity android:name=".TimeTable.TimeTable.CourseDetailActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
