@@ -59,12 +59,11 @@ public class NotesDetails extends AppCompatActivity {
         TextView tvNote = (TextView) findViewById(R.id.notes_details_note);
         ImageView image = (ImageView) findViewById(R.id.notes_details_image);
 
-
         tvTitle.setText(title);
         tvLecture.setText(lecture);
         tvDate.setText(date);
         tvNote.setText(note);
-        //image.setImageBitmap(mBitmap);
+        image.setImageBitmap(mBitmap);
     }
 
     private void deleteNote() {
