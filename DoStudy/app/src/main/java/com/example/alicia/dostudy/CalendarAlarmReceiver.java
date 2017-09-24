@@ -11,7 +11,7 @@ import android.support.v7.app.NotificationCompat;
 
 import com.example.alicia.dostudy.Calendar.CalendarActivity;
 
-public class AlarmReceiver extends BroadcastReceiver {
+public class CalendarAlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -21,7 +21,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         Intent clickIntent = new Intent(context, CalendarActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Action action = new NotificationCompat.Action.Builder(R.drawable.ic_event_white_24dp,
-                context.getResources().getString(R.string.notification_click), pendingIntent).build();
+                context.getResources().getString(R.string.notification_click_calendar), pendingIntent).build();
 
         android.support.v4.app.NotificationCompat.Builder builder;
         builder = new android.support.v4.app.NotificationCompat.Builder(context);
@@ -30,7 +30,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setTicker("Ein bevorstehendes Ereignis")
                 .setSmallIcon(R.drawable.ic_logo_owl)
                 .setContentTitle(context.getResources().getString(R.string.notification_title))
-                .setContentText(context.getResources().getString(R.string.notification_content_text))
+                .setContentText(context.getResources().getString(R.string.notification_content_text_calendar))
                 .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
                 .addAction(action);
 

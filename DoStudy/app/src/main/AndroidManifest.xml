@@ -18,8 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-      <receiver android:name=".AlarmReceiver"/>
+      <receiver android:name=".CalendarAlarmReceiver"/>
+      <receiver android:name=".ToDoAlarmReceiver"/>
         <service android:name=".NotificationService" />
+
 
         <activity android:name=".HomeActivity"
             android:configChanges="orientation"

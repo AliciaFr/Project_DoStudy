@@ -134,6 +134,19 @@
     <string name="add_note_add_button">Hinzufügen</string>
     <string name="content_description_button">Button</string>
 
+    // Strings für Calendar
+
+    // Strings für Notification
+    <string name="notification_calendar">Nicht vergessen! Du hast heute ein Ereignis</string>
+    <string name="notification_title">DoStudy</string>
+    <string name="notification_content_text_calendar">Bevorstehendes Ereignis</string>
+    <string name="notification_click_calendar">Zum Kalender</string>
+
+    <string name="notification_todo">Nicht vergessen! Du hast heute eine Aufgabe</string>
+    <string name="notification_content_text_todo">Bevorstehende Aufgabe</string>
+    <string name="notification_click_todo">Zur To-Do Liste</string>
+    <string name="notification_ticker_todo">Du hast eine Aufgabe</string>
+
     <!-- Strings for colour-array -->
     <string-array name="colourArray">
         <item>hellblau</item>

@@ -41,7 +41,9 @@ public class NotificationService extends Service {
         getTasks();
         for (int i = 0; i < entries.size(); i++) {
             scheduleNotification(i);
-            //* todo_notification(i);
+        }
+        for (int i = 0; i < items.size(); i++) {
+            toDoNotification(i);
         }
         return START_STICKY;
     }
@@ -61,7 +63,7 @@ public class NotificationService extends Service {
         }
         long notificationTime = dateAndTimeInLong - reminder;
 
-        Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
+        Intent intent = new Intent(getApplicationContext(), CalendarAlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), i,
                 intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -70,19 +72,21 @@ public class NotificationService extends Service {
         }
     }
 
-     private void todo_notification(int i){
+     private void toDoNotification(int i){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMANY);
-        String todo_date = items.get(i).getFormattedDate();
-        long dateInLong;
+        String toDoDate = items.get(i).getFormattedDate();
+        long dateAndTimeInLong;
+         String defaultTime = "13:00";
+         String dateAndTime = toDoDate + " " +  defaultTime;
         try {
-            Date task_date = simpleDateFormat.parse(todo_date);
-            dateInLong = task_date.getTime();
+            Date taskDate = simpleDateFormat.parse(dateAndTime);
+            dateAndTimeInLong = taskDate.getTime();
         } catch (ParseException e){
             return;
         }
-        long notificationTime = dateInLong;
+        long notificationTime = dateAndTimeInLong;
 
-        Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
+        Intent intent = new Intent(getApplicationContext(), CalendarAlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), i,
                 intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -113,7 +117,4 @@ public class NotificationService extends Service {
     public void onDestroy() {
         super.onDestroy();
     }
-
-
-
 }
