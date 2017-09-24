@@ -22,7 +22,6 @@ public class CalendarAlarmReceiver extends BroadcastReceiver {
         Intent clickIntent = new Intent(context, CalendarActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Action action = new NotificationCompat.Action.Builder(R.drawable.ic_event_white_24dp,
-        context.getResources().getString(R.string.notification_click), pendingIntent).build();
         context.getResources().getString(R.string.notification_click_calendar), pendingIntent).build();
 
         android.support.v4.app.NotificationCompat.Builder builder;

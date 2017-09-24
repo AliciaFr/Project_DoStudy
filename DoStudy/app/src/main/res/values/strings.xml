@@ -2,6 +2,7 @@
     <string name="app_name">DoStudy</string>
 
     <!-- Strings for Home-Layout -->
+    <string name="content_description_logo">logo</string>
     <string name="todo">To Do Liste</string>
     <string name="timetable">Stundenplan</string>
     <string name="calendar">Kalender</string>
@@ -147,7 +148,7 @@
     <string name="dialog_choos_from_gallery">Aus Galerie wählen</string>
     <string name="dialog_cancel">Abbrechen</string>
     <string name="dialog_select_an_action">Füge ein Foto hinzu</string>
-    <string name="content_description_logo">logo</string>
+
 
     // Strings für Calendar
 
