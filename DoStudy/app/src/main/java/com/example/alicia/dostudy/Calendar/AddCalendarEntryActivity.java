@@ -14,6 +14,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,7 +33,7 @@ import android.widget.Toast;
 
 import com.example.alicia.dostudy.R;
 
-public class AddCalendarEntryActivity extends Activity {
+public class AddCalendarEntryActivity extends AppCompatActivity {
 
     private EditText editTitle;
     private TextView editDate, editTime, dateValue, timeValue, selectedCategory;

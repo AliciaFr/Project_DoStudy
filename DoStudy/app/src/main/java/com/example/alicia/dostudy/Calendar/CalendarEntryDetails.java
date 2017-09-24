@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.alicia.dostudy.DateFormatter;
 import com.example.alicia.dostudy.R;
@@ -108,16 +109,16 @@ public class CalendarEntryDetails extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected (MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
+        switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
-                return true;
+                break;
             case R.id.calendar_entry_details_delete:
                 deleteEntry();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
+                        .show();
+            default: break;
         }
+        return super.onOptionsItemSelected(item);
     }
 }

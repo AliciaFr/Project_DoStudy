@@ -43,14 +43,7 @@ public class NotesDetails extends AppCompatActivity {
 
     private void initUI() {
         Bitmap mBitmap = BitmapFactory.decodeFile(imageFilePath);
-        ImageView close = (ImageView) findViewById(R.id.notes_details_close);
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(NotesDetails.this, NotesActivity.class);
-                startActivity(i);
-            }
-        });
+
         ImageView delete = (ImageView) findViewById(notes_details_delete);
         delete.setOnClickListener(new View.OnClickListener() {
             @Override

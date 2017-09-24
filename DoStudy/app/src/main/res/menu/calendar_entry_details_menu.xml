@@ -6,13 +6,14 @@
         android:title="Delete Entry"
         android:id="@+id/calendar_add_entry_delete"
         android:icon="@drawable/ic_delete_24dp"
-        app:showAsAction="always">
+        app:showAsAction="ifRoom">
     </item>
 
     <item
         android:title="shareFunction"
         android:id="@+id/calendar_entry_details_share"
         android:icon="@drawable/ic_share_white_24dp"
+        app:showAsAction="always"
         app:actionProviderClass="android.support.v7.widget.ShareActionProvider">
     </item>
 </menu>

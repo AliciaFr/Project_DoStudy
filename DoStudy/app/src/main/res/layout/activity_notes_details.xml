@@ -12,12 +12,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/notes_details_close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_close_24dp"
-            android:clickable="true"/>
 
         <ImageView
             android:contentDescription="@string/icon_for_navigation"
