@@ -13,7 +13,7 @@ import com.example.alicia.dostudy.Calendar.CalendarActivity;
 
 /* sets up the notification for the calendar entry */
 
-public class AlarmReceiver extends BroadcastReceiver {
+public class CalendarAlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {

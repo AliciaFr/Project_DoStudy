@@ -25,6 +25,8 @@ import java.util.Locale;
 public class NotificationService extends Service {
 
     private ArrayList<CalendarEntry> entries = new ArrayList<>();
+    private ArrayList<Task> items = new ArrayList<>();
+    private ToDoListDatabase toDoDB;
     private CalendarDatabase database;
 
 
@@ -37,6 +39,7 @@ public class NotificationService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         initDB();
         getEntries();
+        getTasks();
         for (int i = 0; i < entries.size(); i++) {
             scheduleNotification(i);
         }
@@ -59,7 +62,7 @@ public class NotificationService extends Service {
         }
         long notificationTime = dateAndTimeInLong - reminder;
 
-        Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
+        Intent intent = new Intent(getApplicationContext(), CalendarAlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), i,
                 intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -68,6 +71,30 @@ public class NotificationService extends Service {
         }
     }
 
+    private void toDoNotification(int i){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMANY);
+        String toDoDate = items.get(i).getFormattedDate();
+        long dateAndTimeInLong;
+        String defaultTime = "13:00";
+        String dateAndTime = toDoDate + " " +  defaultTime;
+        try {
+            Date taskDate = simpleDateFormat.parse(dateAndTime);
+            dateAndTimeInLong = taskDate.getTime();
+        } catch (ParseException e){
+            return;
+        }
+        long notificationTime = dateAndTimeInLong;
+
+        Intent intent = new Intent(getApplicationContext(), CalendarAlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), i,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, notificationTime, pendingIntent);
+        }
+    }
+
+
     // gets the entries from the CalendarDatabase
     public void getEntries() {
         entries.clear();
@@ -75,9 +102,16 @@ public class NotificationService extends Service {
         Collections.sort(entries);
     }
 
+    public void getTasks() {
+        items.clear();
+        items.addAll(toDoDB.getAllToDoItems());
+        Collections.sort(items);
+    }
+
     // init the database
     private void initDB() {
         database = new CalendarDatabase(this);
+        toDoDB = new ToDoListDatabase(this);
     }
 
     @Override
