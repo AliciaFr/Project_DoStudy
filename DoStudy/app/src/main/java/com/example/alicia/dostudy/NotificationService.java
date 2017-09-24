@@ -88,7 +88,7 @@ public class NotificationService extends Service {
         }
         long notificationTime = dateAndTimeInLong;
 
-        Intent intent = new Intent(getApplicationContext(), CalendarAlarmReceiver.class);
+        Intent intent = new Intent(getApplicationContext(), ToDoAlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), i,
                 intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
