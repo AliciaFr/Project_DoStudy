@@ -75,7 +75,7 @@ public class NotificationService extends Service {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMANY);
         String toDoDate = items.get(i).getFormattedDate();
         long dateAndTimeInLong;
-         String defaultTime = "19:20";
+         String defaultTime = "13:00";
          String dateAndTime = toDoDate + " " +  defaultTime;
         try {
             Date taskDate = simpleDateFormat.parse(dateAndTime);
