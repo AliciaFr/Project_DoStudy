@@ -67,55 +67,42 @@
         </activity>
         <activity android:name=".TimeTable.MondayActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".TimeTable.CourseActivity" >
+            android:parentActivityName=".TimeTable.WeekActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.alicia.dostudy.TimeTable.CourseActivity" >
+                android:value="com.example.alicia.dostudy.TimeTable.WeekActivity" >
             </meta-data>
         </activity>
         <activity android:name=".TimeTable.TuesdayActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".TimeTable.CourseActivity" >
+            android:parentActivityName=".TimeTable.WeekActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.alicia.dostudy.TimeTable.CourseActivity" >
+                android:value="com.example.alicia.dostudy.TimeTable.WeekActivity" >
             </meta-data>
         </activity>
         <activity android:name=".TimeTable.WednesdayActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".TimeTable.CourseActivity" >
+            android:parentActivityName=".TimeTable.WeekActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.alicia.dostudy.TimeTable.CourseActivity" >
+                android:value="com.example.alicia.dostudy.TimeTable.WeekActivity" >
             </meta-data>
         </activity>
         <activity android:name=".TimeTable.ThursdayActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".TimeTable.CourseActivity" >
+            android:parentActivityName=".TimeTable.WeekActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.alicia.dostudy.TimeTable.CourseActivity" >
+                android:value="com.example.alicia.dostudy.TimeTable.WeekActivity" >
             </meta-data>
         </activity>
         <activity android:name=".TimeTable.FridayActivity"
-
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Notes.NotesActivity" />
-        <activity android:name=".Notes.AddNoteActivity" />
-        <activity android:name=".Notes.NotesDetails" />
-
             android:screenOrientation="portrait"
-            android:parentActivityName=".TimeTable.CourseActivity" >
+            android:parentActivityName=".TimeTable.WeekActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.alicia.dostudy.TimeTable.CourseActivity" >
-            </meta-data>
-        </activity>
-        <activity android:name=".TimeTable.CourseActivity"
-            android:parentActivityName=".HomeActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.alicia.dostudy.HomeActivity" >
+                android:value="com.example.alicia.dostudy.TimeTable.WeekActivity" >
             </meta-data>
         </activity>
         <activity android:name=".Notes.NotesActivity"

@@ -132,6 +132,7 @@
     <string name="notes_details_lecture_title">Vorlesung</string>
     <string name="content_descripion_note_details">User added photo</string>
     <string name="add_note_add_button">Hinzufügen</string>
+    <string name="content_description_button">Button</string>
 
     <!-- Strings for colour-array -->
     <string-array name="colourArray">
