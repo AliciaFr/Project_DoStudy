@@ -43,6 +43,9 @@ public class NotificationService extends Service {
         for (int i = 0; i < entries.size(); i++) {
             scheduleNotification(i);
         }
+        for (int i = 0; i < items.size(); i++) {
+            toDoNotification(i);
+        }
         return START_STICKY;
     }
 
@@ -71,12 +74,12 @@ public class NotificationService extends Service {
         }
     }
 
-    private void toDoNotification(int i){
+     private void toDoNotification(int i){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMANY);
         String toDoDate = items.get(i).getFormattedDate();
         long dateAndTimeInLong;
-        String defaultTime = "13:00";
-        String dateAndTime = toDoDate + " " +  defaultTime;
+         String defaultTime = "13:00";
+         String dateAndTime = toDoDate + " " +  defaultTime;
         try {
             Date taskDate = simpleDateFormat.parse(dateAndTime);
             dateAndTimeInLong = taskDate.getTime();
@@ -118,7 +121,4 @@ public class NotificationService extends Service {
     public void onDestroy() {
         super.onDestroy();
     }
-
-
-
 }

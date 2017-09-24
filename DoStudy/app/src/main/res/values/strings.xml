@@ -70,14 +70,23 @@
     <string name="colour_7">keine</string>
 
     <!-- Strings for Notification -->
-    <string name="notification">Nicht vergessen! Du hast heute ein Ereignis</string>
-    <string name="notification_title">DoStudy</string>
-    <string name="notification_content_text">Bevorstehendes Ereignis</string>
-    <string name="notification_click">Zum Kalender</string>
     <string name="preferences_key_notifications">sharedPreferences</string>
     <string name="icon_for_navigation">icon For Navigation</string>
     <string name="calendar_entry_details_eventdetails">Ereignisdetails</string>
     <string name="calendar_entry_details_location_text">Standort</string>
+
+    <string name="notification_calendar">Nicht vergessen! Du hast heute ein Ereignis</string>
+    <string name="notification_title">DoStudy</string>
+    <string name="notification_content_text_calendar">Bevorstehendes Ereignis</string>
+    <string name="notification_click_calendar">Zum Kalender</string>
+
+    <string name="notification_todo">Nicht vergessen! Du hast heute eine Aufgabe</string>
+    <string name="notification_content_text_todo">Bevorstehende Aufgabe</string>
+    <string name="notification_click_todo">Zur To-Do Liste</string>
+    <string name="notification_ticker_todo">Du hast eine Aufgabe</string>
+
+
+
 
     <!-- Strings for Alert Dialog when deleting entry -->
     <string name="alert_dialog_builder_title">Achtung!</string>
@@ -139,6 +148,8 @@
     <string name="dialog_cancel">Abbrechen</string>
     <string name="dialog_select_an_action">Füge ein Foto hinzu</string>
     <string name="content_description_logo">logo</string>
+
+    // Strings für Calendar
 
     <!-- Strings for colour-array -->
     <string-array name="colourArray">
