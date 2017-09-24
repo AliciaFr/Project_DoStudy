@@ -69,6 +69,7 @@
     <string name="colour_6">rot</string>
     <string name="colour_7">keine</string>
 
+    <!-- Strings for Notification -->
     <string name="notification">Nicht vergessen! Du hast heute ein Ereignis</string>
     <string name="notification_title">DoStudy</string>
     <string name="notification_content_text">Bevorstehendes Ereignis</string>
@@ -77,16 +78,17 @@
     <string name="icon_for_navigation">icon For Navigation</string>
     <string name="calendar_entry_details_eventdetails">Ereignisdetails</string>
     <string name="calendar_entry_details_location_text">Standort</string>
+
+    <!-- Strings for Alert Dialog when deleting entry -->
     <string name="alert_dialog_builder_title">Achtung!</string>
     <string name="alert_dialog_builder_delete_title">Möchtest du diesen Eintrag wirklich löschen?</string>
     <string name="alert_dialog_builder_delete_yes">Löschen</string>
     <string name="alert_dialog_builder_delete_no">Abbrechen</string>
 
-    <!-- String for Notes Layout -->
+    <!-- String for Notes  -->
     <string name="notes_and_grades_notes_fragement">Notizen</string>
     <string name="notes_and_grades_grades_fragement">Noten</string>
     <string name="notes_grades_title_grades">Noten</string>
-    <string name="content_description_button">ButtonForAction</string>
     <string name="notes_grades_title_notes">Notizen</string>
     <string name="notes_title">Notizen</string>
     <string name="notes_intent">Notes</string>
@@ -124,6 +126,12 @@
     <string name="toast_missing_date">Füge bitte ein Datum hinzu</string>
     <string name="toast_missing_reminder">Wähle bitte einen Wert für Benachrichtigungen aus</string>
     <string name="calendar_entry_details_alarm_tv">Benachrichtigung</string>
+    <string name="calendar_entry_details_date_title">Datum</string>
+    <string name="calendar_entry_details_date_time_title">Uhrzeit</string>
+    <string name="calendar_entry_details_date_description_title">Beschreibung</string>
+    <string name="notes_details_lecture_title">Vorlesung</string>
+    <string name="content_descripion_note_details">User added photo</string>
+    <string name="add_note_add_button">Hinzufügen</string>
 
     <!-- Strings for colour-array -->
     <string-array name="colourArray">

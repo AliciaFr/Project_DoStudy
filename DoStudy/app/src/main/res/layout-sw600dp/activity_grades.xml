@@ -10,11 +10,11 @@
         android:layout_height="wrap_content"
         android:text="@string/grades_title"
         android:textSize="20sp"
-        android:textColor="@android:color/white"
         android:gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/holoBlue"
+        android:textColor="@color/holoBlue"
+        android:textStyle="bold"
         android:padding="10dp"/>
 
     <EditText

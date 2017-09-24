@@ -1,37 +1,30 @@
 package com.example.alicia.dostudy.Calendar;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
-import android.content.res.TypedArray;
-import android.support.v7.app.AlertDialog;
-
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Switch;
-
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.alicia.dostudy.R;
+
 
 public class AddCalendarEntryActivity extends AppCompatActivity {
 
@@ -68,7 +61,6 @@ public class AddCalendarEntryActivity extends AppCompatActivity {
         initReminder();
         initTimeSwitch();
         initSpinner();
-        initLocationServices();
     }
 
     private void initSpinner() {
@@ -128,25 +120,6 @@ public class AddCalendarEntryActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    private void initLocationServices() {
-        addLocation = (Button) findViewById(R.id.calendar_entry_location_button);
-        switchLocation = (Switch) findViewById(R.id.switch_button_location);
-        /*addLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AddCalendarEntryActivity.this, AddLocationActivity.class);
-                startActivity(intent);
-            }
-        });*/
-        switchLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-
-            }
-        });
-
     }
 
     private void initAddButton() {

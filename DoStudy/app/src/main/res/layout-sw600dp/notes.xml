@@ -5,11 +5,11 @@
 
     <TextView
         android:id="@+id/notes_title"
-        android:layout_marginTop="@dimen/margin_screen_small"
+        android:layout_marginTop="@dimen/margin_top_bottom"
         android:textColor="@color/holoBlue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="@dimen/listview_notes_title_text"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/notes_linear_layout"
-        android:layout_marginTop="@dimen/margin_screen_small"
+        android:layout_marginTop="@dimen/margin_top_bottom"
         android:layout_below="@+id/notes_title"
         android:paddingBottom="2dp">
 
@@ -25,14 +25,15 @@
             android:id="@+id/notes_lecture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6"
-            android:textColor="@color/normalText" />
+            android:layout_weight="0.7"
+            android:textColor="@color/normalText"
+            android:text="@string/test" />
 
         <TextView
             android:id="@+id/notes_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
+            android:layout_weight="0.3"
             android:textColor="@color/normalText" />
     </LinearLayout>
 </RelativeLayout>

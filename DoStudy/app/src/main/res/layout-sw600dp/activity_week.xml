@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         android:text="@string/personal_timetable"
         android:textSize="20sp"
-        android:textColor="@android:color/white"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:background="@color/holoBlue"
+        android:textColor="@color/holoBlue"
+        android:textStyle="bold"
         android:gravity="center"
         android:padding="10dp"/>
 

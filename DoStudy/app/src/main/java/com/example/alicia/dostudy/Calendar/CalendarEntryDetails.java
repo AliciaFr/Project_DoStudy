@@ -21,7 +21,7 @@ import com.example.alicia.dostudy.R;
 
 public class CalendarEntryDetails extends AppCompatActivity {
 
-    private String title, description, date, time, reminder;
+    private String title, description, date, time;
     private CalendarDatabase database;
 
 
@@ -52,7 +52,6 @@ public class CalendarEntryDetails extends AppCompatActivity {
         TextView tvDescription = (TextView) findViewById(R.id.calendar_entry_details_description);
         TextView tvDate = (TextView) findViewById(R.id.calendar_entry_details_date);
         TextView tvTime = (TextView) findViewById(R.id.calendar_entry_details_time);
-        TextView tvReminder = (TextView) findViewById(R.id.calendar_entry_details_alarm);
 
         tvTitle.setText(title);
         tvDescription.setText(description);
