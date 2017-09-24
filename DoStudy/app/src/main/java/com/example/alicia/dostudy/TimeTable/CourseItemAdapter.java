@@ -12,13 +12,17 @@ import com.example.alicia.dostudy.R;
 import java.util.ArrayList;
 
 /**
- * Created by Vera on 18.09.2017.
+ * Created by Vera on 18.08.2017.
  */
 
 public class CourseItemAdapter extends ArrayAdapter<CourseItem> {
 
     private ArrayList<CourseItem> itemArrayList;
     private Context context;
+
+    /*
+    defines every Item by using the values (name and begin) of the CourseItem and putting it into the course_item layout
+     */
 
     public CourseItemAdapter(Context context, ArrayList<CourseItem> items) {
         super(context, R.layout.course_item, items);
@@ -52,6 +56,11 @@ public class CourseItemAdapter extends ArrayAdapter<CourseItem> {
 
         return view;
     }
+
+    /*
+    the colour ist determined by the chosen colour in the DayActivity
+    the values ​​of the colours are stored in the colors.xml
+     */
 
     private int getColourForCourse(int colour){
         if (colour == 0) {

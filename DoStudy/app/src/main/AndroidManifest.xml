@@ -100,6 +100,12 @@
             </meta-data>
         </activity>
         <activity android:name=".TimeTable.FridayActivity"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Notes.NotesActivity" />
+        <activity android:name=".Notes.AddNoteActivity" />
+        <activity android:name=".Notes.NotesDetails" />
+
             android:screenOrientation="portrait"
             android:parentActivityName=".TimeTable.CourseActivity" >
             <meta-data
@@ -135,6 +141,7 @@
                 android:value="com.example.alicia.dostudy.Notes.NotesActivity" >
             </meta-data>
         </activity>
+
         <activity android:name=".NotesGradesActivity" />
         <activity android:name=".Grades.GradeActivity"
             android:parentActivityName=".HomeActivity" >

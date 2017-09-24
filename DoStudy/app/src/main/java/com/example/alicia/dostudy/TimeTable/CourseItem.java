@@ -1,13 +1,18 @@
 package com.example.alicia.dostudy.TimeTable;
 
 /**
- * Created by Vera on 18.09.2017.
+ * Created by Vera on 18.08.2017.
  */
 
 public class CourseItem {
 
     private String courseName, courseBegin, courseEnd, room, lecturer, testDate;
     int colour;
+
+    /*
+    defines the content of a CourseItem
+    each CourseItem has a name, a start time, an end, a room, a lecturer, a test date and a colour
+     */
 
     public CourseItem(String courseName, String courseBegin, String courseEnd, String room, String lecturer, String tesDate, int colour){
         this.courseName = courseName;
