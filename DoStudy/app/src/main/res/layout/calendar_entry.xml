@@ -5,11 +5,11 @@
 
     <TextView
         android:id="@+id/entry_title"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="@dimen/margin_top_bottom"
         android:textColor="@color/holoBlue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="@dimen/listview_notes_title_text"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -17,7 +17,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="@dimen/margin_top_bottom"
         android:layout_below="@+id/entry_title" >
 
         <TextView
@@ -33,15 +33,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.4"
             android:textColor="@color/normalText" />
-
     </LinearLayout>
 
     <TextView
         android:id="@+id/entry_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="@dimen/margin_bottom_listview"
+        android:layout_marginBottom="@dimen/margin_bottom_listview"
         android:layout_below="@+id/linear_layout"
-        android:textColor="@color/normalText"
-        android:paddingBottom="2dp"/>
+        android:textColor="@color/normalText" />
 </RelativeLayout>

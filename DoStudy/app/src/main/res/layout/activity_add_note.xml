@@ -3,11 +3,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="18dp"
-    android:paddingRight="18dp"
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp"
-    android:background="@android:color/white" >
+    android:layout_marginTop="@dimen/margin_top_bottom"
+    android:layout_marginBottom="@dimen/margin_top_bottom"
+    android:layout_marginLeft="@dimen/margin_left_right"
+    android:layout_marginRight="@dimen/margin_left_right" >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,24 +21,24 @@
                 android:id="@+id/add_note_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/add_calendar_entry_title_hint"
                 android:layout_marginTop="16dp"
                 android:ems="10"
                 android:inputType="textCapSentences"
                 android:background="@android:color/transparent"
                 android:drawablePadding="12dp"
                 android:padding="8dp"
-                android:hint="@string/add_calendar_entry_title_hint"
-                android:textColor="#000"
+                android:textColor="@color/normalText"
                 android:maxLines="1"
                 android:maxLength="80"
-                android:textSize="17sp"
-                android:textColorHint="@android:color/black"/>
+                android:textSize="@dimen/normal_text_size"
+                android:textColorHint="@color/normalText"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginBottom="16dp"
-                android:background="@android:color/holo_blue_dark" />
+                android:background="@color/holoBlue" />
 
             <EditText
                 android:id="@+id/add_note_lecture"
@@ -54,40 +53,40 @@
                 android:hint="@string/add_note_lecture_hint"
                 android:maxLines="1"
                 android:maxLength="80"
-                android:textSize="17sp"
-                android:textColor="#000"
-                android:textColorHint="@android:color/black"/>
+                android:textSize="@dimen/normal_text_size"
+                android:textColor="@color/normalText"
+                android:textColorHint="@color/normalText"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginBottom="16dp"
-                android:background="@android:color/holo_blue_dark"/>
+                android:layout_marginBottom="25dp"
+                android:background="@color/holoBlue"/>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginTop="12dp"
-                android:background="@android:color/black"
+                android:layout_marginBottom="@dimen/margin_bottom_divider"
+                android:layout_marginTop="@dimen/margin_top_divider"
+                android:background="@color/divider"
                 android:importantForAccessibility="no"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_bottom"
+                android:layout_marginBottom="@dimen/margin_top_bottom">
 
                 <TextView
                     android:id="@+id/add_note_add_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="12dp"
                     android:layout_toStartOf="@+id/add_note_date"
                     android:layout_toLeftOf="@+id/add_note_date"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:textSize="17sp"
-                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/normal_text_size"
+                    android:textColor="@color/normalText"
                     android:maxLines="1"
                     android:ems="10"
                     android:text="@string/add_note_date_title"
@@ -103,8 +102,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:textSize="17sp"
-                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/normal_text_size"
+                    android:textColor="@color/normalText"
                     android:clickable="true"/>
             </RelativeLayout>
 
@@ -113,7 +112,7 @@
                 android:layout_height="0.5dp"
                 android:layout_marginBottom="12dp"
                 android:layout_marginTop="12dp"
-                android:background="@android:color/black"
+                android:background="@color/divider"
                 android:importantForAccessibility="no"/>
 
             <TextView
@@ -122,8 +121,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="12dp"
-                android:textSize="17sp"
-                android:textColor="@android:color/black"
+                android:textSize="@dimen/normal_text_size"
+                android:textColor="@color/normalText"
                 android:maxLines="1"
                 android:ems="10"
                 android:text="@string/add_note_add_picture"
@@ -137,7 +136,7 @@
                 android:layout_height="0.5dp"
                 android:layout_marginBottom="12dp"
                 android:layout_marginTop="12dp"
-                android:background="@android:color/black"
+                android:background="@color/normalText"
                 android:importantForAccessibility="no"/>
 
 
@@ -152,11 +151,12 @@
                 android:drawablePadding="12dp"
                 android:padding="8dp"
                 android:hint="@string/add_notes_edit_note_hint"
-                android:textColor="#000"
-                android:textSize="17sp"
-                android:textColorHint="@android:color/black"/>
+                android:textColor="@color/normalText"
+                android:textSize="@dimen/normal_text_size"
+                android:textColorHint="@color/normalText"/>
 
             <ImageView
+                android:contentDescription=""
                 android:id="@+id/add_note_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,18 +167,15 @@
                 android:id="@+id/add_note_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hinzufügen"
+                android:text="@string/add_note_add_button"
                 style="@style/Base.TextAppearance.AppCompat.Body1"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/background_signup"
                 android:clickable="true"
                 android:padding="16dp"
                 android:textAllCaps="false"
-                android:textColor="#fff"
-                android:textSize="18sp" />
+                android:textColor="@color/addButonText"
+                android:textSize="@dimen/button_text_size" />
         </LinearLayout>
-
     </ScrollView>
-
-
 </LinearLayout>
