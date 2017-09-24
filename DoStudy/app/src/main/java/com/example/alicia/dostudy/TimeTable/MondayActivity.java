@@ -33,6 +33,11 @@ public class MondayActivity extends AppCompatActivity{
     private CourseItemAdapter item_adapter;
     private CourseItemDatabase database;
 
+    /*
+    the MondayActivity represents the courses for monday
+    the other DayActivities ar similar, they only differ by the day name (in database, intents, toasts)
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,10 +49,18 @@ public class MondayActivity extends AppCompatActivity{
         updateList();
     }
 
+    /*
+    opens the database mondayCourses.db
+     */
+
     private void initDB() {
         database = new CourseItemDatabase(this, "mondayCourses.db");
         database.open();
     }
+
+    /*
+    creates the ListView by using the CourseItemAdapter
+     */
 
     private void initList() {
         courseItems = new ArrayList<CourseItem>();
@@ -55,6 +68,11 @@ public class MondayActivity extends AppCompatActivity{
         item_adapter = new CourseItemAdapter(this, courseItems);
         list.setAdapter(item_adapter);
     }
+
+    /*
+    creates the layout by using the day name
+    spinner, button and listView are initialised
+     */
 
     private void setupUI(){
         day = (TextView)findViewById(R.id.day);
@@ -65,17 +83,26 @@ public class MondayActivity extends AppCompatActivity{
         setupListView();
     }
 
+    /*
+    If the button is clicked, the data is stored in the database
+     */
+
     private void setupButton(){
         okayButton = (Button) findViewById(R.id.button);
         okayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addInputToList();
+                addInputToDB();
             }
         });
     }
 
-    private void addInputToList() {
+    /*
+    the values are stored in variables
+    the input fields are emptied and a new courseItem with the variables will be stored in the database
+     */
+
+    private void addInputToDB() {
         courseName = (EditText) findViewById(R.id.course_input);
         courseTime = (EditText) findViewById(R.id.input_time);
         courseTimeEnd = (EditText) findViewById(R.id.input_time_end);
@@ -105,6 +132,10 @@ public class MondayActivity extends AppCompatActivity{
         }
     }
 
+    /*
+    if the spinner is clicked, the colourArray opens
+     */
+
     private void initSpinner(){
         ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(MondayActivity.this, R.array.colourArray, android.R.layout.simple_spinner_item);
 
@@ -125,12 +156,17 @@ public class MondayActivity extends AppCompatActivity{
         });
     }
 
+    /*
+    if an entry is clicked longer, it will be deleted and a toast appears
+    if an entry is clicked, an intent is created, which gives the values to CourseDetailActivity
+     */
+
     private void setupListView() {
         ListView list = (ListView) findViewById(R.id.course_list);
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                removeTaskAtPosition(position);
+                removeCourseAtPosition(position);
                 makeToast();
                 return true;
             }
@@ -162,12 +198,20 @@ public class MondayActivity extends AppCompatActivity{
         });
     }
 
-    private void removeTaskAtPosition(int position) {
+    /*
+    removes the entry at the given position and updates the list
+     */
+
+    private void removeCourseAtPosition(int position) {
         if (courseItems.get(position) != null) {
             database.removeCourseItem(courseItems.get(position));
             updateList();
         }
     }
+
+    /*
+    creates a toast
+     */
 
     private void makeToast(){
         String deleted = "Kurs gelöscht!";
@@ -176,12 +220,20 @@ public class MondayActivity extends AppCompatActivity{
         toast.show();
     }
 
+    /*
+    updates the list by removing all entries and saving the entries of the database
+     */
+
     private void updateList(){
         ArrayList tempList = database.getAllCourseItems();
         courseItems.clear();
         courseItems.addAll(tempList);
         item_adapter.notifyDataSetChanged();
     }
+
+    /*
+    closes the database
+     */
 
     @Override
     protected void onDestroy() {

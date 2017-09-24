@@ -42,7 +42,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".TimeTable.FridayActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".TimeTable.CourseActivity"/>
         <activity android:name=".Notes.NotesActivity" />
         <activity android:name=".Notes.AddNoteActivity" />
         <activity android:name=".Notes.NotesDetails" />
