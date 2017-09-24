@@ -77,6 +77,22 @@ public class NotesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                deleteNote(position);
+                return true;
+            }
+        });
+    }
+
+    private void deleteNote(int position) {
+        if (arrayList.get(position) != null) {
+            database.deleteNotes(arrayList.get(position).getTitle(),
+                    arrayList.get(position).getLecture());
+        }
+        updateList();
+        sortData();
     }
 
     private void initDB() {
