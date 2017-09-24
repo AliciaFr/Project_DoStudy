@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_curr_date"
+        android:orderInCategory="100"
+        android:title="@string/calendar_menu_curr_date"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/delete_all"
+        android:title="@string/delete_all"
+        app:showAsAction="never"
+        />
+</menu>

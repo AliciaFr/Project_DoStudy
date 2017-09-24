@@ -25,6 +25,7 @@ public class CalendarDatabase {
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_DATE = "date";
     public static final String KEY_TIME = "time";
+    private static final String KEY_REMINDER = "reminder";
 
     private DBOpenHelper helper;
     private SQLiteDatabase db;
@@ -45,13 +46,14 @@ public class CalendarDatabase {
         db.close();
     }
 
-    public void insertCalendarEntry(String title, String description, String date, String time){
+    public void insertCalendarEntry(String title, String description, String date, String time, long reminder){
         open();
         ContentValues values = new ContentValues();
         values.put(KEY_TITLE, title);
         values.put(KEY_DESCRIPTION, description);
         values.put(KEY_DATE, DateFormatter.dateToInteger(date));
         values.put(KEY_TIME, time);
+        values.put(KEY_REMINDER, reminder);
         db.insert(DATABASE_TABLE, null, values);
         close();
     }
@@ -60,14 +62,15 @@ public class CalendarDatabase {
         open();
         ArrayList<CalendarEntry> entries = new ArrayList<>();
         Cursor cursor = db.query(DATABASE_TABLE, new String[]{
-                        KEY_TITLE, KEY_DESCRIPTION, KEY_DATE, KEY_TIME}, null, null, null, null, null);
+                        KEY_TITLE, KEY_DESCRIPTION, KEY_DATE, KEY_TIME, KEY_REMINDER}, null, null, null, null, null);
         if(cursor.moveToFirst()){
             do{
                 String title = cursor.getString(0);
                 String description = cursor.getString(1);
                 int date = cursor.getInt(2);
                 String time = cursor.getString(3);
-                entries.add(new CalendarEntry(title, description, date, time));
+                long reminder = cursor.getLong(4);
+                entries.add(new CalendarEntry(title, description, date, time, reminder));
                 } while(cursor.moveToNext());
         }
         cursor.close();
@@ -76,21 +79,29 @@ public class CalendarDatabase {
         return entries;
     }
 
-    public void deleteEntry(String title, String description, String time){
-        String whereClause = KEY_TITLE + " =? AND " + KEY_DESCRIPTION + " =? AND " + KEY_TIME + " =?";
+    public void deleteEntry(String title, String description, String date, String time){
+        String whereClause = KEY_TITLE + " =? AND " + KEY_DESCRIPTION + " =? AND " + KEY_DATE + " =? AND " + KEY_TIME + " =?";
         open();
         db.delete(DATABASE_TABLE, whereClause, new String[]{
-                title, description, time
+                title, description, date, time
+        });
+        close();
+    }
+
+    public void deleteAllEntries(){
+        String whereClause = KEY_TITLE + " =? AND " + KEY_DESCRIPTION + " =? AND " + KEY_DATE + " =? AND " + KEY_TIME + " =?";
+        open();
+        db.delete(DATABASE_TABLE, whereClause, new String[]{
+                DATABASE_NAME
         });
         close();
     }
 
 
-
     private class DBOpenHelper extends SQLiteOpenHelper {
 
         private final String CREATE_DATABASE = "create table " + DATABASE_TABLE + " ("
-                + KEY_TITLE + " string, " + KEY_DESCRIPTION + " string, " + KEY_DATE + " integer, " + KEY_TIME + " string);";
+                + KEY_TITLE + " string, " + KEY_DESCRIPTION + " string, " + KEY_DATE + " integer, " + KEY_TIME + " string, " + KEY_REMINDER + " long);";
 
         public DBOpenHelper(Context context, String dbName, SQLiteDatabase.CursorFactory factory, int version){
             super(context, dbName, factory, version);

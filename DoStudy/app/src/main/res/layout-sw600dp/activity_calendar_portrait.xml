@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:background="#fff">
+
+    <TextView
+        android:id="@+id/calendar_month"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <com.github.sundeepk.compactcalendarview.CompactCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/compactcalendar_view"
+        android:layout_width="fill_parent"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:layout_height="250dp"
+        app:compactCalendarTargetHeight="250dp"
+        app:compactCalendarTextSize="18sp"
+        app:compactCalendarBackgroundColor="@android:color/white"
+        app:compactCalendarTextColor="@android:color/black"
+        app:compactCalendarCurrentSelectedDayBackgroundColor="#cdd5d8"
+        app:compactCalendarCurrentDayBackgroundColor="@color/holoBlue"
+        app:compactCalendarMultiEventIndicatorColor="@android:color/black" />
+
+
+    <ImageView
+        android:contentDescription="@string/icon_for_navigation"
+        android:id="@+id/calendar_add_entry"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="-45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_gravity="end"
+        android:src="@drawable/ic_add_circle_black_24dp"
+        android:clickable="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listview_calendar_entries" />
+</LinearLayout>

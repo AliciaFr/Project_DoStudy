@@ -1,27 +1,20 @@
 package com.example.alicia.dostudy.Calendar;
 
-import android.content.ClipData;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.alicia.dostudy.DateFormatter;
 import com.example.alicia.dostudy.R;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -36,7 +29,6 @@ public class CalendarActivity extends AppCompatActivity {
     private TextView currMonth;
     private CompactCalendarView calendarView;
     private ListView listview;
-    private ActionBar actionBar;
 
     private ArrayList<CalendarEntry> arrayList = new ArrayList<>();
     private CalendarDatabase database;
@@ -95,18 +87,6 @@ public class CalendarActivity extends AppCompatActivity {
         calendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
             public void onDayClick(Date dateClicked) {
-                Context context = getApplicationContext();
-                for (ListIterator<CalendarEntry> iterator = arrayList.listIterator(); iterator.hasNext();) {
-                    int position = 0;
-                    String stringDate = DateFormatter.dateToString(iterator.next().getDate());
-                    Date entryDate = DateFormatter.stringToDate(stringDate);
-                    System.out.println("EntryDate: " + entryDate + ", DateClicked: " + dateClicked);
-
-                    if (dateClicked.toString().equals(entryDate.toString())) {
-                        Toast.makeText(context, "Teachers' Professional Day", Toast.LENGTH_SHORT).show();
-                        listview.setSelection(position);
-                    }
-                }
             }
 
             @Override
@@ -135,28 +115,28 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
     private void showDateToEntry() {
-        listview.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView absListView, int i) {
+        if (arrayList.size() != 0) {
+            listview.setOnScrollListener(new AbsListView.OnScrollListener() {
+                @Override
+                public void onScrollStateChanged(AbsListView absListView, int i) {
 
-            }
-
-            @Override
-            public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                int firstVisibleRow = listview.getFirstVisiblePosition();
-                System.out.println(firstVisibleRow + "firstRow");
-                CalendarEntry firstVisible = adapter.getItem(firstVisibleItem);
-                if (firstVisible != null){
-                    int currDateInInt = firstVisible.getDate();
-
-                    System.out.println(currDateInInt + "view");
-                    String currDateInString = DateFormatter.dateToString(currDateInInt);
-                    System.out.println("currDate" + currDateInString);
-                    Date currDate = DateFormatter.stringToDate(currDateInString);
-                    calendarView.setCurrentDate(currDate);
                 }
-            }
-        });
+
+                @Override
+                public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                    CalendarEntry firstVisible = adapter.getItem(firstVisibleItem);
+                    if (firstVisible != null) {
+                        DateFormat dateFormat = new SimpleDateFormat("MMM yyyy", Locale.GERMAN);
+                        int currDateInInt = firstVisible.getDate();
+                        String currDateInString = DateFormatter.dateToString(currDateInInt);
+                        Date currDate = DateFormatter.stringToDate(currDateInString);
+                        String currMonthDate = dateFormat.format(currDate);
+                        calendarView.setCurrentDate(currDate);
+                        currMonth.setText(currMonthDate);
+                    }
+                }
+            });
+        }
     }
 
     private void initDB() {
@@ -164,19 +144,34 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
     private void addEntryToCalendar() {
+
         ListIterator<CalendarEntry> iterator = arrayList.listIterator();
         while(iterator.hasNext()) {
+            //String category = iterator.next().getDescription();
             String stringDate = DateFormatter.dateToString(iterator.next().getDate());
             long timestampDate = DateFormatter.stringToDate(stringDate).getTime();
-            Event event = new Event(Color.rgb(0, 153, 204), timestampDate);
-            calendarView.addEvent(event, true);
+                Event event = new Event(Color.rgb(0, 153, 204), timestampDate);
+                calendarView.addEvent(event, true);
+
         }
     }
 
-    @Override
+    private void getCurrentDate() {
+        Date currentTime = Calendar.getInstance().getTime();
+        calendarView.setCurrentDate(currentTime);
+    }
+
+    private void deleteList() {
+        calendarView.removeAllEvents();
+        arrayList.clear();
+        database.deleteAllEntries();
+        adapter.notifyDataSetChanged();
+    }
+
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.actions, menu);
+        menuInflater.inflate(R.menu.calendar_menu, menu);
         return true;
     }
 
@@ -184,7 +179,14 @@ public class CalendarActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
+            case R.id.action_curr_date:
+                getCurrentDate();
+                return true;
+            case R.id.delete_all:
+                deleteList();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return true;
-    }
+    }*/
 }

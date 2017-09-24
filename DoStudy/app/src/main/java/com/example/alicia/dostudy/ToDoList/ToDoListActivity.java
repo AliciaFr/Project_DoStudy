@@ -34,7 +34,7 @@ public class ToDoListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.todolist_activity);
+        setContentView(R.layout.activity_to_do);
         initTaskList();
         initDatabase();
         initUI();
@@ -171,6 +171,9 @@ public class ToDoListActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
             case R.id.action_sort:
                 sortList();
                 return true;
