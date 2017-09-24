@@ -6,6 +6,11 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
 
+    <supports-screens
+        android:normalScreens="true"
+        android:largeScreens="true" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_logo_owl"
@@ -27,24 +32,110 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".Calendar.CalendarEntryDetails"/>
-        <activity android:name=".ToDoList.ToDoListActivity"/>
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".Calendar.CalendarActivity" />
-        <activity android:name=".Calendar.AddCalendarEntryActivity" />
-        <activity android:name=".TimeTable.WeekActivity" />
-        <activity android:name=".TimeTable.MondayActivity" />
-        <activity android:name=".TimeTable.TuesdayActivity" />
-        <activity android:name=".TimeTable.WednesdayActivity" />
-        <activity android:name=".TimeTable.ThursdayActivity" />
-        <activity android:name=".TimeTable.FridayActivity" />
-        <activity android:name=".TimeTable.CourseActivity"/>
-        <activity android:name=".Notes.NotesActivity" />
-        <activity android:name=".Notes.AddNoteActivity" />
-        <activity android:name=".Notes.NotesDetails" />
-        <activity android:name=".NotesGradesActivity" />
-        <activity android:name=".Grades.GradeActivity"/>
+        <activity android:name=".Calendar.CalendarEntryDetails"
+            android:parentActivityName=".Calendar.CalendarActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.Calendar.CalendarActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".ToDoList.ToDoListActivity"
+            android:parentActivityName=".HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.HomeActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".Calendar.CalendarActivity"
+            android:parentActivityName=".HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.HomeActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".Calendar.AddCalendarEntryActivity"
+            android:parentActivityName=".Calendar.CalendarActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.Calendar.CalendarActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".TimeTable.WeekActivity"
+            android:parentActivityName=".HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.HomeActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".TimeTable.MondayActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".TimeTable.WeekActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.TimeTable.WeekActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".TimeTable.TuesdayActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".TimeTable.WeekActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.TimeTable.WeekActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".TimeTable.WednesdayActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".TimeTable.WeekActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.TimeTable.WeekActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".TimeTable.ThursdayActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".TimeTable.WeekActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.TimeTable.WeekActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".TimeTable.FridayActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".TimeTable.WeekActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.TimeTable.WeekActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".Notes.NotesActivity"
+            android:parentActivityName=".HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.HomeActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".Notes.AddNoteActivity"
+            android:parentActivityName=".Notes.NotesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.Notes.NotesActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".Notes.NotesDetails"
+            android:parentActivityName=".Notes.NotesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.Notes.NotesActivity" >
+            </meta-data>
+        </activity>
+        <activity android:name=".Grades.GradeActivity"
+            android:parentActivityName=".HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alicia.dostudy.HomeActivity" >
+            </meta-data>
+        </activity>
+
         <activity android:name=".TimeTable.CourseDetailActivity"></activity>
 
 

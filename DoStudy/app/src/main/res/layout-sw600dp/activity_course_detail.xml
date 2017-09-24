@@ -4,25 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alicia.dostudy.TimeTable.MondayActivity"
+    tools:context="com.example.alicia.dostudy.TimeTable.CourseDetailActivity"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/day"
+        android:text="@string/view_course"
         android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:textColor="@color/holoBlue"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:padding="10dp"
-        android:id="@+id/day"/>
+        android:background="@color/holoBlue"
+        android:padding="10dp"/>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,28 +36,38 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="18sp"
                     android:text="@string/course_title"
-                    android:textSize="14sp"
                     android:textColor="@android:color/black"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
                     android:drawableStart="@drawable/ic_chat_bubble_outline_black_24dp"
                     android:drawableLeft="@drawable/ic_chat_bubble_outline_black_24dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:drawablePadding="10dp"/>
 
-                <EditText
-                    android:id="@+id/course_input"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:hint="@string/add_course_hint"
-                    android:padding="10dp"
-                    android:inputType="text"
-                    android:textSize="14sp"
+                    android:id="@+id/title_result"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black" />
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/time"
+                android:textColor="@android:color/black"
+                android:drawableStart="@drawable/ic_access_time_black_24dp"
+                android:drawableLeft="@drawable/ic_access_time_black_24dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:drawablePadding="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,46 +78,46 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/begin"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     android:textColor="@android:color/black"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:drawableStart="@drawable/ic_access_time_black_24dp"
-                    android:drawableLeft="@drawable/ic_access_time_black_24dp"
-                    android:drawablePadding="10dp"/>
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginStart="45dp"/>
 
-                <EditText
-                    android:id="@+id/input_time"
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:padding="10dp"
-                    android:inputType="time"
+                    android:id="@+id/time_begin_result"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/end"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     android:textColor="@android:color/black"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginStart="45dp"/>
 
-                <EditText
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:id="@+id/input_time_end"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:padding="10dp"
-                    android:inputType="time"
+                    android:id="@+id/time_end_result"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
 
             </LinearLayout>
 
@@ -120,25 +129,24 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="18sp"
                     android:text="@string/room"
-                    android:textSize="14sp"
                     android:textColor="@android:color/black"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
                     android:drawableStart="@drawable/ic_place_black_24dp"
                     android:drawableLeft="@drawable/ic_place_black_24dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:drawablePadding="10dp"/>
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/input_room"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:padding="10dp"
-                    android:inputType="text"
+                    android:id="@+id/room_result"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
 
             </LinearLayout>
 
@@ -150,25 +158,24 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="18sp"
                     android:text="@string/lecturer"
-                    android:textSize="14sp"
                     android:textColor="@android:color/black"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
                     android:drawableStart="@drawable/ic_person_black_24dp"
                     android:drawableLeft="@drawable/ic_person_black_24dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:drawablePadding="10dp"/>
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/input_lecturer"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:padding="10dp"
-                    android:inputType="text"
+                    android:id="@+id/lecturer_result"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
 
             </LinearLayout>
 
@@ -180,25 +187,24 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="18sp"
                     android:text="@string/test"
-                    android:textSize="14sp"
                     android:textColor="@android:color/black"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
                     android:drawableStart="@drawable/ic_school_black_24dp"
                     android:drawableLeft="@drawable/ic_school_black_24dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:drawablePadding="10dp"/>
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/input_date"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:padding="10dp"
-                    android:inputType="date"
+                    android:id="@+id/test_result"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
 
             </LinearLayout>
 
@@ -210,49 +216,29 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="18sp"
                     android:text="@string/colour"
-                    android:textSize="14sp"
                     android:textColor="@android:color/black"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
                     android:drawableStart="@drawable/ic_color_lens_black_24dp"
                     android:drawableLeft="@drawable/ic_color_lens_black_24dp"
-                    android:drawablePadding="10dp"/>
-
-                <Spinner
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:id="@+id/input_colour"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:padding="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"/>
+                    android:drawablePadding="10dp"/>
 
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:text="@string/button"
+                    android:id="@+id/colour_result"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginEnd="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
 
             </LinearLayout>
-
-
 
         </LinearLayout>
 
     </ScrollView>
-
-    <ListView
-        android:id="@+id/course_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:animateLayoutChanges="true"
-        android:padding="10dp" />
 
 </LinearLayout>

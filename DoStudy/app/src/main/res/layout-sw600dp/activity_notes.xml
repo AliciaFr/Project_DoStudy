@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="@dimen/margin_top_bottom"
     android:layout_marginBottom="@dimen/margin_top_bottom"
-    android:layout_marginLeft="@dimen/margin_left_right"
-    android:layout_marginRight="@dimen/margin_left_right"
+    android:layout_marginLeft="60dp"
+    android:layout_marginStart="60dp"
+    android:layout_marginRight="60dp"
+    app:layout_goneMarginRight="60dp"
     android:background="@android:color/white">
 
     <TextView
@@ -31,9 +34,9 @@
     <ImageView
         android:contentDescription="@string/icon_for_navigation"
         android:id="@+id/notes_add_note"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="-80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="-150dp"
         android:layout_marginBottom="@dimen/margin_top_bottom"
         android:layout_marginRight="@dimen/margin_left_right"
         android:layout_marginEnd="@dimen/margin_left_right"

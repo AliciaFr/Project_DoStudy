@@ -7,16 +7,19 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+
+
+import com.example.alicia.dostudy.Grades.GradeActivity;
+import com.example.alicia.dostudy.Notes.NotesActivity;
 
 import com.example.alicia.dostudy.Calendar.CalendarActivity;
+
 import com.example.alicia.dostudy.TimeTable.WeekActivity;
 import com.example.alicia.dostudy.ToDoList.ToDoListActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private Button toDo, timeTable, calendar, notesAndGrades;
+    private Button toDo, timeTable, calendar, notes, grades;
 
 
     @Override
@@ -31,7 +34,8 @@ public class HomeActivity extends AppCompatActivity {
         toDo = (Button) findViewById(R.id.home_todo);
         calendar = (Button) findViewById(R.id.home_calendar);
         timeTable = (Button) findViewById(R.id.home_timetable);
-        notesAndGrades = (Button) findViewById(R.id.home_notes_grades);
+        notes = (Button) findViewById(R.id.home_notes);
+        grades = (Button) findViewById(R.id.home_grades);
     }
 
     private void initClickListener() {
@@ -56,14 +60,20 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(toTimeTable);
             }
         });
-        notesAndGrades.setOnClickListener(new View.OnClickListener() {
+        notes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toNotesAndGrades = new Intent(HomeActivity.this, NotesGradesActivity.class);
+                Intent toNotesAndGrades = new Intent(HomeActivity.this, NotesActivity.class);
                 startActivity(toNotesAndGrades);
             }
         });
-
+        grades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toNotesAndGrades = new Intent(HomeActivity.this, GradeActivity.class);
+                startActivity(toNotesAndGrades);
+            }
+        });
     }
 
     @Override

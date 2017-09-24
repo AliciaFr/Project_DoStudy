@@ -11,14 +11,14 @@ public class CalendarEntry implements Comparable<CalendarEntry>, Serializable {
     private String description;
     private int date;
     private String time;
+    private long reminder;
 
-    public CalendarEntry() {}
-
-    public CalendarEntry(String title, String description, int date, String time) {
+    public CalendarEntry(String title, String description, int date, String time, long reminder) {
         this.title = title;
         this.description = description;
         this.date = date;
         this.time = time;
+        this.reminder = reminder;
     }
 
     public void setTitle(String title) {
@@ -51,6 +51,14 @@ public class CalendarEntry implements Comparable<CalendarEntry>, Serializable {
 
     public String getTime() {
         return time;
+    }
+
+    public void setReminder(long reminder) {
+        this.reminder = reminder;
+    }
+
+    public long getReminder() {
+        return reminder;
     }
 
     @Override

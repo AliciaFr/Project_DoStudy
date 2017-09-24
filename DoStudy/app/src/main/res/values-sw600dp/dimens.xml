@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+
+        <!-- font sizes sp-->
+        <dimen name="title_text_size">48sp</dimen>
+        <dimen name="normal_text_size">34sp</dimen>
+        <dimen name="button_text_size">36sp</dimen>
+    <dimen name="subtitle_text_size">32sp</dimen>
+
+        <!-- margin sizes dp -->
+        <dimen name="margin_top_bottom">60dp</dimen>
+        <dimen name="margin_left_right">60dp</dimen>
+
+
+        <!-- padding sizes dp -->
+        <dimen name="padding_button_top_main">25dp</dimen>
+        <dimen name="padding_button_side_main">20dp</dimen>
+        <dimen name="padding_button_main_land">10dp</dimen>
+        <dimen name="padding_small">12dp</dimen>
+
+        <dimen name="fragment_margin">15dp</dimen>
+        <dimen name="fragment_padding">10dp</dimen>
+        <dimen name="activity_horizontal_margin">64dp</dimen>
+        <dimen name="margin_view_for_edit_text">16dp</dimen>
+
+        <!-- divider -->
+        <dimen name="margin_bottom_divider">25dp</dimen>
+        <dimen name="margin_top_divider">25dp</dimen>
+        <dimen name="thickness_divider">2dp</dimen>
+
+
+        <dimen name="drawable_padding">12dp</dimen>
+
+    <dimen name="icon_width_delete">55dp</dimen>
+    <dimen name="icon_height_delete">55dp</dimen>
+
+    </resources>
+

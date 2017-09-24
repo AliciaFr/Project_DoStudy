@@ -1,27 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#f4f4f4" >
+    android:background="@android:color/white"
+    >
+
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/grades_title"
-        android:textSize="20sp"
         android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:paddingBottom="16dp"
+        android:text="@string/add_item_header"
         android:textColor="@color/holoBlue"
         android:textStyle="bold"
-        android:padding="10dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/add_course"
+        android:id="@+id/todo_edit_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/add_course_hint"
+        android:hint="@string/add_item_hint"
         android:textColorHint="@android:color/darker_gray"
         android:textColor="@android:color/black"
         android:maxLines="1"
@@ -29,37 +32,39 @@
         android:textColorLink="@color/holoBlue"
         />
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:padding="10dp">
 
 
         <EditText
-            android:id="@+id/add_grade"
+            android:id="@+id/todo_edit_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.74"
-            android:hint="@string/add_grade_hint"
-            android:inputType="numberDecimal"
+            android:focusable="false"
+            android:hint="@string/todo_text_date_hint"
+            android:inputType="date"
             android:textColorHint="@android:color/darker_gray"
             android:textColor="@android:color/black"
             android:textColorLink="@color/holoBlue"
             />
 
         <Button
-            android:id="@+id/grades_edit_button"
+            android:id="@+id/todo_edit_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/add_course_grade_button" />
+            android:text="@string/add_item_button_confirm" />
 
     </LinearLayout>
 
     <ListView
-        android:id="@+id/grades_listview"
+        android:id="@+id/todo_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:padding="10dp" />
 
 </LinearLayout>

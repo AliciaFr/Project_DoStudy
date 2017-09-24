@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 /**
- * Created by Vera on 18.09.2017.
+ * Created by Vera on 18.08.2017.
  */
 
 public class CourseItemDatabase {
@@ -40,6 +40,12 @@ public class CourseItemDatabase {
     private ToDoDBOpenHelper dbHelper;
     private SQLiteDatabase db;
 
+    /*
+    the database stores the values of each CourseItem in a table
+    there is a database for each day
+    the name of each database is read from the corresponding DayActivity
+     */
+
     public CourseItemDatabase(Context context, String dBName) {
         dbHelper = new ToDoDBOpenHelper(context, dBName, null, DATABASE_VERSION);
     }
@@ -55,6 +61,10 @@ public class CourseItemDatabase {
     public void close() {
         db.close();
     }
+
+    /*
+        the database includes methods for inserting and removing a CourseItems, and a method to store all CourseItems in an ArrayList
+     */
 
     public long insertCourseItem(CourseItem item) {
         ContentValues itemValues = new ContentValues();
