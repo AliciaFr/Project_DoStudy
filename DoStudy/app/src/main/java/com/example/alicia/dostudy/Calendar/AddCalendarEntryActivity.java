@@ -26,13 +26,14 @@ import android.widget.Toast;
 import com.example.alicia.dostudy.R;
 
 
+/* In this activity the user can add a new entry which is saved to the database then*/
+
 public class AddCalendarEntryActivity extends AppCompatActivity {
 
     private EditText editTitle;
     private TextView editDate, editTime, dateValue, timeValue, selectedCategory;
     private TextView tvReminder;
-    private Button addEntry, addLocation;
-    private Switch switchTime, switchLocation;
+    private Button addEntry;
 
     private CalendarDatabase database;
 
@@ -63,6 +64,7 @@ public class AddCalendarEntryActivity extends AppCompatActivity {
         initSpinner();
     }
 
+    // initializes a spinner where the user can choose from different types of entries like deadlines or parties
     private void initSpinner() {
         Spinner categorySpinner = (Spinner) findViewById(R.id.add_calendar_entry_category);
         ArrayAdapter categoryAdapter = ArrayAdapter.createFromResource(this, R.array.entry_category_array,
@@ -85,6 +87,7 @@ public class AddCalendarEntryActivity extends AppCompatActivity {
         });
     }
 
+    // initializes a spinner where the user can decide when the alarm for an entry will be started
     private void initReminder() {
         Spinner reminderSpinner = (Spinner) findViewById(R.id.add_calendar_entry_reminder);
         ArrayAdapter categoryAdapter = ArrayAdapter.createFromResource(this, R.array.entry_reminder_array,
@@ -104,15 +107,17 @@ public class AddCalendarEntryActivity extends AppCompatActivity {
 
     }
 
+    /* When the switch button is active the editDate and timeValue Views will disappear and the
+    * time will be set to a default value of OO:OO*/
     private void initTimeSwitch() {
-        switchTime = (Switch) findViewById(R.id.switchButton);
+        Switch switchTime = (Switch) findViewById(R.id.switchButton);
         switchTime.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked) {
                     editTime.setVisibility(View.GONE);
                     timeValue.setVisibility(View.GONE);
-                    timeValue.setText("00:00");
+                    timeValue.setText(getResources().getString(R.string.add_calendar_entry_default_time));
                 } else {
                     editTime.setVisibility(View.VISIBLE);
                     timeValue.setVisibility(View.VISIBLE);
@@ -122,6 +127,9 @@ public class AddCalendarEntryActivity extends AppCompatActivity {
         });
     }
 
+    /* will get the input of the user and a new entry will be added to the database
+     * The value of the reminder will be converted into milliseconds. This is necessary for
+     * the NotificationService */
     private void initAddButton() {
         addEntry.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,37 +163,47 @@ public class AddCalendarEntryActivity extends AppCompatActivity {
                         reminderInMilliseconds = 24 * 60 * 60000;
                         break;
                 }
+                checkForEmptyFields(title, category, date, reminder, time, reminderInMilliseconds);
 
-                if (title.equals("")) {
-                    Toast toast = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_not_all_fields), Toast.LENGTH_SHORT);
-                    toast.show();
-                } else if (category.equals("")) {
-                    Toast toast = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_missing_category), Toast.LENGTH_SHORT);
-                    toast.show();
-                } else if (date.equals("")) {
-                    Toast toast = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_missing_date), Toast.LENGTH_SHORT);
-                    toast.show();
-                } else if (reminder.equals("")) {
-                    Toast toast = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_missing_reminder), Toast.LENGTH_SHORT);
-                    toast.show();
-                } else {
-                    editTitle.setText("");
-                    selectedCategory.setText("");
-                    timeValue.setText("");
-                    dateValue.setText("");
-                    tvReminder.setText("");
-                    addEntry(title, category, date, time, reminderInMilliseconds);
-                    Toast toastAdded = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_calendar_entry_added), Toast.LENGTH_SHORT);
-                    toastAdded.show();
-                }
             }
         });
     }
 
+    /* checks for empty field which the user hasn't filled in yet. If a textView is empty and the user
+    * wants to press the addButton a Toast will be showing up, informing him
+    * if everything's filled in the new entry will be saved to the CalendarEntryDatabase */
+    private void checkForEmptyFields(String title, String category, String date, String reminder, String time, long reminderInMilliseconds) {
+        if (title.equals("")) {
+            Toast toast = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_not_all_fields), Toast.LENGTH_SHORT);
+            toast.show();
+        } else if (category.equals("")) {
+            Toast toast = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_missing_category), Toast.LENGTH_SHORT);
+            toast.show();
+        } else if (date.equals("")) {
+            Toast toast = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_missing_date), Toast.LENGTH_SHORT);
+            toast.show();
+        } else if (reminder.equals("")) {
+            Toast toast = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_missing_reminder), Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            editTitle.setText("");
+            selectedCategory.setText("");
+            timeValue.setText("");
+            dateValue.setText("");
+            tvReminder.setText("");
+            addEntry(title, category, date, time, reminderInMilliseconds);
+            Toast toastAdded = Toast.makeText(AddCalendarEntryActivity.this, getResources().getString(R.string.toast_calendar_entry_added), Toast.LENGTH_SHORT);
+            toastAdded.show();
+        }
+    }
+
+
+    /* adds a new Entry to the database */
     private void addEntry(String title, String description, String date, String time, long reminder) {
         database.insertCalendarEntry(title, description, date, time, reminder);
     }
 
+    /* is called when the user clicks on the TextView editDate to choose a date*/
     private void initDatePicker() {
        editDate.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -195,6 +213,8 @@ public class AddCalendarEntryActivity extends AppCompatActivity {
        });
     }
 
+
+    /* is called when the user clicks on the TextView editTime to choose a time*/
     private void initTimePicker() {
         editTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -209,8 +229,8 @@ public class AddCalendarEntryActivity extends AppCompatActivity {
         dateFragment.show(getFragmentManager(), getResources().getString(R.string.date_picker));
     }
 
+    // setup for DatePicker
     public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
-
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final Calendar calendar = Calendar.getInstance();
@@ -234,6 +254,7 @@ public class AddCalendarEntryActivity extends AppCompatActivity {
         timeFragment.show(getFragmentManager(), getResources().getString(R.string.time_picker));
     }
 
+    // setup for time-picker
     public static class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {

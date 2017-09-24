@@ -11,9 +11,7 @@ import com.example.alicia.dostudy.DateFormatter;
 
 import java.util.ArrayList;
 
-/**
- * Created by Alicia on 21.09.2017.
- */
+/* Database for the Notes */
 
 public class NotesDatabase {
 
@@ -21,8 +19,6 @@ public class NotesDatabase {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_TABLE_NOTES= "notes";
 
-
-    // Constants for notes database
     private static final String KEY_NOTES_TITLE = "title";
     private static final String KEY_NOTES_LECTURE = "lecture";
     private static final String KEY_NOTES_DATE = "date";
@@ -60,16 +56,6 @@ public class NotesDatabase {
         close();
     }
 
-    public String getFilePathImage() {
-        Cursor cursor = db.query(DATABASE_TABLE_NOTES, new String[]{
-                KEY_NOTES_TITLE, KEY_NOTES_LECTURE, KEY_NOTES_DATE, KEY_NOTES_NOTE, KEY_NOTES_IMAGE}, null, null, null, null, null);
-        cursor.moveToPosition(4);
-        String imageFilePath = cursor.getString(4);
-        cursor.close();
-        close();
-        return imageFilePath;
-    }
-
     public int getDate() {
         Cursor cursor = db.query(DATABASE_TABLE_NOTES, new String[]{
                 KEY_NOTES_TITLE, KEY_NOTES_LECTURE, KEY_NOTES_DATE, KEY_NOTES_NOTE, KEY_NOTES_IMAGE}, null, null, null, null, null);
@@ -88,16 +74,6 @@ public class NotesDatabase {
         cursor.close();
         close();
         return title;
-    }
-
-    public String lecture() {
-        Cursor cursor = db.query(DATABASE_TABLE_NOTES, new String[]{
-                KEY_NOTES_TITLE, KEY_NOTES_LECTURE, KEY_NOTES_DATE, KEY_NOTES_NOTE, KEY_NOTES_IMAGE}, null, null, null, null, null);
-        cursor.moveToPosition(1);
-        String lecture = cursor.getString(1);
-        cursor.close();
-        close();
-        return lecture;
     }
 
     public ArrayList<Notes> getAllNotes(){

@@ -11,6 +11,8 @@ import android.support.v7.app.NotificationCompat;
 
 import com.example.alicia.dostudy.Calendar.CalendarActivity;
 
+/* sets up the notification for the calendar entry */
+
 public class AlarmReceiver extends BroadcastReceiver {
 
     @Override

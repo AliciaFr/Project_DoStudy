@@ -4,8 +4,9 @@ import com.example.alicia.dostudy.DateFormatter;
 
 import java.io.Serializable;
 
-public class Notes implements Comparable<Notes>, Serializable {
+// represents a Note for the Note Functionality
 
+public class Notes implements Comparable<Notes>, Serializable {
 
     private String title;
     private String lecture;
@@ -36,10 +37,6 @@ public class Notes implements Comparable<Notes>, Serializable {
         return lecture;
     }
 
-    public void setLecture(String lecture) {
-        this.lecture = lecture;
-    }
-
     public int getDate() {
         return date;
     }
@@ -52,18 +49,11 @@ public class Notes implements Comparable<Notes>, Serializable {
         return note;
     }
 
-    public void setNote(String note) {
-        this.note = note;
-    }
 
     public String getFilePathImage() {
         return filePathImage;
     }
 
-    public void setFilePathImage(String filePathImage) {
-        this.filePathImage = filePathImage;
-
-    }
 
     @Override
     public int compareTo(Notes another) {

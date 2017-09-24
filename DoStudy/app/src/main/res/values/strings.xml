@@ -133,6 +133,11 @@
     <string name="content_descripion_note_details">User added photo</string>
     <string name="add_note_add_button">Hinzufügen</string>
     <string name="content_description_button">Button</string>
+    <string name="add_calendar_entry_default_time">00:00</string>
+    <string name="dialog_take_picture">Foto aufnehmen</string>
+    <string name="dialog_choos_from_gallery">Aus Galerie wählen</string>
+    <string name="dialog_cancel">Abbrechen</string>
+    <string name="dialog_select_an_action">Füge ein Foto hinzu</string>
 
     <!-- Strings for colour-array -->
     <string-array name="colourArray">

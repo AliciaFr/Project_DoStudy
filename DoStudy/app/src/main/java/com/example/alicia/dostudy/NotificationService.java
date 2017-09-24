@@ -20,12 +20,11 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 
+/* Notification Service for CalendarEntries */
 
 public class NotificationService extends Service {
 
     private ArrayList<CalendarEntry> entries = new ArrayList<>();
-    private ArrayList<Task> items = new ArrayList<>();
-    private ToDoListDatabase toDoDB;
     private CalendarDatabase database;
 
 
@@ -38,14 +37,13 @@ public class NotificationService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         initDB();
         getEntries();
-        getTasks();
         for (int i = 0; i < entries.size(); i++) {
             scheduleNotification(i);
-            //* todo_notification(i);
         }
         return START_STICKY;
     }
 
+    /* formats date and time of the CalendarEntry into milliseconds and calculates the notification time with the value of the chosen alert time */
     private void scheduleNotification(int i) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMANY);
         String date = DateFormatter.dateToString(entries.get(i).getDate());
@@ -70,43 +68,16 @@ public class NotificationService extends Service {
         }
     }
 
-     private void todo_notification(int i){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMANY);
-        String todo_date = items.get(i).getFormattedDate();
-        long dateInLong;
-        try {
-            Date task_date = simpleDateFormat.parse(todo_date);
-            dateInLong = task_date.getTime();
-        } catch (ParseException e){
-            return;
-        }
-        long notificationTime = dateInLong;
-
-        Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), i,
-                intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, notificationTime, pendingIntent);
-        }
-    }
-
+    // gets the entries from the CalendarDatabase
     public void getEntries() {
         entries.clear();
         entries.addAll(database.getAllEntries());
         Collections.sort(entries);
     }
 
-     public void getTasks() {
-        items.clear();
-        items.addAll(toDoDB.getAllToDoItems());
-        Collections.sort(items);
-    }
-
-
+    // init the database
     private void initDB() {
         database = new CalendarDatabase(this);
-        toDoDB = new ToDoListDatabase(this);
     }
 
     @Override

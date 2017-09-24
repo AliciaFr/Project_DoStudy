@@ -12,6 +12,7 @@ import com.example.alicia.dostudy.R;
 
 import java.util.ArrayList;
 
+
 public class CalendarEntryAdapter extends ArrayAdapter<CalendarEntry> {
 
     private Context context;

@@ -11,9 +11,7 @@ import com.example.alicia.dostudy.DateFormatter;
 
 import java.util.ArrayList;
 
-/**
- * Created by Alicia on 18.09.2017.
- */
+/* SQLite Database for saving the calendar entries */
 
 public class CalendarDatabase {
 
@@ -21,10 +19,10 @@ public class CalendarDatabase {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_TABLE = "entries";
 
-    public static final String KEY_TITLE = "title";
-    public static final String KEY_DESCRIPTION = "description";
-    public static final String KEY_DATE = "date";
-    public static final String KEY_TIME = "time";
+    private static final String KEY_TITLE = "title";
+    private static final String KEY_DESCRIPTION = "description";
+    private static final String KEY_DATE = "date";
+    private static final String KEY_TIME = "time";
     private static final String KEY_REMINDER = "reminder";
 
     private DBOpenHelper helper;
@@ -88,18 +86,8 @@ public class CalendarDatabase {
         close();
     }
 
-    public void deleteAllEntries(){
-        String whereClause = KEY_TITLE + " =? AND " + KEY_DESCRIPTION + " =? AND " + KEY_DATE + " =? AND " + KEY_TIME + " =?";
-        open();
-        db.delete(DATABASE_TABLE, whereClause, new String[]{
-                DATABASE_NAME
-        });
-        close();
-    }
-
 
     private class DBOpenHelper extends SQLiteOpenHelper {
-
         private final String CREATE_DATABASE = "create table " + DATABASE_TABLE + " ("
                 + KEY_TITLE + " string, " + KEY_DESCRIPTION + " string, " + KEY_DATE + " integer, " + KEY_TIME + " string, " + KEY_REMINDER + " long);";
 

@@ -17,7 +17,7 @@ import com.example.alicia.dostudy.R;
 
 import static com.example.alicia.dostudy.R.id.notes_details_delete;
 
-
+/* Shows all details of a Note when the belonging listview element is clicked */
 
 public class NotesDetails extends AppCompatActivity {
 
@@ -41,6 +41,7 @@ public class NotesDetails extends AppCompatActivity {
         database = new NotesDatabase(this);
     }
 
+    /* sets up UI components and sets the views to the value of the Note */
     private void initUI() {
         Bitmap mBitmap = BitmapFactory.decodeFile(imageFilePath);
 
@@ -65,6 +66,8 @@ public class NotesDetails extends AppCompatActivity {
         image.setImageBitmap(mBitmap);
     }
 
+    /* when the user wants to delete a note an alert dialog will show up
+     * when positive the note is deleted from the database */
     private void deleteNote() {
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
@@ -88,6 +91,7 @@ public class NotesDetails extends AppCompatActivity {
                 .setNegativeButton(getResources().getString(R.string.alert_dialog_builder_delete_no), dialogClickListener).show();
     }
 
+    /* gets the data of the selected note from the ListView of the NoteActivity */
     private void informationInBundle(Bundle extras) {
         Notes notes = (Notes) extras.get(getResources().getString(R.string.notes_intent));
         title = notes.getTitle();
