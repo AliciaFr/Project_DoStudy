@@ -34,7 +34,7 @@ public class ToDoListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.todolist_activity);
+        setContentView(R.layout.activity_to_do);
         initTaskList();
         initDatabase();
         initUI();

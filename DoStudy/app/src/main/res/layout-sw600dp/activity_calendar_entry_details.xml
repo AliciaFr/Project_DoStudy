@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:layout_marginTop="@dimen/margin_screen_small"
+    android:layout_marginLeft="@dimen/margin_screen_small"
+    android:layout_marginStart="@dimen/margin_screen_small"
+    android:layout_marginRight="@dimen/margin_screen_small"
+    android:layout_marginEnd="@dimen/margin_screen_small" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:contentDescription="@string/icon_for_navigation"
+            android:id="@+id/calendar_entry_details_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete_24dp"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
+            android:clickable="true"/>
+    </RelativeLayout>
+  
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_screen_small"
+        android:textColor="@color/captionsGrey"/>
+
+    <TextView
+        android:id="@+id/calendar_entry_details_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/normalText"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/calendar_entry_details_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/captionsGrey"/>
+
+    <TextView
+        android:id="@+id/calendar_entry_details_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/captionsGrey"/>
+
+
+    <TextView
+        android:id="@+id/calendar_entry_details_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/captionsGrey"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/captionsGrey"
+        android:importantForAccessibility="no"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/calendar_entry_details_location_text"
+        android:textAllCaps="true"
+        android:textColor="#74787a"/>
+
+    <TextView
+        android:id="@+id/calendar_entry_details_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/normalText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/calendar_entry_details_alarm_tv"
+        android:textAllCaps="true"
+        android:textColor="@color/captionsGrey"/>
+
+    <TextView
+        android:id="@+id/calendar_entry_details_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/normalText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/calendar_entry_details_category"
+        android:textAllCaps="true"
+        android:textColor="@color/captionsGrey"/>
+
+    <TextView
+        android:id="@+id/calendar_entry_details_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/normalText"/>
+
+</LinearLayout>
