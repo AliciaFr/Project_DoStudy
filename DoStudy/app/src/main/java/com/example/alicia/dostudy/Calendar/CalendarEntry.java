@@ -1,9 +1,7 @@
 package com.example.alicia.dostudy.Calendar;
 import java.io.Serializable;
 
-/**
- * Created by Alicia on 18.09.2017.
- */
+// represents a Calendar Entry
 
 public class CalendarEntry implements Comparable<CalendarEntry>, Serializable {
 
@@ -29,10 +27,6 @@ public class CalendarEntry implements Comparable<CalendarEntry>, Serializable {
         return title;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -51,10 +45,6 @@ public class CalendarEntry implements Comparable<CalendarEntry>, Serializable {
 
     public String getTime() {
         return time;
-    }
-
-    public void setReminder(long reminder) {
-        this.reminder = reminder;
     }
 
     public long getReminder() {

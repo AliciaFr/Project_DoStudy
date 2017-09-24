@@ -20,6 +20,7 @@
 
       <receiver android:name=".CalendarAlarmReceiver"/>
       <receiver android:name=".ToDoAlarmReceiver"/>
+
         <service android:name=".NotificationService" />
 
 

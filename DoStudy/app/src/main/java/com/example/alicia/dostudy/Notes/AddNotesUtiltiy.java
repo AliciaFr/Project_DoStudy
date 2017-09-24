@@ -13,13 +13,18 @@ import android.support.v4.content.ContextCompat;
 
 /*
 * This code is from the following website: http://www.theappguruz.com/blog/android-take-photo-camera-gallery-code-sample
+* This class is used to check the permission at runtime for reading the external storage.
+* It will be used in the AddNoteActivity when the user wants to select a photo
 * */
 
 public class AddNotesUtiltiy {
 
     public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 123;
+    private static final String PERMISSION_NECESSARY_TITLE = "Zugriff benötigt";
+    private static final String PERMISSION_NECESSARY_MESSAGE = "Zugriff auf externen Speicher wird benötigt";
+    private static final String MESSAGE_POSITIVE_BUTTON = "Ja";
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public static boolean checkPermission(final Context context) {
         int currentAPIVersion = Build.VERSION.SDK_INT;
         if(currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
@@ -28,9 +33,9 @@ public class AddNotesUtiltiy {
                 if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
                     AlertDialog.Builder alertBuilder = new AlertDialog.Builder(context);
                     alertBuilder.setCancelable(true)
-                            .setTitle("Zugriff benötigt")
-                            .setMessage("Zugriff auf externen Speicher wird benötigt")
-                            .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+                            .setTitle(PERMISSION_NECESSARY_TITLE)
+                            .setMessage(PERMISSION_NECESSARY_MESSAGE)
+                            .setPositiveButton(MESSAGE_POSITIVE_BUTTON, new DialogInterface.OnClickListener() {
                                 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);

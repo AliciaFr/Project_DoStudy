@@ -7,12 +7,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-
 import com.example.alicia.dostudy.R;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
+/*
+* this activity is called when the Notes button from the Home Menu is clicked
+* It shows a listview with all saved Notes
+* */
 
 public class NotesActivity extends AppCompatActivity {
 
@@ -67,6 +69,7 @@ public class NotesActivity extends AppCompatActivity {
         adapter = new NotesAdapter(this, arrayList);
     }
 
+    /* sends the information of the note via intent to the DetailsActivity */
     private void initListView() {
         listView = (ListView) findViewById(R.id.notes_listview);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -77,22 +80,6 @@ public class NotesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                deleteNote(position);
-                return true;
-            }
-        });
-    }
-
-    private void deleteNote(int position) {
-        if (arrayList.get(position) != null) {
-            database.deleteNotes(arrayList.get(position).getTitle(),
-                    arrayList.get(position).getLecture());
-        }
-        updateList();
-        sortData();
     }
 
     private void initDB() {

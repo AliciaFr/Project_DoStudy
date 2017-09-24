@@ -20,6 +20,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 
+/* Notification Service for CalendarEntries */
 
 public class NotificationService extends Service {
 
@@ -48,6 +49,7 @@ public class NotificationService extends Service {
         return START_STICKY;
     }
 
+    /* formats date and time of the CalendarEntry into milliseconds and calculates the notification time with the value of the chosen alert time */
     private void scheduleNotification(int i) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMANY);
         String date = DateFormatter.dateToString(entries.get(i).getDate());
@@ -95,19 +97,21 @@ public class NotificationService extends Service {
         }
     }
 
+
+    // gets the entries from the CalendarDatabase
     public void getEntries() {
         entries.clear();
         entries.addAll(database.getAllEntries());
         Collections.sort(entries);
     }
 
-     public void getTasks() {
+    public void getTasks() {
         items.clear();
         items.addAll(toDoDB.getAllToDoItems());
         Collections.sort(items);
     }
 
-
+    // init the database
     private void initDB() {
         database = new CalendarDatabase(this);
         toDoDB = new ToDoListDatabase(this);

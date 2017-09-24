@@ -23,6 +23,10 @@ import java.util.Date;
 import java.util.ListIterator;
 import java.util.Locale;
 
+/* This activity sets up a calendarView in which all Entries are represented and a ListView with
+    information to the saved events
+* */
+
 public class CalendarActivity extends AppCompatActivity {
 
     private ImageView addEntry;
@@ -89,6 +93,7 @@ public class CalendarActivity extends AppCompatActivity {
             public void onDayClick(Date dateClicked) {
             }
 
+            // sets the textView to the current scrolled month
             @Override
             public void onMonthScroll(Date firstDayOfNewMonth) {
                 currMonth.setText(dateFormatMonth.format(firstDayOfNewMonth));
@@ -114,6 +119,9 @@ public class CalendarActivity extends AppCompatActivity {
         });
     }
 
+    /* when the listView is scrolled the pointer for the current position in the calendar jumps to
+        the date of the first ListView element that is shown
+     */
     private void showDateToEntry() {
         if (arrayList.size() != 0) {
             listview.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -143,11 +151,10 @@ public class CalendarActivity extends AppCompatActivity {
         database = new CalendarDatabase(this);
     }
 
+    /* adds the entries from the arrayList to the calendar. Shown as a colored circle in calendar*/
     private void addEntryToCalendar() {
-
         ListIterator<CalendarEntry> iterator = arrayList.listIterator();
         while(iterator.hasNext()) {
-            //String category = iterator.next().getDescription();
             String stringDate = DateFormatter.dateToString(iterator.next().getDate());
             long timestampDate = DateFormatter.stringToDate(stringDate).getTime();
                 Event event = new Event(Color.rgb(0, 153, 204), timestampDate);
@@ -155,38 +162,4 @@ public class CalendarActivity extends AppCompatActivity {
 
         }
     }
-
-    private void getCurrentDate() {
-        Date currentTime = Calendar.getInstance().getTime();
-        calendarView.setCurrentDate(currentTime);
-    }
-
-    private void deleteList() {
-        calendarView.removeAllEvents();
-        arrayList.clear();
-        database.deleteAllEntries();
-        adapter.notifyDataSetChanged();
-    }
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.calendar_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.action_curr_date:
-                getCurrentDate();
-                return true;
-            case R.id.delete_all:
-                deleteList();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }*/
 }

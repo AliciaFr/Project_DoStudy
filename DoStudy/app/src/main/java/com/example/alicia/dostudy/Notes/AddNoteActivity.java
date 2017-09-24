@@ -37,7 +37,9 @@ import java.util.Locale;
 
 /*
 * This codes uses the takeImage functions of the following website: http://www.theappguruz.com/blog/android-take-photo-camera-gallery-code-sample
+* This activity lets a user create a new note and adding a photo to it
 * */
+
 public class AddNoteActivity extends AppCompatActivity {
 
     private EditText editTitle, editLecture, editNote;
@@ -79,6 +81,7 @@ public class AddNoteActivity extends AppCompatActivity {
         ivImage = (ImageView) findViewById(R.id.add_note_image);
     }
 
+    // when user clicks on the TextView addDate the datePickerDialog shows up
     private void initDatePicker() {
         addDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +91,7 @@ public class AddNoteActivity extends AppCompatActivity {
         });
     }
 
+    // the take picture functionality is started by clicking
     private void initTakePicture() {
         addPicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +101,9 @@ public class AddNoteActivity extends AppCompatActivity {
         });
     }
 
+    // clicking on the add button gets the input of the user and checks if title is empty
+    // if so a toast will be shown
+    // sets the input values back and saves the note to the database
     private void initAddButton() {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +130,7 @@ public class AddNoteActivity extends AppCompatActivity {
         });
     }
 
+    // when called it inserts a new note to the database
     private void addNote(String title, String lecture, String date, String note, String filePathImage) {
         database.insertNotes(title, lecture, date, note, filePathImage);
     }
@@ -132,6 +140,7 @@ public class AddNoteActivity extends AppCompatActivity {
         dateFragment.show(getFragmentManager(), getResources().getString(R.string.date_picker));
     }
 
+    // setup a datepicker where the user can choose a date from
     public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
         @Override
@@ -152,14 +161,16 @@ public class AddNoteActivity extends AppCompatActivity {
         }
     }
 
+    // requests the permissions of reading the external storage
+    // when granted the camera or library action will be started
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permission, int[] grantResults) {
         switch (requestCode) {
             case AddNotesUtiltiy.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if (userChoosenTask.equals("Take Photo")) {
+                    if (userChoosenTask.equals(getResources().getString(R.string.dialog_take_picture))) {
                         startCameraIntent();
-                    } else if (userChoosenTask.equals("Choose from Library")) {
+                    } else if (userChoosenTask.equals(getResources().getString(R.string.dialog_choos_from_gallery))) {
                         startGalleryIntent();
                     } else {
                         // code for deny
@@ -169,28 +180,29 @@ public class AddNoteActivity extends AppCompatActivity {
         }
     }
 
+    // a dialog shows up where the user can choose between taking a picture with the camera or choose from the gallery
     private void selectImage() {
         final CharSequence[] items = {
-                "Take Photo", "Choose from Library", "Cancel"
+                "Foto aufnehmen", "Aus Galerie wählen", "Abbrechen"
         };
         AlertDialog.Builder builder = new AlertDialog.Builder(AddNoteActivity.this);
-        builder.setTitle("Füge ein Foto hinzu")
+        builder.setTitle(getResources().getString(R.string.dialog_select_an_action))
                 .setItems(items, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int item) {
                         boolean result = AddNotesUtiltiy.checkPermission(AddNoteActivity.this);
 
-                        if (items[item].equals("Take Photo")) {
-                            userChoosenTask = "Take Photo";
+                        if (items[item].equals(getResources().getString(R.string.dialog_take_picture))) {
+                            userChoosenTask = getResources().getString(R.string.dialog_take_picture);
                             if (result) {
                                 startCameraIntent();
                             }
-                        } else if (items[item].equals("Choose from Library")) {
-                            userChoosenTask = "Choose from Library";
+                        } else if (items[item].equals(getResources().getString(R.string.dialog_choos_from_gallery))) {
+                            userChoosenTask = getResources().getString(R.string.dialog_choos_from_gallery);
                             if (result) {
                                 startGalleryIntent();
                             }
-                        } else if (items[item].equals("Cancel")) {
+                        } else if (items[item].equals(getResources().getString(R.string.dialog_cancel))) {
                             dialogInterface.dismiss();
                         }
                     }
@@ -222,6 +234,8 @@ public class AddNoteActivity extends AppCompatActivity {
         }
     }
 
+    // saves the picture to the phone and gets the filepath of the image
+    // then sets the imageView to the created picture
     private void onCaptureImageResult(Intent data) {
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
@@ -244,6 +258,7 @@ public class AddNoteActivity extends AppCompatActivity {
     }
 
 
+    // gets a selected image from the gallery and gets its file path
     @SuppressWarnings("deprecation")
     private void onSelectFromGalleryResult(Intent data) {
         if (data != null) {
@@ -253,6 +268,7 @@ public class AddNoteActivity extends AppCompatActivity {
         }
     }
 
+    // gets the filepath for the image which is saved in the database later on
     private String getPathFromUri(Context context, Uri selectedImageUri) {
         String result = null;
         String[] proj = { MediaStore.Images.Media.DATA };

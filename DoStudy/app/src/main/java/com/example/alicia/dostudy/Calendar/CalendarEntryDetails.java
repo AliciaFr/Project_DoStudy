@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.example.alicia.dostudy.DateFormatter;
 import com.example.alicia.dostudy.R;
 
+/* Shows all details of a CalendarEntry when the belonging listview element is clicked */
+
 public class CalendarEntryDetails extends AppCompatActivity {
 
     private String title, description, date, time;
@@ -40,6 +42,7 @@ public class CalendarEntryDetails extends AppCompatActivity {
         database = new CalendarDatabase(this);
     }
 
+    /* sets up UI components and sets the views to the value of the entry */
     private void initUI() {
         ImageView delete = (ImageView) findViewById(R.id.calendar_entry_details_delete);
         delete.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +62,8 @@ public class CalendarEntryDetails extends AppCompatActivity {
         tvTime.setText(time);
     }
 
+    /* when the user wants to delete an entry an alert dialog will show up
+     * when positive the entry is deleted from the database */
     private void deleteEntry() {
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
@@ -82,6 +87,8 @@ public class CalendarEntryDetails extends AppCompatActivity {
                 .setNegativeButton(getResources().getString(R.string.alert_dialog_builder_delete_no), dialogClickListener).show();
     }
 
+
+    /* gets the data of the selected note from the ListView of the NoteActivity */
     private void informationInBundle(Bundle extras) {
         CalendarEntry entry = (CalendarEntry) extras.get(getResources().getString(R.string.calendar_entry_intent));
         title = entry.getTitle();
@@ -90,6 +97,7 @@ public class CalendarEntryDetails extends AppCompatActivity {
         time = entry.getTime();
     }
 
+    /* sets up a toolbar from where the user can share events in messages */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -106,16 +114,13 @@ public class CalendarEntryDetails extends AppCompatActivity {
         return true;
     }
 
+    /* sets up back arrow */
     @Override
     public boolean onOptionsItemSelected (MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 break;
-            case R.id.calendar_entry_details_delete:
-                deleteEntry();
-                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
-                        .show();
             default: break;
         }
         return super.onOptionsItemSelected(item);
