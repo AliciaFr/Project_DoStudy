@@ -12,6 +12,11 @@ public class WeekActivity extends AppCompatActivity implements View.OnClickListe
 
     Button monday, tuesday, wednesday, thursday, friday;
 
+    /*
+    displays every day of an week
+    if a button is clicked, the corresponding Activity will be opened
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

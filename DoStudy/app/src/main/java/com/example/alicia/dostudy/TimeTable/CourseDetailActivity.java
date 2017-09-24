@@ -18,6 +18,11 @@ public class CourseDetailActivity extends AppCompatActivity {
         setupUI();
     }
 
+    /*
+    reads the values ​​from the DayActivity and displays them
+    the color needs to be differentiated
+     */
+
     private void setupUI(){
         name = (TextView)findViewById(R.id.title_result);
         name.setText(getIntent().getExtras().getString("Name"));

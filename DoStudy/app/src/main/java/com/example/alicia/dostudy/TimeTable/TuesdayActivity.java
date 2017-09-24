@@ -70,12 +70,12 @@ public class TuesdayActivity extends AppCompatActivity {
         okayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addInputToList();
+                addInputToDB();
             }
         });
     }
 
-    private void addInputToList() {
+    private void addInputToDB() {
         courseName = (EditText) findViewById(R.id.course_input);
         courseTime = (EditText) findViewById(R.id.input_time);
         courseTimeEnd = (EditText) findViewById(R.id.input_time_end);
@@ -130,7 +130,7 @@ public class TuesdayActivity extends AppCompatActivity {
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                removeTaskAtPosition(position);
+                removeCoursekAtPosition(position);
                 makeToast();
                 return true;
             }
@@ -162,7 +162,7 @@ public class TuesdayActivity extends AppCompatActivity {
         });
     }
 
-    private void removeTaskAtPosition(int position) {
+    private void removeCoursekAtPosition(int position) {
         if (courseItems.get(position) != null) {
             database.removeCourseItem(courseItems.get(position));
             updateList();

@@ -98,6 +98,12 @@
             </meta-data>
         </activity>
         <activity android:name=".TimeTable.FridayActivity"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Notes.NotesActivity" />
+        <activity android:name=".Notes.AddNoteActivity" />
+        <activity android:name=".Notes.NotesDetails" />
+
             android:screenOrientation="portrait"
             android:parentActivityName=".TimeTable.CourseActivity" >
             <meta-data
