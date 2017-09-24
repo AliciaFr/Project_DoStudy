@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.alicia.dostudy.TimeTable.MondayActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/margin_top_bottom"
+    android:layout_marginLeft="@dimen/margin_left_right"
+    android:layout_marginStart="@dimen/margin_left_right"
+    android:layout_marginRight="@dimen/margin_left_right"
+    android:layout_marginEnd="@dimen/margin_left_right" >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/day"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
+        android:textSize="@dimen/title_text_size"
+
         android:layout_marginBottom="20dp"
         android:textColor="@color/holoBlue"
         android:textStyle="bold"

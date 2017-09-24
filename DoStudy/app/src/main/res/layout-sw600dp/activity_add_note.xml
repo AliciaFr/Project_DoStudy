@@ -172,7 +172,7 @@
                 android:text="@string/add_note_add_button"
                 style="@style/Base.TextAppearance.AppCompat.Body1"
                 android:layout_marginTop="24dp"
-                android:background="@drawable/background_signup"
+                android:background="@drawable/button_blue"
                 android:clickable="true"
                 android:padding="16dp"
                 android:textAllCaps="false"

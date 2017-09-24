@@ -74,11 +74,6 @@ public class AddCalendarEntryActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View view, int position, long id) {
                 selectedCategory = (TextView) view;
-                /*((TextView) parentView.getChildAt(0)).setTextColor(Color.GREEN);
-                ((TextView) parentView.getChildAt(1)).setTextColor(Color.BLACK);
-                ((TextView) parentView.getChildAt(2)).setTextColor(Color.YELLOW);
-                ((TextView) parentView.getChildAt(3)).setTextColor(Color.GRAY);
-                ((TextView) parentView.getChildAt(4)).setTextColor(getResources().getColor(R.color.holoBlue));*/
             }
 
             @Override

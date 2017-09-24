@@ -13,7 +13,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_logo_owl"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -34,35 +34,40 @@
             </intent-filter>
         </activity>
         <activity android:name=".Calendar.CalendarEntryDetails"
-            android:parentActivityName=".Calendar.CalendarActivity" >
+            android:parentActivityName=".Calendar.CalendarActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alicia.dostudy.Calendar.CalendarActivity" >
             </meta-data>
         </activity>
         <activity android:name=".ToDoList.ToDoListActivity"
-            android:parentActivityName=".HomeActivity" >
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alicia.dostudy.HomeActivity" >
             </meta-data>
         </activity>
         <activity android:name=".Calendar.CalendarActivity"
-            android:parentActivityName=".HomeActivity" >
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alicia.dostudy.HomeActivity" >
             </meta-data>
         </activity>
         <activity android:name=".Calendar.AddCalendarEntryActivity"
-            android:parentActivityName=".Calendar.CalendarActivity" >
+            android:parentActivityName=".Calendar.CalendarActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alicia.dostudy.Calendar.CalendarActivity" >
             </meta-data>
         </activity>
         <activity android:name=".TimeTable.WeekActivity"
-            android:parentActivityName=".HomeActivity" >
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alicia.dostudy.HomeActivity" >
@@ -109,35 +114,41 @@
             </meta-data>
         </activity>
         <activity android:name=".Notes.NotesActivity"
-            android:parentActivityName=".HomeActivity" >
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alicia.dostudy.HomeActivity" >
             </meta-data>
         </activity>
         <activity android:name=".Notes.AddNoteActivity"
-            android:parentActivityName=".Notes.NotesActivity" >
+            android:parentActivityName=".Notes.NotesActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alicia.dostudy.Notes.NotesActivity" >
             </meta-data>
         </activity>
         <activity android:name=".Notes.NotesDetails"
-            android:parentActivityName=".Notes.NotesActivity" >
+            android:parentActivityName=".Notes.NotesActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alicia.dostudy.Notes.NotesActivity" >
             </meta-data>
         </activity>
         <activity android:name=".Grades.GradeActivity"
-            android:parentActivityName=".HomeActivity" >
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alicia.dostudy.HomeActivity" >
             </meta-data>
         </activity>
 
-        <activity android:name=".TimeTable.CourseDetailActivity"></activity>
+        <activity android:name=".TimeTable.CourseDetailActivity"
+            android:screenOrientation="portrait" >
+        </activity>
 
 
     </application>

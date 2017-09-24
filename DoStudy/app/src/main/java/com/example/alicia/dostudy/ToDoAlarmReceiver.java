@@ -20,7 +20,7 @@ public class ToDoAlarmReceiver extends BroadcastReceiver {
 
         Intent clickIntent = new Intent(context, ToDoListActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationCompat.Action action = new NotificationCompat.Action.Builder(R.drawable.ic_todo_list_icon,
+        NotificationCompat.Action action = new NotificationCompat.Action.Builder(R.mipmap.ic_launcher,
                 context.getResources().getString(R.string.notification_click_todo), pendingIntent).build();
 
         android.support.v4.app.NotificationCompat.Builder builder;

@@ -74,6 +74,7 @@ public class NotificationService extends Service {
         }
     }
 
+    /* formats date and time of the CalendarEntry into milliseconds and calculates the notification time with the value of the chosen alert time */
      private void toDoNotification(int i){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMANY);
         String toDoDate = items.get(i).getFormattedDate();
@@ -105,6 +106,7 @@ public class NotificationService extends Service {
         Collections.sort(entries);
     }
 
+    // gets the tasks from toDoDatabase
     public void getTasks() {
         items.clear();
         items.addAll(toDoDB.getAllToDoItems());

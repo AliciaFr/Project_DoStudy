@@ -103,54 +103,28 @@
     <string name="notes_title">Notizen</string>
     <string name="notes_intent">Notes</string>
     <string name="add_calendar_entry_title_hint">Titel</string>
-    <string name="add_note_lecture_hint">Vorlesung</string>
-    <string name="add_note_date_title">Datum</string>
-    <string name="add_notes_edit_note_hint">Notizen...</string>
-    <string name="add_note_add_picture">Foto hinzufügen</string>
     <string name="toast_not_all_fields">Füge bitte einen Titel hinzu</string>
     <string name="toast_note_added">Notiz wurde hinzugefügt</string>
-    <string name="toast_calendar_entry_added">Ereignis wurde hinzugefügt</string>
     <string name="calendar_entry_details">Ereignisdetails</string>
     <string name="calendar_entry_details_category">Kategorie</string>
     <string name="calendar_entry_details_location">Standort</string>
     <string name="dialog_overwrite">Die bestehende Datei überschreiben?</string>
     <string name="take_picture_intent">TakePictureIntent</string>
+    <string name="menu_share_text">Hallo! Am %1$s findet %2$s statt. Magst du auch daran teilnehmen?</string>
+    <string name="notes_details_lecture_title">Vorlesung</string>
+    <string name="content_descripion_note_details">User added photo</string>
+    <string name="add_note_add_button">Hinzufügen</string>
 
     <!-- Strings for Grades Layout -->
     <string name="grades_title">Meine Noten</string>
     <string name="add_course_hint">Kurs hinzufügen</string>
     <string name="add_grade_hint">Note hinzufügen</string>
     <string name="add_course_grade_button">Hinzufügen</string>
-    <string name="menu_share_text">Hallo! Am %1$s findet %2$s statt. Magst du auch daran teilnehmen?</string>
-    <string name="calendar_menu_curr_date">Heutiges Datum</string>
-    <string name="add_calendar_entry_all_day">Ganztägig</string>
-    <string name="add_calendar_entry_date">Datum</string>
-    <string name="add_calendar_entry_time">Uhrzeit</string>
-    <string name="add_calendar_entry_notification">Benachrichtigung</string>
-    <string name="add_calendar_entry_spinner_hint">Kategorie</string>
-    <string name="add_calendar_entry_button_add">Hinzufügen</string>
-    <string name="add_calendar_entry_location_reminder">An diesem Ort erinnern</string>
-    <string name="add_calendar_entry_add_location">Location hinzufügen</string>
-    <string name="add_calendar_entry_reminder">add_calendar_entry_reminder_hint</string>
-    <string name="toast_missing_category">Wähle bitte ein Kategorie</string>
-    <string name="toast_missing_date">Füge bitte ein Datum hinzu</string>
-    <string name="toast_missing_reminder">Wähle bitte einen Wert für Benachrichtigungen aus</string>
-    <string name="calendar_entry_details_alarm_tv">Benachrichtigung</string>
-    <string name="calendar_entry_details_date_title">Datum</string>
-    <string name="calendar_entry_details_date_time_title">Uhrzeit</string>
-    <string name="calendar_entry_details_date_description_title">Beschreibung</string>
-    <string name="notes_details_lecture_title">Vorlesung</string>
-    <string name="content_descripion_note_details">User added photo</string>
-    <string name="add_note_add_button">Hinzufügen</string>
-    <string name="content_description_button">Button</string>
-    <string name="add_calendar_entry_default_time">00:00</string>
     <string name="dialog_take_picture">Foto aufnehmen</string>
     <string name="dialog_choos_from_gallery">Aus Galerie wählen</string>
     <string name="dialog_cancel">Abbrechen</string>
     <string name="dialog_select_an_action">Füge ein Foto hinzu</string>
 
-
-    // Strings für Calendar
 
     <!-- Strings for colour-array -->
     <string-array name="colourArray">
@@ -183,5 +157,32 @@
         <item>12 Stunden vorher</item>
         <item>24 Stunden vorher</item>
     </string-array>
+
+    <!-- Strings for Calendar -->
+    <string name="calendar_menu_curr_date">Heutiges Datum</string>
+    <string name="add_calendar_entry_all_day">Ganztägig</string>
+    <string name="add_calendar_entry_date">Datum</string>
+    <string name="add_calendar_entry_time">Uhrzeit</string>
+    <string name="add_calendar_entry_notification">Benachrichtigung</string>
+    <string name="add_calendar_entry_spinner_hint">Kategorie</string>
+    <string name="add_calendar_entry_button_add">Hinzufügen</string>
+    <string name="add_calendar_entry_location_reminder">An diesem Ort erinnern</string>
+    <string name="add_calendar_entry_add_location">Location hinzufügen</string>
+    <string name="add_calendar_entry_reminder">add_calendar_entry_reminder_hint</string>
+    <string name="toast_missing_category">Wähle bitte ein Kategorie</string>
+    <string name="toast_missing_date">Füge bitte ein Datum hinzu</string>
+    <string name="toast_missing_reminder">Wähle bitte einen Wert für Benachrichtigungen aus</string>
+    <string name="calendar_entry_details_alarm_tv">Benachrichtigung</string>
+    <string name="calendar_entry_details_date_title">Datum</string>
+    <string name="calendar_entry_details_date_time_title">Uhrzeit</string>
+    <string name="calendar_entry_details_date_description_title">Beschreibung</string>
+    <string name="content_description_button">Button</string>
+    <string name="add_calendar_entry_default_time">00:00</string>
+    <string name="toast_calendar_entry_added">Ereignis wurde hinzugefügt</string>
+    <string name="add_note_lecture_hint">Vorlesung</string>
+    <string name="add_note_date_title">Datum</string>
+    <string name="add_notes_edit_note_hint">Notizen...</string>
+    <string name="add_note_add_picture">Foto hinzufügen</string>
+    <string name="toast_entry_deleted">Eintrag gelöscht</string>
 
 </resources>

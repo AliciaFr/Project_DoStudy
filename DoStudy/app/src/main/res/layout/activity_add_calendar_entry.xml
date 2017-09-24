@@ -197,7 +197,7 @@
                     android:layout_marginEnd="-10dp"
                     android:layout_marginRight="-10dp"
                     android:clickable="false"
-                    android:src="@drawable/ic_color_lens_black_24dp"
+                    android:src="@drawable/ic_event_note_black_24dp"
                     android:paddingTop="10dp"/>
 
                 <Spinner
@@ -216,7 +216,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:background="@drawable/background_signup"
+                android:background="@drawable/button_blue"
                 android:clickable="true"
                 android:padding="16dp"
                 android:text="@string/add_calendar_entry_button_add"

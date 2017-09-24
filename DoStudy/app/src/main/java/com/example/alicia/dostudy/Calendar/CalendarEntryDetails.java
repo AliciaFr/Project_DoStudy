@@ -23,7 +23,7 @@ import com.example.alicia.dostudy.R;
 
 public class CalendarEntryDetails extends AppCompatActivity {
 
-    private String title, description, date, time;
+    private String title, category, date, time;
     private CalendarDatabase database;
 
 
@@ -52,12 +52,12 @@ public class CalendarEntryDetails extends AppCompatActivity {
             }
         });
         TextView tvTitle = (TextView) findViewById(R.id.calendar_entry_details_title);
-        TextView tvDescription = (TextView) findViewById(R.id.calendar_entry_details_description);
+        TextView tvDescription = (TextView) findViewById(R.id.calendar_entry_details_category);
         TextView tvDate = (TextView) findViewById(R.id.calendar_entry_details_date);
         TextView tvTime = (TextView) findViewById(R.id.calendar_entry_details_time);
 
         tvTitle.setText(title);
-        tvDescription.setText(description);
+        tvDescription.setText(category);
         tvDate.setText(date);
         tvTime.setText(time);
     }
@@ -70,9 +70,11 @@ public class CalendarEntryDetails extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int which) {
                 switch (which) {
                     case DialogInterface.BUTTON_POSITIVE:
-                        database.deleteEntry(title, description, date, time);
+                        database.deleteEntry(title, category, date, time);
                         Intent intent = new Intent(CalendarEntryDetails.this, CalendarActivity.class);
                         startActivity(intent);
+                        Toast toast = Toast.makeText(CalendarEntryDetails.this, getResources().getString(R.string.toast_entry_deleted), Toast.LENGTH_SHORT);
+                        toast.show();
                         break;
                     case DialogInterface.BUTTON_NEGATIVE:
                         dialogInterface.dismiss();
@@ -92,7 +94,7 @@ public class CalendarEntryDetails extends AppCompatActivity {
     private void informationInBundle(Bundle extras) {
         CalendarEntry entry = (CalendarEntry) extras.get(getResources().getString(R.string.calendar_entry_intent));
         title = entry.getTitle();
-        description = entry.getDescription();
+        category = entry.getDescription();
         date = DateFormatter.dateToString(entry.getDate());
         time = entry.getTime();
     }

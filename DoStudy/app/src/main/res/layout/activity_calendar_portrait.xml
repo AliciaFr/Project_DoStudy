@@ -28,7 +28,7 @@
         android:layout_height="250dp"
         app:compactCalendarTargetHeight="250dp"
         app:compactCalendarTextSize="18sp"
-        app:compactCalendarBackgroundColor="@android:color/white"
+        app:compactCalendarBackgroundColor="#fff"
         app:compactCalendarTextColor="@android:color/black"
         app:compactCalendarCurrentSelectedDayBackgroundColor="#cdd5d8"
         app:compactCalendarCurrentDayBackgroundColor="@color/holoBlue"
