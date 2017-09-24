@@ -138,6 +138,7 @@
     <string name="dialog_choos_from_gallery">Aus Galerie wählen</string>
     <string name="dialog_cancel">Abbrechen</string>
     <string name="dialog_select_an_action">Füge ein Foto hinzu</string>
+    <string name="content_description_logo">logo</string>
 
     <!-- Strings for colour-array -->
     <string-array name="colourArray">
